@@ -1,0 +1,16 @@
+{
+  "name": "kuit-fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  },
+  "homepage": "https://konkuk-kuit.github.io/KUIT4_Web-FrontEnd",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
