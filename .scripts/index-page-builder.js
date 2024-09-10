@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // 'build' 폴더를 기준으로 탐색 시작
-const baseDir = "../build";
+const baseDir = "./build";
 
 // HTML 템플릿을 시작합니다.
 let htmlContent = `
