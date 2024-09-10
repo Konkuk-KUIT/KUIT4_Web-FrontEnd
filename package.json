@@ -1,0 +1,13 @@
+{
+  "name": "kuit-fe",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "pnpm --recursive build ",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://konkuk-kuit.github.io/KUIT4_Web-FrontEnd",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
