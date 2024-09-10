@@ -56,4 +56,4 @@ jobs:
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         run: |
-          pnpm deploy
+          pnpm run deploy
