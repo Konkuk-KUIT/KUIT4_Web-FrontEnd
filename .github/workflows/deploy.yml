@@ -1,0 +1,54 @@
+name: Gh Pages Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Detect changes and run build
+        id: detect-changes
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+
+          echo "Changed files: $CHANGED_FILES"
+
+          # 미션이 있는 주
+          WEEKS=("week1" "week2")
+
+          for WEEK in "${WEEKS[@]}"; do
+            if [ -d "$WEEK" ]; then  # 해당 주차 폴더가 존재하는지 확인
+              echo "Checking projects in $WEEK"
+              
+              # 해당 주차 폴더 하위의 모든 프로젝트 폴더를 읽어서 순회
+              for PROJECT in $(ls -d $WEEK/*/); do
+                PROJECT=${PROJECT%/}  # 디렉토리 이름에서 마지막 '/' 제거
+                if echo "$CHANGED_FILES" | grep -q "$PROJECT/"; then
+                  echo "Running build for $PROJECT"
+                  pnpm --filter "$PROJECT" build
+                fi
+              done
+            fi
+          done
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        run: |
+          pnpm deploy
