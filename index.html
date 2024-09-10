@@ -4,17 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Index</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+    ul ul {
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+    }
+    li {
+      margin: 5px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #333;
+    }
+    .folder::before {
+      content: "📁 ";
+      font-size: 16px;
+    }
+    .file::before {
+      content: "📄 ";
+      font-size: 16px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Projects</h1>
-  <ul>
-<li>week1<ul>
-<li><a href="/week1/jinhoda">jinhoda</a></li>
-</ul></li>
-<li>week2<ul>
-<li><a href="/week2/jinhoda">jinhoda</a></li>
-</ul></li>
-
-  </ul>
+  <div class="container">
+    <h1>Project Index</h1>
+    <ul>
+      <li class="folder">week1
+        <ul>
+          <li class="file"><a href="/week1/foo">foo</a></li>
+          <li class="file"><a href="/week1/bar">bar</a></li>
+        </ul>
+      </li>
+      <li class="folder">week2
+        <ul>
+          <li class="file"><a href="/week2/baz">baz</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
