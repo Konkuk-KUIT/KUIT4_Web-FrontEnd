@@ -32,31 +32,23 @@ jobs:
       - name: Detect changes and run build
         id: detect-changes
         run: |
-          # CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
-
-          # echo "Changed files: $CHANGED_FILES"
-          # WEEKS=("week1" "week2")
-
-          # for WEEK in "${WEEKS[@]}"; do
-          #   if [ -d "$WEEK" ]; then  # 해당 주차 폴더가 존재하는지 확인
-          #     echo "Checking projects in $WEEK"
-              
-          #     # 해당 주차 폴더 하위의 모든 프로젝트 폴더를 읽어서 순회
-          #     for PROJECT in $(ls -d $WEEK/*/); do
-          #       PROJECT=${PROJECT%/}  # 디렉토리 이름에서 마지막 '/' 제거
-          #       if echo "$CHANGED_FILES" | grep -q "$PROJECT/"; then
-          #         echo "Running build for $PROJECT"
-          #         pnpm --filter "$PROJECT" build
-          #       fi
-          #     done
-          #   fi
-          # done
           pnpm build
 
       - name: Create dynamic index.html
         run: |
           echo "Generating dynamic index.html"
           node .scripts/index-page-builder.js
+
+      - name: Setup Pages
+        if: github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v3
+
+      - name: Upload Artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # location of the coverage artifacts
+          path: "./coverage"
 
   deploy-coverage:
     if: github.ref == 'refs/heads/main'
