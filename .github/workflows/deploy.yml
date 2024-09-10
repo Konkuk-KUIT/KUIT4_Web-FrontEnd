@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -53,6 +54,8 @@ jobs:
           pnpm build
 
       - name: Deploy
-        run: |
-          pnpm run deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          publish_dir: ./build
           
