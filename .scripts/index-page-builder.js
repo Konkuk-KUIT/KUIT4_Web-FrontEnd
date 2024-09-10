@@ -77,7 +77,7 @@ weeks.forEach((week) => {
       const projectPath = path.join(weekPath, project);
       if (fs.lstatSync(projectPath).isDirectory()) {
         htmlContent += `<li class="tossface">
-              <a href="KUIT4_Web-FrontEnd/${week}/${project}"
+              <a href="/KUIT4_Web-FrontEnd/${week}/${project}"
                 ><span class="tossface">📄</span> ${project}</a
               >
             </li>\n`;
