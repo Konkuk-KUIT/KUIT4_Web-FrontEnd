@@ -53,9 +53,13 @@ jobs:
           # done
           pnpm build
 
+      - name: Create dynamic index.html
+        run: |
+          echo "Generating dynamic index.html"
+          node .scripts/index-page-builder.js
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.GH_ACTIONS_TOKEN }}
           publish_dir: ./build
-          
