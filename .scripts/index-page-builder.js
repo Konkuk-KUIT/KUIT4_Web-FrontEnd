@@ -18,7 +18,7 @@ let htmlContent = `
       rel="stylesheet"
       type="text/css"
     />
-    <title>KUIT FE</title>
+    <title>KUIT 4th FE</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -58,7 +58,11 @@ let htmlContent = `
   </head>
   <body>
     <div class="container">
-      <h1>Kuit Frontend Missions ✨</h1>
+      <h1>KUIT 4th Frontend Workbook 📗</h1>
+        <a href="https://confusion-ping-ae2.notion.site/Web-96c8455a0808433c962c7d6c85aac980?pvs=4">
+          <span class="tossface">📚</span>WEB 조별 워크북 제출 페이지
+        </a>
+      <h1>KUIT 4th Frontend Missions ✨</h1>
       <ul>
 `;
 
