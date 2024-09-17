@@ -68,27 +68,54 @@ let htmlContent = `
 
 // 주차별로 디렉토리를 탐색
 const weeks = fs.readdirSync(baseDir);
-weeks.forEach((week) => {
-  const weekPath = path.join(baseDir, week);
-  if (fs.lstatSync(weekPath).isDirectory()) {
-    htmlContent += `<li class="folder">
-          <span class="tossface">📂</span> ${week}
-          <ul>\n`;
 
-    // 주차별 하위 프로젝트 탐색
-    const projects = fs.readdirSync(weekPath);
-    projects.forEach((project) => {
-      const projectPath = path.join(weekPath, project);
-      if (fs.lstatSync(projectPath).isDirectory()) {
-        htmlContent += `<li class="tossface">
-              <a href="/KUIT4_Web-FrontEnd/${week}/${project}"
-                ><span class="tossface">📄</span> ${project}</a
-              >
-            </li>\n`;
+// 재귀적으로 폴더 내 파일/폴더를 탐색
+function exploreDirectory(currentPath, relativePath) {
+  let folderContent = "";
+
+  // 현재 디렉토리의 파일 목록 가져오기
+  const items = fs.readdirSync(currentPath);
+  let hasIndex = false;
+
+  // 현재 폴더에 index.html이 있는지 확인
+  if (items.includes("index.html")) {
+    hasIndex = true;
+    folderContent += `<li class="tossface">
+      <a href="/KUIT4_Web-FrontEnd/${relativePath}">
+        <span class="tossface">📄</span> ${path.basename(relativePath)}
+      </a>
+    </li>\n`;
+  }
+
+  if (!hasIndex) {
+    folderContent += `<li class="folder">
+      <span class="tossface">📂</span> ${path.basename(relativePath)}
+      <ul>\n`;
+
+    // 하위 폴더 및 파일들 탐색
+    items.forEach((item) => {
+      const itemPath = path.join(currentPath, item);
+      const relativeItemPath = path.join(relativePath, item);
+
+      // 디렉토리라면 재귀적으로 탐색
+      if (fs.lstatSync(itemPath).isDirectory()) {
+        folderContent += exploreDirectory(itemPath, relativeItemPath);
       }
     });
 
-    htmlContent += `</ul></li>\n`;
+    folderContent += `</ul></li>\n`;
+  }
+
+  return folderContent;
+}
+
+// 주차별 폴더 탐색
+weeks.forEach((week) => {
+  const weekPath = path.join(baseDir, week);
+
+  // 주차 폴더가 디렉토리인 경우만 처리
+  if (fs.lstatSync(weekPath).isDirectory()) {
+    htmlContent += exploreDirectory(weekPath, week);
   }
 });
 
@@ -97,10 +124,8 @@ htmlContent += `
   </div>
 </body>
 </html>
-
 `;
 
 // 생성된 HTML을 'build/index.html'에 작성
 fs.writeFileSync(path.join(baseDir, "index.html"), htmlContent);
-
 console.log("index.html created successfully.");
