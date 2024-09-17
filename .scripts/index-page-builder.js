@@ -80,7 +80,7 @@ function exploreDirectory(currentPath, relativePath) {
   // 현재 폴더에 index.html이 있는지 확인
   if (items.includes("index.html")) {
     hasIndex = true;
-    folderContent += `<li class="tossface">
+    folderContent += `<li>
       <a href="/KUIT4_Web-FrontEnd/${relativePath}">
         <span class="tossface">📄</span> ${path.basename(relativePath)}
       </a>
