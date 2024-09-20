@@ -1,0 +1,8 @@
+{
+  "name": "jinhoda",
+  "version": "1.0.0",
+  "author": "jinhoda",
+  "scripts": {
+    "build": "mkdir -p ../../build/week1/jinhoda && cp -r * ../../build/week1/jinhoda"
+  }
+}
