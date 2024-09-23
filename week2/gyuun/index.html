@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="reset.css"/>
+
+    <title>dangn</title>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+           
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+    
+        setInterval(updateClock, 1000); // 1초마다 updateClock 실행
+        updateClock(); // 페이지 로드 시 즉시 시간 표시
+    </script>
+</head>
+<body>
+    <section class="top-bar">
+        <div id="clock">00:00:00</div>
+        <img src="./assets/blackbox.svg" alt="black" class="blackbox">
+        <div class="top-menu">
+            <img src="./assets/signal.svg" alt="" class="signal">
+            <img src="./assets/wify.svg" alt="" class="wify">
+            <img src="./assets/battery.svg" alt="" class="battery">
+        </div>
+    </section>
+    <article class="middle-menu">
+        <div class="middel-top-bar">
+            <div class="header__address">
+                <div class="header__address-title">은행동</div>
+                <img src="./assets/tran.svg" alt="화살표" class="tran">
+            </div>
+            <div class="header__icons">
+                <img src="./assets/see.svg" alt="봐라">
+                <img src="./assets/vector.svg" alt="">
+                <img src="./assets/vectors.svg" alt="">
+            </div>
+        </div>
+        <div class="tag">
+           <div class="tag-kind"><div class="tag-font">동네소식</div></div>
+           <div class="tag-kind"><div class="tag-font">🙌 같이해요</div></div>
+           <div class="tag-kind"><div class="tag-font">동네질문</div></div>
+           <div class="tag-kind"><div class="tag-font">동네맛집</div></div>
+           <div class="tag-kind"><div class="tag-font">취미생활</div></div>
+        </div>
+        <div class="middle_advertising">
+            <img src="./assets/advertising.svg" alt="" class="advertising">
+            <div class="advertisingtext">
+                <div class="advertisingtext_top">당근이웃과 함께하는 장도연의 동네생활!🥕</div>
+                <div class="advertisingtext_bottom">가나다님 지금 바로 구경해보세요!</div>
+            </div>
+        </div>
+        <div class="rectangle"></div>
+
+<!-- 같이해요 -->
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">🙌 같이해요</div></div>
+            <div class="middle_tag_title">
+                <div class="middle_tag_title_direction">
+                    <div class="middle_tag_titleleft">모집중</div>
+                    <div class="middle_tag_titleright">맥주마실 사람~~</div>
+                </div>
+                
+                <div class="middle_tag_subtitle">쪽지주세요 고고!!</div>              
+            </div>
+            <div class="middle_tag_content">
+                <div class="middle_tag_content_tb">
+                    <img src="./assets/middle_tag_icon.svg" alt="">
+                    <div class="middle_tag_content_text">누구나 참여 가능</div>
+                </div>
+                <div class="middle_tag_content_tb">
+                    <img src="./assets/middle_tag_user.svg" alt="">
+                    <div class="middle_tag_content_text">2/4명 참여</div>
+                </div>
+               
+            </div>
+            <div class="middle_tag_bottom">
+                <div class="middle_tag_bottom_left">요우무·화양동</div>
+                <div class="middle_tag_bottom_left">3분 전</div>
+            </div>
+        </div>
+        <div class="rectangle"></div>
+        <!-- 동네질문 -->
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">동네질문</div></div>
+           
+            <div class="middle_tag_titleright2"><div class="middle_tag_titleleft2">Q. </div>혼밥은 다들 어디서 하시나요? 뻘쭘하지 않고 
+            사장님들께 안 미안한 곳, 어디든 리스트업해서 한번씩 가보려구요.부탁드립니다!
+            </div>
+        
+            <div class="middle_tag_bottom">
+                    <div class="middle_tag_bottom_left">도우영·화양동</div>
+                    <div class="middle_tag_bottom_left">15분 전</div>
+            </div>
+
+           
+        </div>
+        
+        <div class="middle_tag_bar">
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/ok.svg" alt="emotion">
+                <div class="middle_tag_bar_text">공감하기</div>
+            </div>
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/speech.svg" alt="emotion">
+                <div class="middle_tag_bar_text">답변 2</div>
+            </div>
+        </div>
+        <div class="rectangle"></div>
+<!-- 동네 맛집 -->
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">동네맛집</div></div>
+            
+            <div class="middle_tag_titleright2">송정동 밥집 추천 부탁드려요<br>
+            뭐 해먹기 귀찮을때 먹을만한 곳이요.
+            <br>... <div id="pluscontent">더보기</div>
+            </div>
+            <div class="middle_tag_bottom">
+                <div class="middle_tag_bottom_left">카리·화양동</div>
+                <div class="middle_tag_bottom_left">17분 전</div>
+            </div>
+            
+        </div>
+        <div class="middle_tag_bar">
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/happy.svg" alt="emotion">
+                <div class="middle_tag_bar_text">공감하기</div>
+            </div>
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/speech.svg" alt="emotion">
+                <div class="middle_tag_bar_text">댓글 2</div>
+            </div>
+        </div>
+        <!-- 분실/실종센터 -->
+        <div class="rectangle"></div>
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">분실/실종센터</div></div>
+            
+            <div class="middle_tag_titleright2"><div class="middle_tag_titleleft2">찾아요 </div>카드 지갑을 분실했습니다.
+            발견하시면 사례하겠습니다. 꼭 찾아주세요
+            </div>
+            <div class="walletimg">
+                <img src="./assets/leftwallet.svg" alt="">
+                <img src="./assets/rightwallet.svg" alt="">
+            </div>
+            <div class="middle_tag_location">
+                <div class="middle_tag_location_left">
+                    <img src="./assets/location.svg" alt="" class="middle_tag_location_center">
+                    <div class="rectangle_lefttop"></div>
+                    <div class="rectangle_righttop"></div>
+                    <div class="rectangle_leftbot"></div>
+                    <div class="rectangle_rightbot"></div>
+
+                </div>
+                <div class="middle_tag_location_right">
+                    <div class="middle_tag_location_right_content">
+                        파리게이츠
+                    </div>
+                    <div class="middle_tag_location_right_content2">
+                        서울특별시 광진구 동일로 350
+                    </div>
+                    
+
+                </div>
+               
+            </div>
+            
+            <div class="middle_tag_bottom">
+                <div class="middle_tag_bottom_left">Maro·화양동</div>
+                <div class="middle_tag_bottom_left">1시간 전</div>
+            </div>
+        </div>
+        <div class="middle_tag_bar">
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/happy.svg" alt="emotion">
+                <div class="middle_tag_bar_text">공감하기</div>
+            </div>
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/speech.svg" alt="emotion">
+                <div class="middle_tag_bar_text">댓글 2</div>
+            </div>
+        </div>
+        <div class="rectangle"></div>
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">분실/실종센터</div></div>
+            
+            <div class="middle_tag_titleright2"><div class="middle_tag_titleleft2">찾아요 </div>카드 지갑을 분실했습니다.
+            발견하시면 사례하겠습니다. 꼭 찾아주세요
+            </div>
+            <div class="walletimg">
+                <img src="./assets/leftwallet.svg" alt="">
+                <img src="./assets/rightwallet.svg" alt="">
+            </div>
+            <div class="middle_tag_location">
+                <div class="middle_tag_location_left">
+                    <img src="./assets/location.svg" alt="" class="middle_tag_location_center">
+                    <div class="rectangle_lefttop"></div>
+                    <div class="rectangle_righttop"></div>
+                    <div class="rectangle_leftbot"></div>
+                    <div class="rectangle_rightbot"></div>
+
+                </div>
+                <div class="middle_tag_location_right">
+                    <div class="middle_tag_location_right_content">
+                        파리게이츠
+                    </div>
+                    <div class="middle_tag_location_right_content2">
+                        서울특별시 광진구 동일로 350
+                    </div>
+                    
+
+                </div>
+               
+            </div>
+            
+            <div class="middle_tag_bottom">
+                <div class="middle_tag_bottom_left">Maro·화양동</div>
+                <div class="middle_tag_bottom_left">1시간 전</div>
+            </div>
+        </div>
+        <div class="middle_tag_bar">
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/happy.svg" alt="emotion">
+                <div class="middle_tag_bar_text">공감하기</div>
+            </div>
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/speech.svg" alt="emotion">
+                <div class="middle_tag_bar_text">댓글 2</div>
+            </div>
+        </div>
+        <div class="middle_tag">
+            <div class="middle_tag_mini"><div class="middle_tag_mini_text">분실/실종센터</div></div>
+            
+            <div class="middle_tag_titleright2"><div class="middle_tag_titleleft2">찾아요 </div>카드 지갑을 분실했습니다.
+            발견하시면 사례하겠습니다. 꼭 찾아주세요
+            </div>
+            <div class="walletimg">
+                <img src="./assets/leftwallet.svg" alt="">
+                <img src="./assets/rightwallet.svg" alt="">
+            </div>
+            <div class="middle_tag_location">
+                <div class="middle_tag_location_left">
+                    <img src="./assets/location.svg" alt="" class="middle_tag_location_center">
+                    <div class="rectangle_lefttop"></div>
+                    <div class="rectangle_righttop"></div>
+                    <div class="rectangle_leftbot"></div>
+                    <div class="rectangle_rightbot"></div>
+
+                </div>
+                <div class="middle_tag_location_right">
+                    <div class="middle_tag_location_right_content">
+                        파리게이츠
+                    </div>
+                    <div class="middle_tag_location_right_content2">
+                        서울특별시 광진구 동일로 350
+                    </div>
+                    
+
+                </div>
+               
+            </div>
+            
+            <div class="middle_tag_bottom">
+                <div class="middle_tag_bottom_left">Maro·화양동</div>
+                <div class="middle_tag_bottom_left">1시간 전</div>
+            </div>
+        </div>
+        <div class="middle_tag_bar">
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/happy.svg" alt="emotion">
+                <div class="middle_tag_bar_text">공감하기</div>
+            </div>
+            <div class="middle_tag_bar_emotion">
+                <img src="./assets/speech.svg" alt="emotion">
+                <div class="middle_tag_bar_text">댓글 2</div>
+            </div>
+        </div>
+
+    </article>
+    <nav class="botton_menu">
+        <div class="botton_menu_button">
+            <div class="circle">            
+                <img src="./assets/plus.svg" alt="">
+            </div>
+        </div>
+        <div class="botton_menu_bar">
+            <div class="botton_menu_bar_top">
+                <div class="menu_bar_button">
+                    <img src="./assets/home.svg" class="home1">
+                    <div class="home2">홈</div>
+                </div>
+                <div class="menu_bar_button">
+                    <img src="./assets/home2.svg" class="home1">
+                    <div class="home2">동네생활</div>
+                </div>
+                <div class="menu_bar_button">
+                    <img src="./assets/home3.svg" class="home1">
+                    <div class="home2">내 근처</div>
+                </div>
+                <div class="menu_bar_button">
+                    <img src="./assets/home4.svg" class="home1">
+                    <div class="home2">채팅</div>
+                </div>
+                <div class="menu_bar_button">
+                    <img src="./assets/home5.svg" class="home1">
+                    <div class="home2">나의 당근</div>
+                </div>
+            </div>
+            <div class="botton_menu_bar_bottom">
+                <img src="./assets/home_indicator.svg" alt="" class="homeindicator">
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
