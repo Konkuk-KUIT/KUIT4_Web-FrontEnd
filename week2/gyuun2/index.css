@@ -64,7 +64,7 @@ height: 778px;
 left: 0px;
 top: 47px;
 
-overflow: hidden;
+overflow: scroll;
 /* max-height: 1300px; */
     }
     .middel-top-bar{
