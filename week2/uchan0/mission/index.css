@@ -142,8 +142,9 @@ button {
 /* 질문 : 버튼크기 48이어야 하는데 크롬 브라우저 상 72로 보임 */
 .plus-button {
   position: fixed;
-  right: 5px;
-  bottom: 60px;
+  right: 16px;
+  bottom: 78px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.12));
 }
 
 /* 하단바 */
