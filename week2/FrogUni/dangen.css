@@ -1,0 +1,174 @@
+/* Global styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/* Dangn Styles */
+.main__header {
+    z-index: 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    height: 52px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+
+    .select__address-btn {
+        width: 70px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+
+        span {
+            width: 50px;
+            font-family: Inter;
+            font-size: 16px;
+            /*여길 18로 하면 두줄로 작성됨*/
+            font-weight: 700;
+            line-height: 28px;
+            text-align: left;
+
+        }
+    }
+
+    .etc-menu {
+        width: 104px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.item-list {
+    position: relative;
+    top: 52px;
+    padding: 16px;
+    padding-bottom: 80px;
+
+    .item-container {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+        justify-content: space-between;
+
+    }
+
+
+    .item-desc {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
+    }
+
+
+}
+
+.item-desc .item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    height: 90px;
+}
+
+.item-info {
+    .item-name {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .item-about {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        color: #8c8c8c;
+    }
+
+    .item-price {
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 22px;
+        text-align: left;
+        color: #FF7E36;
+    }
+
+
+}
+
+.item-desc .item-follower {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+    text-align: center;
+    text-align: right;
+    height: 16px;
+
+    span {
+
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        color: #8c8c8c;
+
+        /* 숫자가 크기가 작고 아래에 위치 */
+    }
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 16px 0px;
+}
+
+.footer-menu-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #fff;
+    border-top: solid 1px #eee;
+    padding: 8px 0px;
+    display: flex;
+    justify-content: space-between;
+
+    .footer-menu {
+        width: 78px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        
+
+        span {
+            height: 14px;
+            font-family: Inter;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 14px;
+
+        }
+    }
+
+
+
+}
