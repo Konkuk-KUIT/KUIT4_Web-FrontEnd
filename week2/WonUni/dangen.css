@@ -117,8 +117,7 @@ button {
     display: flex;
     gap: 4px;
     justify-content: flex-end;
-    text-align: center;
-    text-align: right;
+    align-items: center;
     height: 16px;
 
     span {
@@ -172,3 +171,12 @@ button {
 
 
 }
+
+.plus{
+    position: fixed;
+    bottom: 69px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
