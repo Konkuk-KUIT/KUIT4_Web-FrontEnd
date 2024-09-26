@@ -2,8 +2,8 @@ body{
     /* 당근마켓_2 */
 
 position: relative;
-width: 390px;
-height: 1393px;
+/* width: 390px;
+height: 1393px; */
 
 background: #000000;
 
@@ -11,7 +11,7 @@ background: #000000;
 .top-bar{
    /* StatusBar / iPhone 13 */
 
-position: absolute;
+position: fixed;
 width: 390px;
 height: 47px;
 left: 0px;
@@ -19,6 +19,7 @@ top: 0px;
 background-color: #FFFFFF;
 align-items: center;
 display: flex;
+z-index: 50;
 }
 #clock{
     /* _StatusBar-time */
@@ -44,9 +45,7 @@ top: -2px;
 .top-menu{
     /* Right Side */
 
-position: absolute;
-width: 77.4px;
-height: 13px;
+position: fixed;
 left: 286px;
 top: 14px;
 }
@@ -64,7 +63,8 @@ width: 390px;
 height: 1596px;
 left: 0px;
 top: 47px;
-
+/* margin-top: 47px; */
+margin-bottom: 30px;  
 overflow: hidden;
 max-height: 1300px;
 }
@@ -467,11 +467,11 @@ position: absolute; /* 자식 요소들 */
     color: #8c8c8c;
 }
 .botton_menu {
-    position: absolute; /* 고정 위치 */
-   top: 1221px;
+    position: fixed;
    width: 390px;
    height: 172px;
-
+    bottom: 0;
+    z-index: 50;
 }
 .botton_menu_button{
     display: flex;
