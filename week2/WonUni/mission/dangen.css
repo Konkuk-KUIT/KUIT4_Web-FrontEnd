@@ -119,6 +119,14 @@ button {
     justify-content: flex-end;
     align-items: center;
     height: 16px;
+    text-align: center;
+
+    .comments ,.likes{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 2px;
+    }
 
     span {
 
