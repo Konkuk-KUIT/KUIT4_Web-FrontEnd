@@ -47,8 +47,12 @@ button {
 }
 
 /* 게시글 */
+.post {
+  padding: 0 16px;
+}
+
 .post > section {
-  padding: 16px;
+  padding: 16px 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -121,7 +125,7 @@ button {
 
 .post__container .interest__container {
   position: absolute;
-  right: 16px;
+  right: 0;
   bottom: 16px;
   display: flex;
   justify-content: center;
@@ -139,7 +143,6 @@ button {
 }
 
 /* 새로만들기 버튼 */
-/* 질문 : 버튼크기 48이어야 하는데 크롬 브라우저 상 72로 보임 */
 .plus-button {
   position: fixed;
   right: 16px;
