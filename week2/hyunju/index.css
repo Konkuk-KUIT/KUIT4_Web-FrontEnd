@@ -1,9 +1,10 @@
 body{
-    height: 778px;
+    /* height: 778px; */
     width:390px;
     /* background-color: red; */
     margin:0 auto;
     overflow-y: auto;
+    box-sizing: border-box
 }
 /* 상단바 */
 .top-menu {
@@ -14,9 +15,14 @@ body{
     padding: 12px 16px; */
     display: flex;
     flex-direction: row;
+    position: fixed;
+    border-bottom:  1px solid #000000;
+    width:auto;
+    justify-content: space-between;
+    align-items: center;
+    gap:200px;
 }
 .top-menu-icons{
-    margin: 0 200px;
     display: flex;
 }
 .top-menu-icon{
@@ -36,7 +42,9 @@ body{
     width:200px;
 }
 .down-arrrow.svg {}
-
+.main{
+    width:100%;
+}
 /* 메인 컨텐츠 */
 .main-contents {
     height: auto;
@@ -54,6 +62,7 @@ body{
     padding: 16px;
     /* position: relative; */
     background-color: #ffffff;
+    justify-content: flex-start;
 }
 .desc-text{
     display: flex;
@@ -65,7 +74,10 @@ body{
     border-radius: 10px;
 }
 .article1-desc {
-    width: 232px;
+    /* width: 232px; */
+    width:100%;
+    display:flex;
+    flex-direction: column;
 }
 .desc-header {
     font-family: "Inter-Regular", Helvetica;
@@ -93,8 +105,8 @@ body{
     font-size: 15px;
 }
 .img-zone {
-    margin-left:100px;
-    width: 100px;
+    flex-direction: flex-end;
+    width: 100%;
     display: flex;
     justify-content: flex-end; 
 
@@ -105,37 +117,48 @@ body{
 .desc-heart-img2 {}
 
 /* 항목추가버튼 */
-.fixed-button {}
+.fixed-button {
+    width:390px;
+    position: fixed;
+}
 .plus-button {
     z-index: 2;
     position: fixed;
-    right:500px;
+    right:100px;
     bottom: 120px;
 }
 
 /* 하단바 */
-.bottom-menu {
+.main .bottom-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width:390px;
 
     position: fixed;
     bottom: 0;
     background-color: #ffffff;
+    width:390px;
 }
 .bottom-menus-btn {
     width:auto;
     flex-grow:1;
+    width:100%;
 
 }
-.menu-btn {
+.bottom{
+    display: flex; 
+    flex-direction: column;
 }
+.menu-btn {
+    margin: 0 auto;
+}
+
 .btn-title {
     font-weight: 400;
     color: #000000;
     font-size: 15px;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
