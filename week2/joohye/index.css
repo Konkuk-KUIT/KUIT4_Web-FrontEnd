@@ -152,6 +152,29 @@ button {
     /* 133.333% */
 }
 
+.bottom-plus {
+    position: fixed;
+    bottom: 74px;
+    right: 16px;
+    z-index: 1;
+}
+
+.plus-container {
+    display: flex;
+    height: 48px;
+    width: 48px;
+    padding: 16px;
+    z-index: 1;
+}
+
+.plus-container .plus {
+    display: flex;
+    padding: 12px;
+    border-radius: 100px;
+    background: #FF7E36;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+}
+
 .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -160,25 +183,6 @@ button {
     padding: 8px 0px;
     justify-content: space-between;
     align-items: center;
-}
-
-.bottom-bar .bottom-plus {
-    display: flex;
-    padding: 16px;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 10px;
-    align-self: stretch;
-}
-
-.bottom-plus .plus-circle {
-    display: flex;
-    padding: 12px;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 100px;
-    background: #FF7E36;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
 }
 
 .bottom__containers {
