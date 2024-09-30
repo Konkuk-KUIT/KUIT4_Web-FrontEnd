@@ -16,13 +16,12 @@ body{
     height: auto;
     width: 100%;
     top: 0;
+    box-sizing: border-box;
 }
 .header-menu-button{
     display: flex;
     align-items: center;
     gap: 16px;
-    position: absolute;
-    right: 50px;
 }
 .address{
     width:106px;
