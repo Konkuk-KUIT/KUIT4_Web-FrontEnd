@@ -1,0 +1,201 @@
+/* Global Styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/* Daangn Styles */
+/* 헤더 */
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px; /* 위아래 좌우 */
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* position에 fixed속성을 주고 width를 명시하지 않으면 너비가 줄어듦... */
+    /* position: fixed속성을 사용하면 요소가 viewport에서 상대적으로 위치하며,
+    이때 부모 요소의 컨텍스트에서 벗어나므로 너비가 content에 맞춰 자동으로 결정됨
+    따라서 부모의 너비에 맞추려면 width를 명시적으로 100%로 설정해야 함 */
+    /* z-index: 1;  */
+    background-color: #fff;
+    /* 
+        padding: 부모 요소에 적용해서 내부 여백을 설정하는 것이 일반적
+        padding: 요소 내부의 content와 border 사이
+        margin: 요소와 요소 사이 또는 요소와 부모 사이
+        margin: 자식 요소에 적용해서 자식 요소가 다른 요소나 부모 요소와의 간격을 설정하는 것이 일반적
+    */
+
+}
+
+.home-header .header-location span {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+    margin-right: 6px;
+}
+
+.home-header .header-buttons {
+    display: flex;
+    gap: 16px;
+    /* gap은 요소 사이에만 margin을 적용하므로 이럴 때 유용함
+    만약 margin-right로 16px의 공백을 주면 가장 오른쪽 button에도 공백이 적용됨 */
+}
+
+
+/* 게시글 정보 */
+.home-body {
+    display: flex;
+    flex-direction: column;
+    /* column으로 설정하면 home-body의 너비가 자동으로 width: 100%로 설정됨 */
+    /* column이 아니라 row일 때는 자식 contents의 너비만큼 width가 설정됨 */
+    margin-top: 53px;
+    margin-bottom: 58px;
+}
+
+.body-product {
+    display: flex;
+    /* product-img와 product-info가 가로로 배열됨 */
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    /* 피그마처럼 양쪽이 끊긴 상태로 구현하려면 어떻게? */
+}
+
+.post-button {
+    display: flex;
+    width: 100%;
+}
+
+.body-product .product-img img {
+    width: 110px;
+    height: 110px;
+    border-radius: 4px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    /* product-content와 product-commentsAndLikes가 세로로 배열됨 */
+    width: 100%;
+    /* justify-content: space-between; */
+    /*  product-content와 product-commentsAndLikes 사이에 공백 생성 */
+    padding-left: 16px;
+    padding-top: 2px;
+    gap: 27px; /* product-img를 button으로 감싸니까 product-info의 justify-content가 안먹혀서 gap으로 명시적으로 간격 띄움 */
+}
+
+.product-info .product-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-content .product-title {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+
+.product-content .product-locationAndUpdatedTime {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #8C8C8C;
+}
+
+.product-content .product-price {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: left;
+    color: #FF7E36;
+}
+
+.product-info .product-commentsAndLikes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.product-commentsAndLikes img {
+    width: 16px;
+    height: 16px;
+}
+
+.product-commentsAndLikes span {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #8C8C8C
+}
+
+.product-postInfo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* 게시글 추가 버튼 */
+.home-addPostButton {
+    position: fixed;
+    right: 18px;
+    bottom: 90px;
+}
+
+.home-addPostButton .orangeCircleButton {
+    width: 48px;
+    height: 48px;
+    background-color: #FF7E36;
+    border-radius: 100%;
+    padding-top: 2px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* 하단 탭 바 */
+.home-footer {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: 8px 0px;
+}
+
+.home-footer .footer-tabButton {
+    align-items: center;
+    padding: 0px 27px;
+    height: 42px;
+}
+
+.home-footer .footer-tabButton button {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수직 방향 중앙 정렬 */
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+}
+
+.footer-tabButton button span {
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: left;
+}
