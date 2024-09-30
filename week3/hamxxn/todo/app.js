@@ -31,6 +31,9 @@ const renderTodo = (newTodos) => {
 
 const addTodo = () => {
   const title = todoInputEl.value;
+  const date = new Date();
+  const createdAt = date.toDateString();
+
   if (!title) return;
 
   const newTodo = {
