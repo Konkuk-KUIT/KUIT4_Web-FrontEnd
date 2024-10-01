@@ -29,7 +29,7 @@ const updateTodo = (todoId, originalTitle) => {
         };
         
         fetch(API_URL+"/"+todoId, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
