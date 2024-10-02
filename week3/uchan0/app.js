@@ -21,6 +21,7 @@ const renderTodo = (newTodos) => {
 
     const updateEl = document.createElement("span");
     updateEl.textContent = "✏️";
+    deleteEl.className = "updateBtn";
     updateEl.onclick = () => updateTodo(todo.id, todo.title);
 
     listEl.append(deleteEl);
@@ -36,7 +37,7 @@ const addTodo = () => {
   if (!title) return;
 
   const newTodo = {
-    id: String(date.getTime()),
+    id: date.getTime().toString(),
     title,
     createdAt,
   };

@@ -1,12 +1,6 @@
 {
   "todos": [
     {
-      "id": "1727831128049",
-      "title": "쿠잇 3주차 과제하기",
-      "createdAt": "Wed Oct 02 2024",
-      "completed": false
-    },
-    {
       "id": "1727831138171",
       "title": "수정 구현하기",
       "createdAt": "Wed Oct 02 2024",
@@ -15,6 +9,12 @@
     {
       "id": "1727831151311",
       "title": "수정 취소도 가능하게 구현하기",
+      "createdAt": "Wed Oct 02 2024",
+      "completed": false
+    },
+    {
+      "id": "1727854657504",
+      "title": "3주차 쿠잇 과제",
       "createdAt": "Wed Oct 02 2024",
       "completed": false
     }
