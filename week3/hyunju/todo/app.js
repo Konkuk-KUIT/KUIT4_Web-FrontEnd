@@ -11,24 +11,29 @@ const updateTodo = (todoId, originalTitle) => {
   const todoItem = document.querySelector(`#todo-${todoId}`);
   
   const todoInput= document.querySelector('#todoInput');
-  const title =todoInput.value;
+  const updatetitle = prompt("수정할 이름을 입력해주세요");
+
+
   // mission
   // const changedItem =todoItem.title;
   // originalTitle = changedItem;
-  // 그냥 값 바꾸는것만으로는 안 바껴서 아마 delete처럼 fetch를 또 해야하는듯?
-  //는 생각해보니까 ADD버튼 눌러서 INPUT필드 열어서 고치면 새로 생성되는건데 여기에 원래의 add+수정기능을 합치지말고, 
-  // 연필버튼 클릭하면 해당 to-do의 title란이 input필드로 바뀌어서,직접 원하는 todo의 title필드 열어서 고치고 fetch로 정보 전송하는게?
 
-  const updatedTodo = {
-    title
-  };
+  alert(updatetitle);
+  //alert로는 값 잘 저장되는거 출력 잘되는데????? 왜 
+  if(updatetitle == null){
+    console.log("오류ㅎㅇ");
+    return;
+  }
+  // const updatedTodo = {
+  //   title
+  // };
 
-    fetch(`${API_URL}/${todoId}`, { //특정 todo url로 put 요청해야 동작함
-      method: "PUT",
+    fetch(API_URL + "/" + todoId, { //특정 todo url로 put 요청해야 동작함
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...updatedTodo, completed: false }),
+      body: JSON.stringify({ title: updatetitle }),
     })
       .then((response) => response.json())
       .then(() => {
