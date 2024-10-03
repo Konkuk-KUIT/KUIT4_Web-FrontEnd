@@ -72,6 +72,9 @@ const deleteTodo = (todoId) => {
 const updateTodo = (todoId, originalTitle) => {
   const todoItem = document.querySelector(`#todo-${todoId}`);
 
+  //form 태그 생성
+  const formEl = document.createElement("form");
+
   // 입력창 생성
   const inputEl = document.createElement("input");
   inputEl.type = "text";
@@ -80,19 +83,25 @@ const updateTodo = (todoId, originalTitle) => {
   // 확인버튼 생성
   const confirmBtn = document.createElement("button");
   confirmBtn.textContent = "확인";
+  confirmBtn.type = "submit";
 
   // 취소버튼 생성
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "취소";
+  cancelBtn.type = "button";
   cancelBtn.style.backgroundColor = "lightgray";
 
-  todoItem.innerHTML = "";
-  todoItem.appendChild(inputEl);
-  todoItem.appendChild(confirmBtn);
-  todoItem.appendChild(cancelBtn);
+  // form태그 안에 input, 버튼 추가
+  formEl.appendChild(inputEl);
+  formEl.appendChild(confirmBtn);
+  formEl.appendChild(cancelBtn);
 
-  // 확인버튼 생성 시 입력창에 입력한 내용으로 수정.
-  confirmBtn.onclick = () => {
+  todoItem.innerHTML = "";
+  todoItem.appendChild(formEl);
+
+  // 확인버튼 클릭 시 입력창에 입력한 내용으로 수정.
+  formEl.onsubmit = (e) => {
+    e.preventDefault; //페이지 리로드 방지
     const updatedTitle = inputEl.value;
     const updatedTodo = {
       title: updatedTitle,
