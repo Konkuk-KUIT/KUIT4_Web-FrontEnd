@@ -1,0 +1,160 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 12px 16px 12px 16px;
+    border-bottom: 1px solid #eee;
+    position:fixed;
+    height: auto;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+}
+.header-menu-button{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.address{
+    width:106px;
+    display: flex;
+    flex-direction: row;
+}
+.address-title{
+    color: #000000;
+    font-family: "Inter";
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    width:200px;
+}
+
+/* main article */
+.main-contents {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+.main-frame{
+    display: flex;
+    flex-direction: column;
+}
+.main-article {
+    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+.main-article:first-child{
+    margin-top: 52px;
+}
+.main-article:last-child{
+    border: none;
+    margin-bottom: 58px;
+}
+.desc-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+.product-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 10px;
+}
+.article-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 90px;
+}
+.desc-header {
+    font-family: "Inter";
+    font-weight: 400px;
+    color: #000000;
+    font-size: 16px;
+}
+.desc-location {
+    font-family: "Inter";
+    font-weight: 400px;
+    color: #8c8c8c;
+    font-size: 12px;
+}
+.decs-divide{
+    font-family: "Inter";
+    font-weight: 400px;
+    color: #8c8c8c;
+    font-size: 12px;
+    
+}
+.desc-when {
+    font-family: "Inter";
+    font-weight: 400px;
+    color: #8c8c8c;
+    font-size: 12px;
+}
+.desc-cost {
+    font-family: "Inter";
+    font-weight: 700;
+    color: #ff7e36;
+    font-size: 15px;
+}
+.desc-btns {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-end;
+    margin-left:100px;
+    margin-bottom: 0;
+    gap: 4px;
+}
+
+
+/* plus button */
+.plus-button {
+    position: fixed;
+    right:5px;
+    bottom: 60px;
+}
+
+/* bottom menu */
+.bottom-menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    padding: 8px 0 8px;
+    border-top: 1px solid #eee;
+}
+.bottom-menu--btn {
+    /* width:78px; */
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;
+
+}
+.btn-title {
+    font-weight: 400px;
+    color: #000000;
+    font-size: 15px;
+    align-items: center;
+    text-align: center;
+    /* flex-grow: 1; */
+
+}
