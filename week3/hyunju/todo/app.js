@@ -7,10 +7,10 @@ fetch(API_URL)
   .then((response) => response.json())
   .then((data) => renderTodo(data));
 
-const updateTodo = (todoId, originalTitle) => {
-  const todoItem = document.querySelector(`#todo-${todoId}`);
+const updateTodo = (todo) => {
+  // const todoItem = document.querySelector(`#todo-${todoId}`);
   
-  const todoInput= document.querySelector('#todoInput');
+  // const todoInput= document.querySelector('#todoInput');
   const updatetitle = prompt("수정할 이름을 입력해주세요");
 
 
@@ -19,21 +19,30 @@ const updateTodo = (todoId, originalTitle) => {
   // originalTitle = changedItem;
 
   alert(updatetitle);
-  //alert로는 값 잘 저장되는거 출력 잘되는데????? 왜 
-  if(updatetitle == null){
-    console.log("오류ㅎㅇ");
-    return;
-  }
+  // const updatedTodo = { ...todo, title: updatetitle };
+  const updatedTodo = {
+    id: todo.id,
+    title: updatetitle,
+    createdAt: todo.createdAt,
+    completed: todo.completed,
+  };
+  
+  // //alert로는 값 잘 저장되는거 출력 잘되는데????? 왜 
+  //꼭....쿠잇 공지방을 잘 보도록하자...
+  // if(updatetitle == null){
+  //   console.log("오류ㅎㅇ");
+  //   return;
+  // }
   // const updatedTodo = {
   //   title
   // };
 
-    fetch(API_URL + "/" + todoId, { //특정 todo url로 put 요청해야 동작함
-      method: "PATCH",
+    fetch(API_URL + "/" + todo.id, { //특정 todo url로 put 요청해야 동작함
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: updatetitle }),
+      body: JSON.stringify(updatedTodo),
     })
       .then((response) => response.json())
       .then(() => {
@@ -57,7 +66,7 @@ const renderTodo = (newTodos) => {
 
     const udpateEl = document.createElement("span");
     udpateEl.textContent = "✏️";
-    udpateEl.onclick = () => updateTodo(todo.id, todo.title);
+    udpateEl.onclick = () => updateTodo(todo);
 
     listEl.append(deleteEl);
     listEl.append(udpateEl);
@@ -70,10 +79,10 @@ const addTodo = () => {
   const date = new Date();
   const createdAt = date.toDateString();
 
-  if (!title) return;
+  let idid=date.getTime.toString();
 
   const newTodo = {
-    id: date.getTime(),
+    id: date.getTime().toString(),
     title,
     createdAt,
   };
