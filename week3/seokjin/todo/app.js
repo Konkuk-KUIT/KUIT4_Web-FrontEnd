@@ -27,7 +27,7 @@ const updateTodo = (todoId, originalTitle) => {
 
   // Fetch 요청으로 서버의 데이터를 업데이트
   fetch(`${API_URL}/${todoId}`, {
-      method: "PUT", // PUT 메소드 사용
+      method: "PUT", // PUT 메소드 사용.
       headers: {
         "Content-Type": "application/json",
       },
