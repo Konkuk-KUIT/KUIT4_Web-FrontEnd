@@ -99,10 +99,11 @@ const updateTodo = (todoId, originalTitle) => {
   todoItem.innerHTML = "";
   todoItem.appendChild(formEl);
 
-  // 확인버튼 클릭 시 입력창에 입력한 내용으로 수정.
+  // 확인 이벤트 발생 시 입력창에 입력한 내용으로 수정.
   formEl.onsubmit = (e) => {
     e.preventDefault; //페이지 리로드 방지
     const updatedTitle = inputEl.value;
+    if (!updatedTitle) return;
     const updatedTodo = {
       title: updatedTitle,
     };
@@ -124,18 +125,21 @@ const updateTodo = (todoId, originalTitle) => {
 
   //취소 버튼 클릭시 원래 내용으로 복원
   cancelBtn.onclick = () => {
-    todoItem.textContent = originalTitle;
+    // todoItem.textContent = originalTitle;
 
-    const deleteEl = document.createElement("span");
-    deleteEl.textContent = "🗑️";
-    deleteEl.className = "deleteBtn";
-    deleteEl.onclick = () => deleteTodo(todoId);
+    // const deleteEl = document.createElement("span");
+    // deleteEl.textContent = "🗑️";
+    // deleteEl.className = "deleteBtn";
+    // deleteEl.onclick = () => deleteTodo(todoId);
 
-    const updateEl = document.createElement("span");
-    updateEl.textContent = "✏️";
-    updateEl.onclick = () => updateTodo(todoId, originalTitle);
+    // const updateEl = document.createElement("span");
+    // updateEl.textContent = "✏️";
+    // updateEl.onclick = () => updateTodo(todoId, originalTitle);
 
-    todoItem.appendChild(deleteEl);
-    todoItem.appendChild(updateEl);
+    // todoItem.appendChild(deleteEl);
+    // todoItem.appendChild(updateEl);
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => renderTodo(data));
   };
 };
