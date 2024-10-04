@@ -97,7 +97,8 @@ const addTodo = () => {
   if (!title) return;
 
   const newTodo = {
-    id: date.getTime().toString(), // json-server의 PATCH와 DELETE요청에서 id를 string으로만 지원하므로 string으로 변환
+
+    id: date.getTime().toString(),
     title,
     createdAt,
   };
