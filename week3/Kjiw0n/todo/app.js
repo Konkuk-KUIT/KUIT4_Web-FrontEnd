@@ -7,26 +7,30 @@ fetch(API_URL)
     .then((response) => response.json())
     .then((data) => renderTodo(data));
 
-const updateTodo = (todoId) => {
-    const updateTitle = todoInputEl.value;
+const updateTodo = async (todoId) => {
+    const updateTitle = todoInputEl.value.trim();
 
     if (!todoId || !updateTitle) {
         console.error("Invalid todoId or empty title");
         return;
     }
 
-    fetch(API_URL + "/" + todoId, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title: updateTitle }),
-    })
-        .then((response) => response.json())
-        .then(() => fetch(API_URL))
-        .then((response) => response.json())
-        .then((data) => renderTodo(data))
-        .catch((error) => console.error("Error updating todo:", error));
+    try {
+        await fetch(API_URL + "/" + todoId, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ title: updateTitle }),
+        });
+
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        renderTodo(data);
+    } catch (error) {
+        console.error("Error updating todo:", error);
+    }
 };
 
 const renderTodo = (newTodos) => {
