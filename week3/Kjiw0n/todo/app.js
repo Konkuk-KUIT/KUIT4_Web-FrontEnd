@@ -83,11 +83,21 @@ const addTodo = () => {
         .then((data) => renderTodo(data));
 };
 
-const deleteTodo = (todoId) => {
-    fetch(API_URL + "/" + todoId, {
-        method: "DELETE",
-    })
-        .then(() => fetch(API_URL))
-        .then((response) => response.json())
-        .then((data) => renderTodo(data));
+const deleteTodo = async (todoId) => {
+    if (!todoId) {
+        console.error("Invalid todoId");
+        return;
+    }
+
+    try {
+        await fetch(API_URL + "/" + todoId, {
+            method: "DELETE",
+        });
+
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        renderTodo(data);
+    } catch (error) {
+        console.error("Error deleting todo:", error);
+    }
 };
