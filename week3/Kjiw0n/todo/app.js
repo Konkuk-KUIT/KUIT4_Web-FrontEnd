@@ -10,6 +10,11 @@ fetch(API_URL)
 const updateTodo = (todoId) => {
     const updateTitle = todoInputEl.value;
 
+    if (!todoId || !updateTitle) {
+        console.error("Invalid todoId or empty title");
+        return;
+    }
+
     fetch(API_URL + "/" + todoId, {
         method: "PATCH",
         headers: {
