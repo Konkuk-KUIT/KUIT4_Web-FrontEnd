@@ -1,7 +1,7 @@
 const todoListEl = document.getElementById("todoList");
 const todoInputEl = document.getElementById("todoInput");
 
-const API_URL = "http://localhost:8080/todos";
+const API_URL = "http://localhost:3000/todos";
 
 fetch(API_URL)
   .then((response) => response.json())
@@ -10,6 +10,20 @@ fetch(API_URL)
 const updateTodo = (todoId, originalTitle) => {
   const todoItem = document.querySelector(`#todo-${todoId}`);
   // mission
+  // 두번째 인자는 값이 null 일때 설정하는 값
+  const newTitle = prompt("새 제목을 입력하세요:", originalTitle);
+  if(newTitle === originalTitle) return; // == 값만 비교, === 타입까지 일치(엄격한 비교)
+
+  fetch(API_URL + "/" + todoId, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title: newTitle, completed: false }),
+  })
+  .then(() => fetch(API_URL))
+  .then((response) => response.json())
+  .then((data) => renderTodo(data));
 };
 
 const renderTodo = (newTodos) => {
@@ -41,7 +55,7 @@ const addTodo = () => {
   if (!title) return;
 
   const newTodo = {
-    id: date.getTime(),
+    id: date.getTime().toString(),
     title,
     createdAt,
   };
@@ -62,6 +76,7 @@ const addTodo = () => {
     .then((data) => renderTodo(data));
 };
 
+// 왜 기존요소를 새롭게 add 하면 id가 부여되는데 delete 요청이 수행되지 않는것인가 질문!!
 const deleteTodo = (todoId) => {
   fetch(API_URL + "/" + todoId, {
     method: "DELETE",
