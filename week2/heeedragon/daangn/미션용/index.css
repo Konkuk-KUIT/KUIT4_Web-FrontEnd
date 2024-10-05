@@ -24,6 +24,7 @@ button {
 
 .post-container {
     margin-top: 52px;
+    margin-bottom: 58px;
 }
 
 .post-header .user-location {
@@ -127,6 +128,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 0px;
     gap: 0px;
     height: 58px;
     padding: 8px 0px;
@@ -156,10 +158,13 @@ button {
 }
 
 .plus-btn {
-    width: 48px;
-    height: 48px;
     z-index: 1001;
     position: fixed;
     right: 16px;
     bottom: 74px;
+
+    .plus-img {
+        width: 48px;
+        height: 48px;
+    }
 }
