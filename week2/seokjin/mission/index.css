@@ -1,0 +1,182 @@
+/* Global Styles */
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+body {
+    padding-bottom: 54px;
+}
+
+
+/* Component Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+
+
+.header-left-container button span {
+    color: #000;
+    margin-right: 6px;
+    /* 18 */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
+}
+
+.header-icon-container button {
+    margin-right: 16px;
+}
+
+.header-icon-container button:last-child {
+    margin-right: 0;
+}
+
+.post-grid {
+    display: flex;
+    padding: 16px;
+    
+}
+
+.line {
+    width: 100%;
+    margin: 0 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.post-grid img {
+    margin-right: 16px;
+}
+
+.post-desc {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+/*    flex-direction: column; */
+}
+
+.post-info {
+    display: block;
+    height: 90px;;
+    margin-bottom: 4px; 
+}
+
+
+.post-grid .post-desc .post-info h2 {
+    color: #000;
+    /* 16 */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+}
+
+.position_date {
+    color: #8C8C8C;
+    /* 12 */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+}
+
+.price {
+    color: #FF7E36;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 146.667% */
+}
+
+.counts {
+    color: #8C8C8C;
+
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+}
+
+.post-comment {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-comment button {
+    display: flex;
+    align-items: center;
+    margin: 0 2px;
+}
+
+.post-comment button img {
+    margin-right: 2px; /* 16px에서 2px로 수정 */
+}
+
+.bottom_bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+}
+
+.bottom_imgs_container {
+    margin: 8px 0;
+    justify-content: space-evenly;
+}
+
+#img1-container, #img2-container, #img3-container, #img4-container, #img5-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_container {
+    justify-content: center;
+}
+
+.icon_name {
+    color: #000;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px; /* 140% */
+}
+
+.icon_name_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom_bar .circle_button {
+    margin: 16px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.bottom_bar .bottom_imgs_container {
+    display: flex;
+    background-color: #fff;
+}
+
