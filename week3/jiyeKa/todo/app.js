@@ -7,63 +7,67 @@ fetch(API_URL)
   .then((response) => response.json())
   .then((data) => renderTodo(data));
 
+let currentUpdateId = null;
+document.getElementById("todoInput").focus();
+
 const updateTodo = (todoId, originalTitle) => {
+
+  // 이미 수정중인 항목이 있으면 다른 항목 ✏️ 클릭 불가능
+  if(currentUpdateId!=null && currentUpdateId!=todoId) return;
+  
+  // 현재 수정중인 항목의 아이디 기록
+  currentUpdateId=todoId;
   const todoItem = document.querySelector(`#todo-${todoId}`);
-  
-  // mission
-  // 수정버튼 클릭 시 todoItem의 listEl에 접근, 그부분을 input태그로 바꾸기
+
+  // 기존 내용 삭제 후 input & SaveBtn 생성
   todoItem.innerHTML = "";
-  
+
   const inputEl = document.createElement("input");
-  inputEl.type = "text"; // text, email, password, tel, url, number, date 등 다양한 type 있음
+  inputEl.id="inputEl";
+  inputEl.type = "text";
   inputEl.value = originalTitle;
-  todoItem.append(inputEl);
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+
+  // Button 스타일 변경
+  saveBtn.style.cssText = 
+  "background-color: white; color: black; font-size: 0.7em; padding: 5px;";
   
-  // 수정버튼 클릭 시 span 생성, 거기 button 추가, todoItem에 append하기
-  const spanEl = document.createElement("span");
-  const confirmBtnEl = document.createElement("button");
-  confirmBtnEl.textContent = "confirm";
-  confirmBtnEl.onclick = () => {
-    // 버튼 클릭 시 리스트 수정
+  todoItem.appendChild(inputEl);
+  todoItem.appendChild(saveBtn);
+
+  // ✏️클릭 시 커서 위치 자동 포커스
+  document.getElementById("inputEl").focus();
+
+  // saveBtn 클릭 시 title 업데이트
+  saveBtn.onclick = () => {
     const updatedTitle = inputEl.value;
-    updateList(todoId, updatedTitle)
+
+    fetch(API_URL + "/" + todoId, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: updatedTitle }),
+    })
+    .then(() => {
+      return fetch(API_URL);
+    })
+    .then((response) => response.json())
+    .then((data) => { 
+      renderTodo(data);
+      currentUpdateId=null;
+    });
   };
-  spanEl.append(confirmBtnEl);
-  todoItem.append(spanEl);
-  
-  // 엔터키 입력 시 리스트 수정
-  inputEl.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault(); // 기본 Enter 동작 방지
-      const updatedTitle = inputEl.value;
-      updateList(todoId, updatedTitle);
+
+  // 엔터키 입력시 수정 Save 가능
+  document.getElementById("inputEl").addEventListener('keydown',function(event){
+    if(event.key === 'Enter'){
+      saveBtn.onclick();
     }
   });
+  
 };
-
-const updateList = (todoId, newTitle) => {
-  if (!newTitle) { return }
-
-  fetch(API_URL + '/' + todoId, {
-    method: "PATCH",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "title": newTitle
-      // PATCH요청이므로 수정하려는 부분만 보내면 되고,
-      // 만약 PUT요청을 보내면 전체 리소스의 필드를 보내야 함(id, completed, created, title 모두)
-    })
-  })
-  .then((response) => response.json())
-  .then((updatedTodo) => {
-    // console.log(updatedTodo)
-    // debugger;
-    fetch(API_URL)
-  })
-  .then((response) => response.json())
-  .then((data) => renderTodo(data))
-}
 
 const renderTodo = (newTodos) => {
   todoListEl.innerHTML = "";
@@ -71,8 +75,6 @@ const renderTodo = (newTodos) => {
     const listEl = document.createElement("li");
     listEl.textContent = todo.title;
     listEl.id = `todo-${todo.id}`;
-    // 이 listElement의 listId를 설정해서,
-    // updateTodo에서 document.querySelector로 이 id값을 가진 요소를 찾을 때 사용함
 
     const deleteEl = document.createElement("span");
     deleteEl.textContent = "🗑️";
@@ -81,13 +83,21 @@ const renderTodo = (newTodos) => {
     const updateEl = document.createElement("span");
     updateEl.textContent = "✏️";
     updateEl.onclick = () => updateTodo(todo.id, todo.title);
-                             // todo.id: 생성한 리스트의 id
 
     listEl.append(deleteEl);
     listEl.append(updateEl);
     todoListEl.append(listEl);
   });
 };
+
+
+// 엔터키 입력 시 add 가능하도록
+document.getElementById("todoInput").addEventListener('keydown',function(event){
+  if(event.key == "Enter"){
+    addTodo();
+  }
+});
+
 
 const addTodo = () => {
   const title = todoInputEl.value;
@@ -97,7 +107,6 @@ const addTodo = () => {
   if (!title) return;
 
   const newTodo = {
-
     id: date.getTime().toString(),
     title,
     createdAt,

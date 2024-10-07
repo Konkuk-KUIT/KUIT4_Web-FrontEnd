@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="index.css" />
+
     <title>daangn</title>
   </head>
   <body>
@@ -178,56 +179,45 @@
     </div>
 
     <nav class="bottom-bar">
-      <input type="radio" id="plus" name="nav" hidden checked />
-      <label for="plus" class="plus__btn">
-        <img class="bottom-img" alt="plus 버튼" src="./assets/plus.svg" />
-      </label>
-
-      <input type="radio" id="home" name="nav" hidden />
-      <label for="home" class="bottom-bar__item">
+      <button class="plus__btn">
+        <img alt="plus 버튼" src="./assets/plus.svg" />
+      </button>
+      <button class="bottom-bar__item">
         <img src="./assets/home_2.svg" alt="홈 버튼" class="bottom-bar__icon" />
         <span class="bottom-bar__text">홈</span>
-      </label>
-
-      <input type="radio" id="neighborhood" name="nav" hidden />
-      <label for="neighborhood" class="bottom-bar__item">
+      </button>
+      <button class="bottom-bar__item">
         <img
           src="./assets/article.svg"
           alt="동네 생활 버튼"
           class="bottom-bar__icon"
         />
         <span class="bottom-bar__text">동네생활</span>
-      </label>
-
-      <input type="radio" id="nearby" name="nav" hidden />
-      <label for="nearby" class="bottom-bar__item">
+      </button>
+      <button class="bottom-bar__item">
         <img
           src="./assets/place-marker.svg"
           alt="내 근처 버튼"
           class="bottom-bar__icon"
         />
         <span class="bottom-bar__text">내 근처</span>
-      </label>
-
-      <input type="radio" id="chat" name="nav" hidden />
-      <label for="chat" class="bottom-bar__item">
+      </button>
+      <button class="bottom-bar__item">
         <img
           src="./assets/chat-message_two.svg"
           alt="채팅 버튼"
           class="bottom-bar__icon"
         />
         <span class="bottom-bar__text">채팅</span>
-      </label>
-
-      <input type="radio" id="my" name="nav" hidden />
-      <label for="my" class="bottom-bar__item">
+      </button>
+      <button class="bottom-bar__item">
         <img
           src="./assets/user.svg"
           alt="나의 당근 버튼"
           class="bottom-bar__icon"
         />
         <span class="bottom-bar__text">나의 당근</span>
-      </label>
+      </button>
     </nav>
   </body>
 </html>
