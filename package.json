@@ -11,8 +11,7 @@
     "gh-pages": "^6.1.1"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "^5.0.1"
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
   }
 }
