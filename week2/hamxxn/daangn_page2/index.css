@@ -247,7 +247,7 @@ button {
 .nav__menu::-webkit-scrollbar,
 .post-item__imgs::-webkit-scrollbar,
 .post-list::-webkit-scrollbar {
-  height: 1px;
+  height: 0px;
 }
 .post-item .post-item__location {
   display: flex;
@@ -291,6 +291,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4px;
 }
 .plus__btn {
   position: fixed;
@@ -303,4 +304,8 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 100%;
+}
+
+input[type="radio"]:checked + label > img {
+  background-color: #ff7e36;
 }
