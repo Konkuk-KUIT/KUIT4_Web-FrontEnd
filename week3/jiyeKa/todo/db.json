@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": "1727956553018",
+      "title": "하이하이",
+      "createdAt": "Thu Oct 03 2024",
+      "completed": false
+    },
+    {
+      "id": "1727956560017",
+      "title": "끗",
+      "createdAt": "Thu Oct 03 2024",
+      "completed": false
+    }
+  ]
+}

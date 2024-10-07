@@ -1,0 +1,224 @@
+/*Global Styles*/
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/*Daangn Styles*/
+.header-bar {
+    display: flex;
+    /* position: fixed; */
+    background-color: #fff;
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.header-bar header {
+    width: 100%;
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    box-sizing: border-box;
+}
+
+.header_icon-left .location {
+    display: flex;
+    color: #000;
+    /* 18 */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    /* 155.556% */
+}
+
+.header-bar .header_icon-left {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.header_icon-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.post {
+    display: flex;
+    padding: 0 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+
+    /* padding-top: 98px; */
+    padding-bottom: 58px;
+}
+
+.post .post__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.post__container .content-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 4px;
+}
+
+.post__container .post-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.post__container .post-content .content-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.content-top .content-title {
+    width: 232px;
+    color: #000;
+    /* 16 */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 125% */
+}
+
+.content-top .description {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    color: #8C8C8C;
+    /* 12 */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 133.333% */
+}
+
+.content-top .price {
+    color: #FF7E36;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    /* 146.667% */
+}
+
+.post__container .post-content .content-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.content-bottom .des-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: #8C8C8C;
+    /* 12 */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 133.333% */
+}
+
+.bottom-plus {
+    position: fixed;
+    bottom: 74px;
+    right: 16px;
+    z-index: 1;
+}
+
+.plus-container {
+    display: flex;
+    height: 48px;
+    width: 48px;
+    padding: 16px;
+    z-index: 1;
+}
+
+.plus-container .plus {
+    display: flex;
+    padding: 12px;
+    border-radius: 100px;
+    background: #FF7E36;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 8px 0px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom__containers {
+    display: flex;
+    justify-content: space-around;
+    /* 아이콘들을 균등하게 배치 */
+    width: 100%;
+    padding: 0 16px;
+
+    border-top: 1px solid #8C8C8C;
+    ;
+}
+
+.icon-containers {
+    display: flex;
+    width: 390px;
+    padding: 8px 0px;
+    align-items: flex-start;
+}
+
+.icon-containers .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.container .icon-des {
+    color: #000;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    /* 140% */
+}
+
+/* plus 버튼을 고정시키는건 했는데 뒷배경이 게시글이 나오도록 하는 건 도대체 어떻게 하는건가요..*/
