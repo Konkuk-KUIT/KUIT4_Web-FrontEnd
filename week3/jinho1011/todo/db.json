@@ -1,0 +1,21 @@
+{
+  "todos": [
+    {
+      "id": "1728032971995",
+      "title": "KUIT",
+      "createdAt": "Fri Oct 04 2024",
+      "completed": false
+    },
+    {
+      "title": "Server도",
+      "completed": false,
+      "id": "1728032975447"
+    },
+    {
+      "id": "1728032979633",
+      "title": "재밌어요!!",
+      "createdAt": "Fri Oct 04 2024",
+      "completed": false
+    }
+  ]
+}
