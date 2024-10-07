@@ -6,11 +6,13 @@ import BottomNav from "./components/Bottom";
 
 import "./styles/reset.css";
 
+import marketModel from "./models/MarketModel";
+
 const Home = () => {
   return (
     <>
-      <Header />
-      <Content />
+      <Header location={marketModel.location} />
+      <Content items={marketModel.items} />
       <BottomNav />
     </>
   );

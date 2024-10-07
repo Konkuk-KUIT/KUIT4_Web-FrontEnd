@@ -12,6 +12,9 @@
   padding: 16px;
   box-sizing: border-box;
 }
+.product-item__image > img {
+  width: 110px;
+}
 .product-list .product-item {
   display: flex;
   gap: 16px;
@@ -59,6 +62,7 @@
   align-items: center;
   gap: 2px;
 }
+
 .meta-text {
   font-family: Inter;
   font-size: 12px;

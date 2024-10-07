@@ -7,12 +7,12 @@ import Notification from "../assets/notification.svg";
 
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <nav className="header">
         <button className="header__location">
-          <h1 className="location__name">군자동</h1>
+          <h1 className="location__name">{props.location}</h1>
           <img
             className="location__icon"
             src={DownChervorn}

@@ -1,4 +1,3 @@
-import ChatMessageBlock from "../assets/chat-message_block.svg";
 import Plus from "../assets/plus.svg";
 import Home_2 from "../assets/home_2.svg";
 import Ariticle from "../assets/article.svg";
