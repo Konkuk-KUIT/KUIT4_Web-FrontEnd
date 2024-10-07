@@ -1,7 +1,5 @@
 
 
-import marketModel from "../models/MarketModel";
-import "./index.css";
 
 import plus from '../assets/plus.svg';
 import homein from '../assets/home_indicator.svg';
@@ -17,7 +15,7 @@ const Bottommenubutton = ()=>{
       </>
     );
   }
-  const Bottommenubar = ()=>{
+  const Bottommenubar = ({marketModel})=>{
     return (
       <>
       <div className="botton_menu_bar">
@@ -40,11 +38,11 @@ const Bottommenubutton = ()=>{
     </button>
     </>)
   }
-  const BottomNav = () => {
+  const BottomNav = ({marketModel}) => {
     return (<>
     <nav className="botton_menu">
       <Bottommenubutton/>
-      <Bottommenubar/>
+      <Bottommenubar marketModel={marketModel}/>
       <Bottommenubarbottom/>
     </nav>
     </>);

@@ -4,6 +4,7 @@ import "./components/index.css";
 import Header from "./components/Header.jsx"; // MarketModel.js에서 데이터 가져오기
 import Content from "./components/Content.jsx"; // MarketModel.js에서 데이터 가져오기
 import BottomNav from "./components/BottomNav.jsx"; // MarketModel.js에서 데이터 가져오기
+import marketModel from "./models/MarketModel";
 
 // MarketModel.js에서 데이터 가져오기
 //그림은 여기부터
@@ -16,9 +17,9 @@ import BottomNav from "./components/BottomNav.jsx"; // MarketModel.js에서 데�
 const Home = () => {
   return (
     <div>
-      <Header />
-      <Content />
-      <BottomNav />
+      <Header marketModel={marketModel}/>
+      <Content marketModel={marketModel}/>
+      <BottomNav marketModel={marketModel}/>
     </div>
   );
 };

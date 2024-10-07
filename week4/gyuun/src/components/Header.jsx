@@ -1,5 +1,3 @@
-import React from "react";
-import "./index.css";
 //그림은 여기부터
 import blackboxImage from '../assets/blackbox.svg';
 import signalImage from '../assets/signal.svg';

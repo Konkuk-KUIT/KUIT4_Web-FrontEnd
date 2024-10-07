@@ -5,9 +5,7 @@ import vectorsImage from '../assets/vectors.svg';
 import comment from '../assets/comment.svg';
 import heart from '../assets/heart.svg';
 import React from "react";
-import "./index.css";
-import marketModel from "../models/MarketModel";
-const Middletopheaderaddress = () => {
+const Middletopheaderaddress = ({marketModel}) => {
     return (
       <div className="header__address">
         <div className="header__address-title">
@@ -28,10 +26,10 @@ const Middletopheaderaddress = () => {
     );
   };
   
-  const Middletop = () => {
+  const Middletop = ({marketModel}) => {
     return (
       <div className="middel-top-bar">
-        <Middletopheaderaddress />
+        <Middletopheaderaddress marketModel={marketModel}/>
         <Middletopheadericons />
       </div>
     );
@@ -42,7 +40,7 @@ const Middletopheaderaddress = () => {
     </>
   }
   
-  const Middlecontent = () => {
+  const Middlecontent = ({marketModel}) => {
     return <>
       {marketModel.items
       .filter(item => item.isSold)
@@ -79,13 +77,13 @@ const Middletopheaderaddress = () => {
     </>
   };
   
-  const Content = () => {
+  const Content = ({marketModel}) => {
     return (
       <div className="middle-menu">
-        <Middletop />
+        <Middletop  marketModel={marketModel} />
         <Line2/>
         <div className="middle_content">
-        <Middlecontent />
+        <Middlecontent marketModel={marketModel}/>
         </div>
       </div>
     );
