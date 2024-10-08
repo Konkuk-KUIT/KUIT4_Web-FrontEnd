@@ -1,0 +1,306 @@
+/* Global Styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/* Daangn Styles */
+.post-header {
+    position: relative;
+}
+
+.post-header header {
+    width: 100%;
+    position: absolute; 
+    /* post-header를 relative로, 이걸 absolute로 둬서 chevron.left 등의 버튼이 이미지 위로 올라오게 구현 */
+    display: flex;
+    justify-content: space-between;
+    /* display:flex일 때 아이템 간에 간격을 설정할 수 있음 */
+    padding: 14px 16px; 
+    box-sizing: border-box;
+    /* 아이템의 width가 border와 padding을 포함하도록 설정 */
+}
+
+.post-header .post-header__icon-container {
+    display: flex;
+    gap: 16px;
+    /* item 사이의 간격 조절 */
+    align-items: center;
+    /* 자식 요소들이 교차축을 기준으로 어떻게 배열되는지 결정 */
+    /* 여기서는 주축이 가로이므로 세로로 어떻게 배열될 지 결정 */
+}
+
+.post-header .post__image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.post {
+    padding: 0 16px;
+    padding-bottom: 64px;
+    /* bottom bar의 높이만큼 post를 위로 옮겨야 post의 모든 content가 보임 */
+}
+
+.post > section { /* >: post 바로 아래의 section에만 적용됨 */
+    padding: 16px 0;
+    border-bottom: 1px solid #eee
+}
+
+.post > section:last-child {
+    border-bottom: none;
+}
+
+.post__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__header .header__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__user .user__profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%
+}
+
+.header__user .user__info {
+    display: flex;
+    flex-direction: column;
+    /* 
+        display: flex;는 Swift에서의 HStack과 같다고 보면 될 것 같고,
+        flex-direction을 column으로 설정하면 VStack이 됨
+        여기에 justify-content를 통해 자식 요소의 간격을 Swift의 Spacer보다 간편하게 조절할 수 있음
+        align-items속성에 top, center, bottom을 줘서 HStack(alignment: top, center, bottom)
+        이거랑 동일하게 조작 가능
+    */
+}
+
+.header__user .user__info .user__name {
+    margin-bottom: 4px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+}
+
+.header__user .user__info .user__address {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+}
+
+.post__header .header__temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header__temperature .temperature__container {
+    display: flex;
+    /* 그냥 Swift에서의 HStack과 똑같음 */
+    align-items: center;
+    /* 
+        주축이 가로니까 세로로 어떻게 배열될 지 결정
+        Swift에서의 HStack(alignment: center)와 똑같음
+    */
+    margin-bottom: 4px;
+}
+
+.temperature__container .temperature__indicator {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+    color: #4AC1DB;
+    margin-right: 4px;
+}
+
+.temperature__indicator .temperature__bar {
+    /* width: 46px; */
+    width: 100%;
+    /*  
+        %: 해당 요소의 부모 요소의 너비에 대한 상대적인 크기
+        temperature__bar는 .temperature__indicator 안에 포함되어 있으므로
+        temperature__indicator의 너비를 기준으로 100%의 너비를 가짐
+
+        temperature__indicator는 temperature__container, 즉 FlexBox의 자식임
+        temperature_indicator의 너비는 명시적으로 선언되지 않았으므로 
+        그 안의 콘텐츠의 크기만큼만 차지함
+        temperature__indicator는 자식으로 temperature__value와 temperature__bar를 가지는데
+        temperature__value가 37.2'C 라는 string값을 가지므로 이 string의 길이만큼
+        temperature__indicator의 너비가 설정됨
+        따라서 temperature__bar의 너비도 위 string의 길이와 똑같이 설정되는 것
+    */
+    height: 2px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+}
+
+.temperature__indicator .temperature__bar--value {
+    width: 37.2%;
+    height: 2px;
+    background-color: #4AC1DB;
+
+}
+
+
+.header__temperature .temperature__desc {
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: left;
+    color: #8C8C8C;
+    text-decoration-line: underline;    
+}
+
+.post__content .post__title {
+    margin-bottom: 8px;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+}
+
+.desc__container {
+    display: flex;
+    gap: 2px;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #8C8C8C;
+}
+
+.post__content .post__text {
+    margin: 16px 0;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+}
+
+span.desc--clickable {  /* 클래스명이 desc--clickable인 span태그에만 적용되는 스타일 정의 */
+    text-decoration-line: underline;
+}
+
+.post .section__header {
+    display: flex;
+    justify-content: space-between; 
+    /* 양쪽 끝에 들어감 */
+    align-items: center;
+    width: 100%;
+}
+
+.section__title {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+}
+
+.post .products__grid {
+    display: grid;
+    gap: 24px 16px;
+    /* grid item끼리의 간격이 좌우로 16px, 위아래로 24px */
+    grid-template-columns: 1fr 1fr;
+    margin: 16px 0 0px; 
+}
+
+.product__container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product__container .product__img {
+    width: 100%;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product__container .product__name {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+}
+
+.product__price {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    /* justify-content는 부모에게 주는 속성 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 8px 16px 11px;
+    border-top: 1px solid #d9d9d9;
+    box-sizing: border-box;
+}
+
+.bottom-bar .bar__chat-btn {
+    border-radius: 4px;
+    background: #ff7e36;
+    padding: 8px 14px;
+    font-family: Inter;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+}
+
+.bar__info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    .divider {
+        width: 1px;
+        align-self: stretch;
+        background-color: #eee
+    }
+}
+
+.bar__info-container .bar__info {
+    display: flex;
+    flex-direction: column;
+
+    .product__desc {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 18px;
+        text-align: left;
+        color: #8C8C8C
+    }
+}
