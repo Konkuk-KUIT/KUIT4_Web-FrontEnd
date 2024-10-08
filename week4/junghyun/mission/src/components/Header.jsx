@@ -3,13 +3,13 @@ import icon_menu from "../assets/menu.svg";
 import icon_notification from "../assets/notification.svg";
 import icon_search from "../assets/search.svg";
 
-const Header = (props) => {
+const Header = ({ location }) => {
   return (
     <section class="home-header">
       <header>
 
         <div class="home-header__location-container">
-          <span class="header__location">{props.location}</span>
+          <span class="header__location">{location}</span>
           <button type="button">
             <img src={icon_expand_arrow} alt="select location button" />
           </button>
