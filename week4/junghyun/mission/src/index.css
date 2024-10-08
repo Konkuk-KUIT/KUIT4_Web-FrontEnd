@@ -13,6 +13,7 @@ button {
     height: 52px;
 }
 .home-header header {
+    z-index: 9999;
     width: 100%;
     position: fixed;
     display: flex;
@@ -46,16 +47,20 @@ button {
     padding-bottom: 54px;
 }
 .home-posts .product-post {
+    position: relative;
     width: 100%;
     display: flex;
     padding: 16px 0;
     border-bottom: 1px solid #EEEEEE;
 }
 .product-post .product-img {
+    position: absolute;
     border-radius: 4px;
+    width: 110px;
+    height: 110px;
 }
 .product-post .product-info {
-    padding-left: 16px;
+    padding-left: 126px;
     width: 100%;
     height: 110px;
 }

@@ -7,11 +7,13 @@ import FloatingButton from "./components/FloatingButton.jsx";
 import "./reset.css";
 import "./index.css";
 
+import marketModel from "./models/MarketModel.js";
+
 const Home = () => {
   return (
     <div>
-      <Header />
-      <Content />
+      <Header location={marketModel.location} />
+      <Content items={marketModel.items} />
       <BottomNav />
       <FloatingButton />
     </div>
