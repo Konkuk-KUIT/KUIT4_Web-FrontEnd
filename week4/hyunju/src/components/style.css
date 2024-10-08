@@ -129,7 +129,7 @@ body{
 }
 
 /* 하단바 */
-.main .bottom-menu {
+.bottom-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -144,6 +144,8 @@ body{
     width:auto;
     flex-grow:1;
     width:100%;
+    display: flex;
+    flex-direction: column;
 
 }
 .bottom{
