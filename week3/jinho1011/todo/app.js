@@ -1,7 +1,7 @@
 const todoListEl = document.getElementById("todoList");
 const todoInputEl = document.getElementById("todoInput");
 
-const API_URL = "http://localhost:8080/todos";
+const API_URL = "http://localhost:3000/todos";
 
 fetch(API_URL)
   .then((response) => response.json())
@@ -119,6 +119,7 @@ const addTodo = () => {
     .then((data) => renderTodo(data));
 };
 
+// 왜 기존요소를 새롭게 add 하면 id가 부여되는데 delete 요청이 수행되지 않는것인가 질문!!
 const deleteTodo = (todoId) => {
   fetch(API_URL + "/" + todoId, {
     method: "DELETE",
