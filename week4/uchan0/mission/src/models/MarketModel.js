@@ -1,4 +1,5 @@
 const marketModel = {
+  location: "군자동",
   items: [
     {
       title: "에어팟 프로",

@@ -1,12 +1,11 @@
 import React from "react";
 import ImageCollection from "../ImageCollection";
-import marketModel from "../models/MarketModel";
 
-const Content = () => {
+const Content = ({ items }) => {
   return (
     <div>
       <article className="post">
-        {marketModel.items.map(
+        {items.map(
           (item, index) =>
             item.isSold === true && (
               <section key={index} className="post__container">

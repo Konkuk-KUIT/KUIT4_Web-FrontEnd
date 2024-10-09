@@ -1,11 +1,11 @@
 import React from "react";
 import ImageCollection from "../ImageCollection";
 
-const Header = () => {
+const Header = ({ location }) => {
   return (
     <header className="main-header">
       <button type="button" className="location__container">
-        <div className="location__container--text">군자동</div>
+        <div className="location__container--text">{location}</div>
         <ImageCollection imgName={"down-chevron.svg"} />
       </button>
       <div className="header__icon-container">
