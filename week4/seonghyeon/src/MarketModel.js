@@ -8,6 +8,7 @@ const marketModel = [
     price: "220,000원",
     chatCount: 3,
     heartCount: 3,
+    isSold : true
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const marketModel = [
     price: "4,000원",
     chatCount: 3,
     heartCount: 3,
+    isSold : true
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const marketModel = [
     price: "8,000원",
     chatCount: 0,
     heartCount: 2,
+    isSold : true
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const marketModel = [
     price: "1,000,000원",
     chatCount: 0,
     heartCount: 0,
+    isSold : true
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const marketModel = [
     price: "100,000원",
     chatCount: 0,
     heartCount: 0,
+    isSold : false
   },
 ];
   
