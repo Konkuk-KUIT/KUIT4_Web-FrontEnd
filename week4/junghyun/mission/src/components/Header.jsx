@@ -5,17 +5,17 @@ import icon_search from "../assets/search.svg";
 
 const Header = ({ location }) => {
   return (
-    <section class="home-header">
+    <section className="home-header">
       <header>
 
-        <div class="home-header__location-container">
-          <span class="header__location">{location}</span>
+        <div className="home-header__location-container">
+          <span className="header__location">{location}</span>
           <button type="button">
             <img src={icon_expand_arrow} alt="select location button" />
           </button>
         </div>
 
-        <div class="home-header__icon-container">
+        <div className="home-header__icon-container">
           <button type="button">
             <img src={icon_search} alt="search button" />
           </button>
