@@ -1,14 +1,13 @@
 import heart from '../assets/heart.svg';
 import chat from '../assets/chat.svg';
 
-import marketModel from '../models/MarketModel';
-
-const Content = () => {
-    const { items } = marketModel;
+const Content = (props) => {
+    const { items } = props.marketModel;
+    const soldItems = items.filter(item => item.isSold === true); //조건부 랜더링
     return(
       <article className="post">
         {
-          items.map((item, index) => (
+          soldItems.map((item, index) => (
             <section key={index} className="daangn-post">
               <img src={item.image} alt={item.title} />
               <div className="post-info">
@@ -29,7 +28,7 @@ const Content = () => {
               </div>
             </div>
             </section>
-          ))
+          )) //배열 랜더링
         }
       </article>
     );
