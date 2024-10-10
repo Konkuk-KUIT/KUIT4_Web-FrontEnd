@@ -1,7 +1,6 @@
 {
   "name": "ho0010",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -26,5 +25,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": ""
 }
