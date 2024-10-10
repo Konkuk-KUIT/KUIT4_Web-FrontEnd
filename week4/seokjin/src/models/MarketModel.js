@@ -8,7 +8,7 @@ const marketModel = {
       price: "220,000원",
       image: "airpods-pro.png",
       comments: 3,
-      likes: 11,
+      hearts: 11,
       isSold: true,
     },
     {
@@ -18,7 +18,7 @@ const marketModel = {
       price: "4,000원",
       image: "byredo-blanche.png",
       comments: 0,
-      likes: 2,
+      hearts: 2,
       isSold: false,
     },
     {
@@ -28,7 +28,7 @@ const marketModel = {
       price: "8,000원",
       image: "sandwich.png",
       comments: 0,
-      likes: 0,
+      hearts: 0,
       isSold: false,
     },
     {
@@ -38,7 +38,7 @@ const marketModel = {
       price: "1,000,000원",
       image: "iphone-13-pro-max.png",
       comments: 0,
-      likes: 0,
+      hearts: 0,
       isSold: true,
     },
     {
@@ -48,7 +48,7 @@ const marketModel = {
       price: "100,000원",
       image: "coffee-machine.png",
       comments: 0,
-      likes: 0,
+      hearts: 0,
       isSold: true,
     },
     {
@@ -58,7 +58,7 @@ const marketModel = {
       price: "11,000원",
       image: "coffee-machine.png",
       comments: 0,
-      likes: 0,
+      hearts: 0,
       isSold: true,
     },
     {
@@ -68,7 +68,7 @@ const marketModel = {
       price: "600,000원",
       image: "coffee-machine.png",
       comments: 4,
-      likes: 12,
+      hearts: 12,
       isSold: true,
     },
   ],
