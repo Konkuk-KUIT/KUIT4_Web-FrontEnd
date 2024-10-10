@@ -15,22 +15,22 @@ const Bottommenubutton = ()=>{
       </>
     );
   }
-  const Bottommenubar = ({marketModel})=>{
+  const Bottommenubar = ({ marketModel: { home } }) => {
     return (
       <>
-      <div className="botton_menu_bar">
-        <div className="botton_menu_bar_top">
-          {marketModel.home.map(({ image, location }, index)=>(
-            <div key={index} className="menu_bar_button">
-              <img src={image} alt="" className="home1" />
-              <div className="home2">{location}</div>
-            </div>
-          ))}
+        <div className="botton_menu_bar">
+          <div className="botton_menu_bar_top">
+            {home.map(({ image, location }, index) => (
+              <div key={index} className="menu_bar_button">
+                <img src={image} alt="" className="home1" />
+                <div className="home2">{location}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
       </>
-    )
-  }
+    );
+  };
   const Bottommenubarbottom = ()=>{
     return (<>
     <button className="botton_menu_bar_bottom">
