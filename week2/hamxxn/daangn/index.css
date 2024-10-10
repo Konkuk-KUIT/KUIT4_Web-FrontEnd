@@ -143,7 +143,3 @@ button {
   align-items: center;
   border-radius: 100%;
 }
-
-input[type="radio"]:checked + label > img {
-  background-color: #ff7e36;
-}
