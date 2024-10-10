@@ -1,33 +1,26 @@
-import React from "react"
+import React from "react";
 
 const Header = () => {
-    return (
-      <section className="post-header">
-        <header>
-          <div className="post-header__icon-container">
-            <button type="button">
-              <img src="./assets/left-chevron.svg" alt="go back" />
-            </button>
-            <button type="button">
-              <img src="./assets/home.svg" alt="go home" />
-            </button>
-          </div>
-  
-          <div className="post-header__icon-container">
-            <button type="button">
-              <img src="./assets/share.svg" alt="share product" />
-            </button>
-            <button type="button">
-              <img src="./assets/kebab.svg" alt="open settings" />
-            </button>
-          </div>
-        </header>
-  
-        <div className="post__image-container">
-          <img src="http://placehold.co/720" alt="wh-1000xm5 실버" />
-        </div>
-      </section>
-    );
-  };
+  return (
+    <div className="main__header">
+      <button className="select__address-btn">
+        <span>구의동</span>
+        <img src="assets/down-chevron.svg" alt="지역 설정" />
+      </button>
+
+      <div className="etc-menu">
+        <button className="search-btn" type="button">
+          <img src="assets/search-btn.svg" alt="검색" />
+        </button>
+        <button className="list-btn" type="button">
+          <img src="assets/list-btn.svg" alt="리스트 보기" />
+        </button>
+        <button className="alarm-btn" type="button">
+          <img src="assets/alarm-btn.svg" alt="알람 설정" />
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Header;

@@ -1,20 +1,30 @@
-import React from 'react'
-
+import React from "react";
 
 const BottomNav = () => {
-    return(
-      <nav className="bottom-bar">
-          <div className="bar__info-container">
-              <img src="./assets/heart.svg" alt="게시글 좋아요 버튼"/>
-              <div className="divider"></div>
-              <div className="bar__info">
-                  <span className="product__price">360,000원</span>
-                  <span className="product_desc">가격 제안 불가</span>
-              </div>
-          </div>
-          <button class="bar__chat-btn" type="button">채팅하기</button>
-      </nav>
-    );
-  };
+  return (
+    <nav className="footer-menu-container">
+      <button type="button" className="footer-menu">
+        <img src="assets/home-img.svg" alt="홈" />
+        <span>홈</span>
+      </button>
+      <button type="button" className="footer-menu">
+        <img src="assets/life.svg" alt="동네생활" />
+        <span>동네생활</span>
+      </button>
+      <button type="button" className="footer-menu">
+        <img src="assets/around.svg" alt="내 근처" />
+        <span>내 근처</span>
+      </button>
+      <button type="button" className="footer-menu">
+        <img src="assets/chat.svg" alt="채팅" />
+        <span>채팅</span>
+      </button>
+      <button type="button" className="footer-menu">
+        <img src="assets/profile.svg" alt="나의 당근" />
+        <span>나의 당근</span>
+      </button>
+    </nav>
+  );
+};
 
 export default BottomNav;

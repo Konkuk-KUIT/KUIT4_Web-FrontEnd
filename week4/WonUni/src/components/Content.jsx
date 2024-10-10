@@ -1,132 +1,133 @@
-import React from 'react'
-
-
+import React from "react";
 const Content = () => {
-    return(
-      <article className="post">
-          <section className="post__header">
-              <div className="header__user">
-                  <img className="user__profile-img" src="http://placehold.co/240" alt="user's prifile image"/>
-                  <div className="user__info">
-                      <span className="user__name">감성탐방러</span>
-                      <span className="user__address">중랑구 면목동</span>
-                  </div>
-              </div>
-  
-  
-  
-              <div className="header__temperature">
-                  <div className="temperature__container">
-                      <div className="temperature__indicator">
-                          <span className="temperature__value">37.2°C</span>
-                          <div className="temperature__bar">
-                              <div className="temperature__bar--value"></div>
-  
-                          </div>
-                      </div>
-                      <span>🙂</span>
-  
-                  </div>
-                  <button type="button">
-                      <span className="temperature__description">매너온도</span>
-                  </button>
-  
-  
-              </div>
-  
-  
-  
-  
-          </section>
-          <section className="post__content">
-              <h1 className="post__title">소니 wh-1000xm5 실버 팝니다.</h1>
-              <div className="desc__container">
-                  <span className="desc--clickable">디지털기기</span>
-                  <span>·</span>
-                  <span>끌올 1일 전</span>
-              </div>
-              <p className="post__text">
-                  8/31일 해외직구한<br /> 한달도 안된제품 입니다.<br /> 박풀 S급입니다.
-              </p>
-              <div className="desc__container"> 
-                  <span className="desc--clickable">관심 15</span>
-                  <span>·</span>
-                  <span>조회 311</span>
-              </div>
-  
-          </section>
-          <section className="post__report">
-  
-              <button className="section__header" type="button">
-                  <h2 className="section__title">이 게시글 신고하기</h2>
-                  <img src="./assets/right-chevron.svg" alt="신고하기"/>
-              </button>
-  
-          </section>
-          <section className="post__other-product">
-              <button className="section__header" type="button">
-              <h2 className="section__title">감성탐방러님의 판매 상품</h2>
-              <img src="./assets/right-chevron.svg" alt="화면이동"/>
-              </button>
-  
-              <div className="products__grid">
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  
-  
-              </div>
-          </section>
-  
-          <section className="post__other-product">
-              <div className="section__header" type="button">
-              <h2 className="section__title">이 글과 함께 봤어요</h2>
-              </div>
-  
-              <div className="products__grid">
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  <button className="product__container">
-                      <img className="product__img" src="http://placehold.co/240" alt="상품1"/>
-                      <span className="product__name">에어팟 미개봉</span>
-                      <span className="product__price">240,000원</span>
-                  </button>
-                  
-  
-              </div>
-          </section>
-      </article>
-    );
-  };
+  return (
+    <div className="item-list">
+      <button type="button" className="item-container">
+        <img src="assets/airpot.svg" alt="에어팟" />
 
-  export default Content;
+        <div className="item-desc">
+          <div className="item-info">
+            <span className="item-name">에어팟 프로</span>
+
+            <div className="item-about">
+              <span>군자동</span>
+              <span>·</span>
+              <span>3일전</span>
+            </div>
+            <span className="item-price">220,000원</span>
+          </div>
+
+          <div className="item-follower">
+            <div className="comments">
+              <img src="assets/comments.svg" alt="댓글" />
+              <span>3</span>
+            </div>
+            <div className="likes">
+              <img src="assets/likes.svg" alt="좋아요" />
+              <span>11</span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <div className="divider"> </div>
+      <button type="button" className="item-container">
+        <img src="assets/airpot.svg" alt="에어팟" />
+
+        <div className="item-desc">
+          <div className="item-info">
+            <span className="item-name">바이레도 블랑쉬 50ml</span>
+
+            <div className="item-about">
+              <span>광진구 구의제3동</span>
+              <span>·</span>
+              <span>26초 전</span>
+            </div>
+            <span className="item-price">4,000원</span>
+          </div>
+
+          <div className="item-follower">
+            <div className="likes">
+              <img src="assets/likes.svg" alt="좋아요" />
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <div className="divider"> </div>
+      <button type="button" className="item-container">
+        <img src="assets/airpot.svg" alt="에어팟" />
+
+        <div className="item-desc">
+          <div className="item-info">
+            <span className="item-name">샌드위치</span>
+
+            <div className="item-about">
+              <span>동대문구 휘경동</span>
+              <span>·</span>
+              <span>끌올 59초 전</span>
+            </div>
+            <span className="item-price">8,000원</span>
+          </div>
+        </div>
+      </button>
+      <div className="divider"> </div>
+      <button type="button" className="item-container">
+        <img src="assets/airpot.svg" alt="에어팟" />
+
+        <div className="item-desc">
+          <div className="item-info">
+            <span className="item-name">아이폰 13프로맥스</span>
+
+            <div className="item-about">
+              <span>군자동</span>
+              <span>·</span>
+              <span>1일 전</span>
+            </div>
+            <span className="item-price">1,000,000원</span>
+          </div>
+
+          <div className="item-follower">
+            <div className="comments">
+              <img src="assets/comments.svg" alt="댓글" />
+              <span>7</span>
+            </div>
+            <div className="likes">
+              <img src="assets/likes.svg" alt="좋아요" />
+              <span>21</span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <div className="divider"> </div>
+      <button type="button" className="item-container">
+        <img src="assets/airpot.svg" alt="에어팟" />
+
+        <div className="item-desc">
+          <div className="item-info">
+            <span className="item-name">커피머신</span>
+
+            <div className="item-about">
+              <span>구리시 교문동</span>
+              <span>·</span>
+              <span>1초전</span>
+            </div>
+            <span className="item-price">100,000원</span>
+          </div>
+
+          <div className="item-follower">
+            <div className="comments">
+              <img src="assets/comments.svg" alt="댓글" />
+              <span>5</span>
+            </div>
+            <div className="likes">
+              <img src="assets/likes.svg" alt="좋아요" />
+              <span>7</span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  );
+};
+
+export default Content;
