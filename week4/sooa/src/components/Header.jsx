@@ -5,12 +5,12 @@ import Search from "../assets/search.svg";
 import Menu from "../assets/menu.svg";
 import Notification from "../assets/notification.svg";
 
-const Header = () => {
+const Header = ({ location }) => {
   return (
     <>
       <header>
         <div class="icon-container">
-          <span>군자동</span>
+          <span>{location}</span>
           <button type="button">
             <img src={DownChervon} alt="지역 선택 버튼" />
           </button>
