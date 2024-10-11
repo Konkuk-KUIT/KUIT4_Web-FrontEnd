@@ -49,7 +49,7 @@ const marketModel = {
             image: "coffee-machine.png",
             comments: 0,
             likes: 0,
-            isSold: true,
+            isSold: false,
         },
         {
             title: "컴퓨터 구조론",

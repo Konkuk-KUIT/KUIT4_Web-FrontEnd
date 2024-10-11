@@ -1,4 +1,11 @@
 import React from "react";
+import bottomHomeIcon from '../assets/bottom-home.svg';
+import newsIcon from '../assets/news.svg';
+import localIcon from '../assets/local.svg';
+import bottomChatIcon from '../assets/bottom-chat.svg';
+import myIcon from '../assets/my.svg';
+import plusIcon from '../assets/plus.svg';
+
 const Bottom = () => {
     return (
         <nav className="bottom-bar">

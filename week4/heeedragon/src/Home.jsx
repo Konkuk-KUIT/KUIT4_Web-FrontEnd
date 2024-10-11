@@ -1,13 +1,16 @@
 import React from "react";
-import Header from './components/Header';
-import Post from './components/Post';     
-import Bottom from './components/Bottom';  
+import marketModel from "./models/MarketModel";
+import Header from "./components/Header";
+import Post from "./components/Post";
+import Bottom from "./components/Bottom";
 
 const Home = () => {
+    const { items, location } = marketModel;
+
     return (
-        <div className="danggn">
-            <Header />
-            <Post />
+        <div id="danggn">
+            <Header location={location} />
+            <Post items={items} />
             <Bottom />
         </div>
     );

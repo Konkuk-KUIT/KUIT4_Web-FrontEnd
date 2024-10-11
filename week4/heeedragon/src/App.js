@@ -6,7 +6,7 @@ import React from "react";
     // 최상위 계층을 보았을 때 반드시 부모요소 하나가 감싸는 형태여야 한다 <div></div>
     // JSX 안에서 JS표현식을 작성하려면 JSX내부에서 코드를 {}로 감싸야 한다 {name}
     // if문 대신 삼항연산자를 사용해야한다
-const Content = (props) => {
+/* const Content = (props) => {
     const name = "희용";
     return (
     <div>
@@ -34,4 +34,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default App; */

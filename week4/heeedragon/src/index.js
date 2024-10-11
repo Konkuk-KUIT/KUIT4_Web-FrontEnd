@@ -10,6 +10,7 @@ root.render(<App/>);
 */
 
 import { createRoot } from "react-dom/client";
+import './Home.css';
 import Home from "./Home";
 
 const root = createRoot(document.getElementById("danggn"));

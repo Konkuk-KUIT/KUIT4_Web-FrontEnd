@@ -1,4 +1,8 @@
 import React from "react";
+import downChevron from "../assets/down-chevron.svg";
+import search from "../assets/search.svg";
+import notification from "../assets/notification.svg";
+
 const Header = () => {
     return (
         <section className="post-header">
@@ -10,9 +14,9 @@ const Header = () => {
             </button>
 
             <div className="post-header__icon-container">
-                <img src={searchIcon} alt="검색" />
-                <img src={hamburgerIcon} alt="메뉴" />
-                <img src={notificationIcon} alt="알림" />
+                <img src={search} alt="검색" />
+                <img src={hamburger} alt="메뉴" />
+                <img src={notification} alt="알림" />
             </div>
         </section>
     );
