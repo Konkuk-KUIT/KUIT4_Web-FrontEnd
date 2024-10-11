@@ -4,6 +4,8 @@ import Content from "./components/Contents";
 import BottomBtn from "./components/BottomBtn";
 import BottomNav from "./components/BottomNav";
 
+import './styles.css';
+
 import marketModel from './models/MarketModel'; // marketModel import
 
 const Home = () => {
