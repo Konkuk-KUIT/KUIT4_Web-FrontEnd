@@ -9,7 +9,7 @@ import marketModel from "./models/MarketModel";
 const Home = () => {
   return <div>
     <Header/>
-    <Content/>
+    <Content items={marketModel.items}/>
     <PlusBtn/>
     <BottomNav/>
 

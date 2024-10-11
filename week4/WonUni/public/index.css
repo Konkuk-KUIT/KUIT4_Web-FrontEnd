@@ -50,13 +50,16 @@ button {
         align-items: center;
     }
 }
+.product-list{
+    padding-bottom: 59px;
+    padding-top: 52px;
 
+}
 .item-list {
-    position: relative;
+    
     top: 52px;
     padding: 16px;
-    padding-bottom: 80px;
-
+    
     .item-container {
         display: flex;
         gap: 16px;
@@ -146,7 +149,7 @@ button {
 .divider {
     height: 1px;
     background-color: #eee;
-    margin: 16px 0px;
+   
 }
 
 .footer-menu-container {
