@@ -2,6 +2,7 @@ import React from "react";
 import downChevron from "../assets/down-chevron.svg";
 import search from "../assets/search.svg";
 import notification from "../assets/notification.svg";
+import hamburger from "../assets/notification.svg";
 
 const Header = () => {
     return (
