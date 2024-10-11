@@ -2,8 +2,8 @@ import plus from '../assets/plus.svg';
 
 const PlusButton = () => {
     return(
-        <div class="fixed-button">
-            <img class="plus-button" alt="plus" src={plus} />
+        <div className="fixed-button">
+            <img className="plus-button" alt="plus" src={plus} />
         </div>
     );
 };

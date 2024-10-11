@@ -3,15 +3,15 @@ import search from '../assets/search.svg';
 import menu from '../assets/menu.svg';
 import notification from '../assets/notification.svg';
 
-
-const Header = () => {
+const Header = (props) => { //props 사용
+    const {location} = props.marketModel;
     return(
-        <nav class="header-menu">
-            <div class="address">
-                <div class="address-title">군자동 </div>
-                <img class="expand-arrrow" src={expandArrow} alt="드롭다운 메뉴" />
+        <nav className="header-menu">
+            <div className="address">
+                <div className="address-title">{location}</div>
+                <img className="expand-arrrow" src={expandArrow} alt="드롭다운 메뉴" />
             </div>
-            <div class="header-menu-button">
+            <div className="header-menu-button">
                 <img src={search} alt="검색하기" />
                 <img src={menu} alt="메뉴" />
                 <img src={notification} alt="알림" />

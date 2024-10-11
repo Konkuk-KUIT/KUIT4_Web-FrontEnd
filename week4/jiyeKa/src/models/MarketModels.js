@@ -1,3 +1,9 @@
+import airpodsImg from '../assets/airpodsImg.svg';
+import blanche from '../assets/blanche.svg';
+import sandwich from '../assets/sandwich.svg';
+import iPhone13ProMax from '../assets/iPhone13ProMax.svg';
+import coffeeMachine from '../assets/coffeeMachine.svg';
+
 const marketModel = {
     location: "군자동",
     items: [
@@ -6,7 +12,7 @@ const marketModel = {
         location: "군자동",
         timeAgo: "3일 전",
         price: "220,000원",
-        image: "airpods-pro.png",
+        image: airpodsImg,
         comments: 3,
         likes: 11,
         isSold: true,
@@ -16,7 +22,7 @@ const marketModel = {
         location: "광진구 구의제3동",
         timeAgo: "26초 전",
         price: "4,000원",
-        image: "byredo-blanche.png",
+        image: blanche,
         comments: 0,
         likes: 2,
         isSold: false,
@@ -26,7 +32,7 @@ const marketModel = {
         location: "동대문구 휘경동",
         timeAgo: "끝물 59초 전",
         price: "8,000원",
-        image: "sandwich.png",
+        image: sandwich,
         comments: 0,
         likes: 0,
         isSold: false,
@@ -36,7 +42,7 @@ const marketModel = {
         location: "군자동",
         timeAgo: "1일 전",
         price: "1,000,000원",
-        image: "iphone-13-pro-max.png",
+        image: iPhone13ProMax,
         comments: 0,
         likes: 0,
         isSold: true,
@@ -46,7 +52,7 @@ const marketModel = {
         location: "구리시 교문1동",
         timeAgo: "1초 전",
         price: "100,000원",
-        image: "coffee-machine.png",
+        image: coffeeMachine,
         comments: 0,
         likes: 0,
         isSold: true,
@@ -56,7 +62,7 @@ const marketModel = {
         location: "서울시 화양동",
         timeAgo: "1분전",
         price: "11,000원",
-        image: "coffee-machine.png",
+        image: coffeeMachine,
         comments: 0,
         likes: 0,
         isSold: true,
@@ -66,7 +72,7 @@ const marketModel = {
         location: "광주",
         timeAgo: "13분 전",
         price: "600,000원",
-        image: "coffee-machine.png",
+        image: coffeeMachine,
         comments: 4,
         likes: 12,
         isSold: true,
