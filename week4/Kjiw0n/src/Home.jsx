@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles/index.css";
 import marketModel from "./models/MarketModel";
 import Header from "./components/Header";

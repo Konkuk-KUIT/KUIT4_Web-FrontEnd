@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProductItem = ({
     image,
     image_alt,
