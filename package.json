@@ -9,9 +9,5 @@
   "license": "ISC",
   "devDependencies": {
     "gh-pages": "^6.1.1"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.0"
   }
 }
