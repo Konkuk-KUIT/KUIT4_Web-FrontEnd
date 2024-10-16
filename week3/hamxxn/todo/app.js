@@ -8,6 +8,11 @@ fetch(API_URL)
   .then((data) => renderTodo(data))
   .catch((error) => console.log("error: " + error));
 
+const fetchTodos = async () => {
+  const response = await fetch(API_URL);
+  return await response.json();
+};
+
 const renderTodo = (newTodos) => {
   todoListEl.innerHTML = "";
   newTodos.forEach((todo) => {
@@ -52,9 +57,8 @@ const addTodo = () => {
     .then((response) => response.json())
     .then(() => {
       todoInputEl.value = "";
-      return fetch(API_URL);
+      return fetchTodos();
     })
-    .then((response) => response.json())
     .then((data) => renderTodo(data));
 };
 const deleteTodo = (todoId) => {
@@ -62,38 +66,46 @@ const deleteTodo = (todoId) => {
   fetch(API_URL + "/" + todoId, {
     method: "DELETE",
   })
-    .then(() => fetch(API_URL))
-    .then((response) => response.json())
+    .then(() => fetchTodos())
     .then((data) => renderTodo(data));
 };
-//연필 이모지 누르면 input으로 바뀌고 enter 누르면 바뀜
-const updateTodo = (todoId, originalTitle) => {
-  const todoItem = document.querySelector(`#todo-${todoId}`);
 
+const updateTodo = (todoId, title) => {
+  //id에 해당하는 아이템 불러옴
+  const todoItem = document.querySelector(`#todo-${todoId}`);
+  //input으로 변경
+  todoItem.innerHTML = "";
   const updateInput = document.createElement("input");
   updateInput.type = "text";
-  updateInput.value = originalTitle;
-  todoItem.innerHTML = "";
-
+  updateInput.value = title;
   todoItem.append(updateInput);
-  updateInput.onkeydown = () => {
-    console.log("inner");
+
+  const updateTodoItem = (event) => {
     if (event.key == "Enter") {
-      fetch(API_URL + "/" + todoId, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: updateInput.value,
-        }),
-      })
+      upDateToDoTitle(todoId, updateInput.value)
         .then(() => {
           todoItem.innerHTML = "";
-          return fetch(API_URL);
+          return fetchTodos();
         })
-        .then((response) => response.json())
-        .then((data) => renderTodo(data));
+        .then((data) => renderTodo(data))
+        .catch((error) => {
+          console.log("error: ", error);
+        });
     }
   };
+
+  updateInput.onkeydown = updateTodoItem;
+};
+
+//DB 수정
+const upDateToDoTitle = (todoId, newTitle) => {
+  return fetch(API_URL + "/" + todoId, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: newTitle,
+    }),
+  });
 };
