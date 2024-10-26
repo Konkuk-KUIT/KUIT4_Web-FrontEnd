@@ -27,7 +27,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
           <br></br>
           <input
             type="text"
-            value={product.category}
+            defaultValue={product.category}
             onChange={(e) => handleChange(e.target.value, "category")}
           />
         </td>
@@ -36,7 +36,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
           <br></br>
           <input
             type="text"
-            value={product.price}
+            defaultValue={product.price}
             onChange={(e) => handleChange(e.target.value, "price")}
           />
         </td>
@@ -45,7 +45,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
           <br></br>
           <input
             type="checkbox"
-            checked={product.stocked}
+            defaultChecked={product.stocked}
             onChange={(e) => handleChange(e.target.value, "stocked")}
           />
         </td>
@@ -54,7 +54,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
           <br></br>
           <input
             type="text"
-            value={product.name}
+            defaultValue={product.name}
             onChange={(e) => handleChange(e.target.value, "name")}
           />
         </td>
