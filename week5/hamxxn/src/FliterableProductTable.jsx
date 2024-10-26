@@ -48,8 +48,8 @@ const FilterableProductTable = () => {
   };
 
   const editProduct = (e) => {
-    const changeProduct = product.filter((product) => product.name != e.name);
-    setProduct([...changeProduct, e]);
+    const updatedProducts = product.map((p) => (p.id === e.id ? e : p));
+    setProduct(updatedProducts);
   };
 
   return (
