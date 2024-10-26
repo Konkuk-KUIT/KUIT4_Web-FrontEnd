@@ -42,6 +42,16 @@ const FilterableProductTable = () => {
     setProduct((prev) => [...prev, newProduct]);
   };
 
+  const deleteProduct = (e) => {
+    const newProduct = product.filter((product) => product.id != e.id);
+    setProduct(newProduct);
+  };
+
+  const editProduct = (e) => {
+    const changeProduct = product.filter((product) => product.name != e.name);
+    setProduct([...changeProduct, e]);
+  };
+
   return (
     <div>
       <SearchBar
@@ -54,6 +64,8 @@ const FilterableProductTable = () => {
         product={product}
         filterText={filterText}
         inStockOnly={inStockOnly}
+        deleteProduct={deleteProduct}
+        editProduct={editProduct}
       />
       <InputBar addProduct={addProduct} />
     </div>
