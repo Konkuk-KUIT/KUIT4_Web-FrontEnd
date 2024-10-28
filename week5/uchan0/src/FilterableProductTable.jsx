@@ -43,6 +43,12 @@ const FilterableProductTable = () => {
     setProduct((previousData) => [...previousData, newProduct]);
   };
 
+  const deleteProduct = (doDeleteProduct) => {
+    setProduct((previousData) => {
+      return previousData.filter((item) => item.id !== doDeleteProduct.id);
+    });
+  };
+
   return (
     <div>
       <SearchBar
@@ -55,6 +61,7 @@ const FilterableProductTable = () => {
         product={product}
         filterText={filterText}
         inStockOnly={inStockOnly}
+        onClickDelete={deleteProduct}
       />
       <InputBar addProduct={addProduct} />
     </div>

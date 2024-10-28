@@ -45,9 +45,21 @@ const InputBar = ({ addProduct }) => {
         onChange={(e) => handleChange(e.target.value, "name")}
         placeholder="name..."
       />
-      <button onClick={handleAddNewProduct} type={"button"}>
-        Add!
-      </button>
+      {newProduct.category && newProduct.price && newProduct.name && (
+        <button
+          onClick={handleAddNewProduct}
+          type={"button"}
+          style={{
+            marginLeft: "5px",
+            padding: "5px 10px",
+            border: "1px solid #000",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Add!
+        </button>
+      )}
     </form>
   );
 };
