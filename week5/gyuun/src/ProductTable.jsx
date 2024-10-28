@@ -29,7 +29,7 @@ const groupedProductsByCategory = (products = []) => {
   );
 };
 
-const ProductTable = ({ product, filterText, inStockOnly, ondeleteProduct }) => {
+const ProductTable = ({ product, filterText, inStockOnly, ondeleteProduct,oneditProduct }) => {
   const filteredProducts = filterProducts(product, filterText, inStockOnly);
 
   const gropuedProducts = groupedProductsByCategory(filteredProducts);
@@ -47,7 +47,12 @@ const ProductTable = ({ product, filterText, inStockOnly, ondeleteProduct }) => 
           <React.Fragment key={productCategory.category}>
             <ProductCategoryRow category={productCategory.category} />
             {productCategory.products.map((product) => (
-              <ProductRow key={product.id} product={product} ondeleteProduct={ondeleteProduct} />
+              <ProductRow
+               key={product.id}
+                product={product} 
+                ondeleteProduct={ondeleteProduct}
+                oneditProduct={oneditProduct}
+                />
             ))}
           </React.Fragment>
         ))}

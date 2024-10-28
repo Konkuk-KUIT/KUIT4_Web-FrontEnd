@@ -12,7 +12,7 @@ const SearchBar = ({
   const handleCheckboxChange = (e) => {
     onInStockOnlyChange(e.target.checked);
   };
-
+  
   return (
     <form>
       <input

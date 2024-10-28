@@ -47,7 +47,23 @@ const FilterableProductTable = () => {
     setProduct((previousData) =>
       previousData.filter((product)=> product.id !== deProduct));
   }
- 
+  const editProducts = (editproduct)=>{
+    // console.log("Editing Product:", updatedProduct);
+
+    setProduct((previousData)=>
+      previousData.map((product) =>{
+        if(product.id===editproduct.id) {
+          return {
+            ...product,
+            price: editproduct.price, // 수정된 price 반영
+            stocked: editproduct.stocked,
+             // 수정된 stocked 반영
+          };
+        }
+    else
+    return product
+      }));
+  }
   //deleteProduct
   //EditProduct
   return (
@@ -62,6 +78,7 @@ const FilterableProductTable = () => {
         filterText={filterText}
         inStockOnly={inStockOnly}
         ondeleteProduct={deleteProduct}
+        oneditProduct = {editProducts}
       />
       <InputBar addProduct={addProduct} />
     </div>
