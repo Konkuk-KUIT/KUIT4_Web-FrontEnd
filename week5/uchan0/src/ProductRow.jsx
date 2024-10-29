@@ -26,7 +26,9 @@ const ProductRow = ({ product, onClickDelete, onClickEdit }) => {
 
   const handleDeleteProduct = () => {
     //모달창으로 삭제할 것인지 확인
-    const confirm = window.confirm("정말 삭제하시겠습니까?");
+    const confirm = window.confirm(
+      `${product.name} 제품을 정말 삭제하시겠습니까?`
+    );
     //확인 눌렀을 때만 삭제
     if (confirm) {
       onClickDelete(product);
