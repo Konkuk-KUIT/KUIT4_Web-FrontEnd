@@ -104,7 +104,15 @@ const ProductRow = ({ product, onClickDelete, onClickEdit }) => {
               )}
 
             <button
-              onClick={() => setIsEditMode(false)}
+              onClick={() => {
+                setToEditProduct({
+                  category: "",
+                  price: 0,
+                  stocked: true,
+                  name: "",
+                });
+                setIsEditMode(false);
+              }}
               type={"button"}
               style={{
                 marginLeft: "5px",
