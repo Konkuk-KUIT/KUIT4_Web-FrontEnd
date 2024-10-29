@@ -43,10 +43,24 @@ const FilterableProductTable = () => {
     setProduct((previousData) => [...previousData, newProduct]);
   };
 
+  // 실제 삭제되는 로직 filter함수로 구현
   const deleteProduct = (doDeleteProduct) => {
     setProduct((previousData) => {
       return previousData.filter((item) => item.id !== doDeleteProduct.id);
     });
+  };
+
+  // 실제 수정되는 로직 구현.
+  // ProductRow에서 입력창을 통해 각각의 정보를 입력받고 해당 id를 갖는 제품찾아서 수정.
+  const editProduct = (doEditProduct, category, price, isStocked, name) => {
+    //map() 이용해서 수정할 제품만 전체 객체 배열에서 찾아서 수정.
+    setProduct((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === doEditProduct.id
+          ? { ...product, category, price, stocked: isStocked, name }
+          : product
+      )
+    );
   };
 
   return (
@@ -57,11 +71,14 @@ const FilterableProductTable = () => {
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly}
       />
+
+      {/* deleteProduct, editProduct를 prop으로 넘기기 */}
       <ProductTable
         product={product}
         filterText={filterText}
         inStockOnly={inStockOnly}
         onClickDelete={deleteProduct}
+        onClickEdit={editProduct}
       />
       <InputBar addProduct={addProduct} />
     </div>

@@ -28,7 +28,13 @@ const groupedProductsByCategory = (products = []) => {
   );
 };
 
-const ProductTable = ({ product, filterText, inStockOnly, onClickDelete }) => {
+const ProductTable = ({
+  product,
+  filterText,
+  inStockOnly,
+  onClickDelete,
+  onClickEdit,
+}) => {
   const filteredProducts = filterProducts(product, filterText, inStockOnly);
   const groupedProducts = groupedProductsByCategory(filteredProducts);
   return (
@@ -44,10 +50,12 @@ const ProductTable = ({ product, filterText, inStockOnly, onClickDelete }) => {
           <React.Fragment key={productCategory.category}>
             <ProductCategoryRow category={productCategory.category} />
             {productCategory.products.map((product) => (
+              // onClickDelete, onClickEdit를 ProductRow의 props로 넘겨주기
               <ProductRow
                 key={product.id}
                 product={product}
                 onClickDelete={onClickDelete}
+                onClickEdit={onClickEdit}
               />
             ))}
           </React.Fragment>

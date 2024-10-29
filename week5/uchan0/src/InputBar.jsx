@@ -5,7 +5,7 @@ const InputBar = ({ addProduct }) => {
     id: "0",
     category: "",
     price: 0,
-    stocked: true,
+    stocked: false,
     name: "",
   });
 
@@ -45,6 +45,7 @@ const InputBar = ({ addProduct }) => {
         onChange={(e) => handleChange(e.target.value, "name")}
         placeholder="name..."
       />
+      {/* 상품 정보를 모두 입력하지 않았을 때 Add! 버튼 보이지 않게 수정 */}
       {newProduct.category && newProduct.price && newProduct.name && (
         <button
           onClick={handleAddNewProduct}
