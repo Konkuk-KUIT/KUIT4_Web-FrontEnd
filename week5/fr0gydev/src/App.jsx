@@ -1,7 +1,7 @@
 import React from "react";
-import FilterableProductTable from "./FilterableProductTable";
 
 const App = () => {
-  return <FilterableProductTable />;
+  return <div>App</div>;
 };
+
 export default App;
