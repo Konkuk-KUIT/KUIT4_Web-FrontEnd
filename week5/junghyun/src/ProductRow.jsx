@@ -3,11 +3,9 @@ import React, {useState} from "react";  // eslint-disable-line no-unused-vars
 const ProductRow = ({product, deleteProduct, editProduct}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [edittingProduct, setEditProduct] = useState({...product});
-  console.log(product);
 
   const handleChange = (value, label) => {
     setEditProduct({...edittingProduct, [label]: value});
-    console.log({...edittingProduct});
   };
 
   const handleEditProduct = () => {
