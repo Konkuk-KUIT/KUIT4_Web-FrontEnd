@@ -31,10 +31,10 @@ const groupedProductsByCategory = (products = []) => {
     );
 };
 
-const ProductTable = ({ product, filterText, inStockOnly }) => {
+const ProductTable = ({ product, filterText, inStockOnly, deleteProduct }) => {
     const filteredProducts = filterProducts(product, filterText, inStockOnly);
 
-    const gropuedProducts = groupedProductsByCategory(filteredProducts);
+    const groupedProducts = groupedProductsByCategory(filteredProducts);
 
     return (
         <table>
@@ -45,13 +45,17 @@ const ProductTable = ({ product, filterText, inStockOnly }) => {
                 </tr>
             </thead>
             <tbody>
-                {gropuedProducts.map((productCategory) => (
+                {groupedProducts.map((productCategory) => (
                     <React.Fragment key={productCategory.category}>
                         <ProductCategoryRow
                             category={productCategory.category}
                         />
                         {productCategory.products.map((product) => (
-                            <ProductRow key={product.id} product={product} />
+                            <ProductRow
+                                key={product.id}
+                                product={product}
+                                deleteProduct={deleteProduct}
+                            />
                         ))}
                     </React.Fragment>
                 ))}

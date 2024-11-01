@@ -11,8 +11,11 @@ const FilterableProductTable = ({ product, setProduct }) => {
         setProduct((previousData) => [...previousData, newProduct]);
     };
 
-    // deleteProduct
-    const deleteProduct = () => {};
+    const deleteProduct = (id) => {
+        setProduct((previousData) =>
+            previousData.filter((item) => item.id !== id)
+        );
+    };
 
     // editProduct
     const editProduct = () => {};
@@ -29,6 +32,7 @@ const FilterableProductTable = ({ product, setProduct }) => {
                 product={product}
                 filterText={filterText}
                 inStockOnly={inStockOnly}
+                deleteProduct={deleteProduct}
             />
             <InputBar addProduct={addProduct} />
         </div>
