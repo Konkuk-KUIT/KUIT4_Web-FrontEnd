@@ -101,7 +101,7 @@ const groupedProductsByCategory = ({ products: products = []}) => {
     */
 };
 
-const ProductTable = ({ product, filterText, inStockOnly }) => {
+const ProductTable = ({ product, deleteProduct, filterText, inStockOnly }) => {
     const filteredProducts = filterProducts(product, filterText, inStockOnly);
     
     const groupedProducts = groupedProductsByCategory({ products: filteredProducts });
@@ -120,7 +120,7 @@ const ProductTable = ({ product, filterText, inStockOnly }) => {
                        <ProductCategoryRow category={productCategory.category} />
                        
                        {productCategory.products.map((product) => (
-                           <ProductRow key={product.id} product={product} />
+                           <ProductRow key={product.id} product={product} deleteProduct={deleteProduct} />
                        ))}
                    </React.Fragment>
                ))}
