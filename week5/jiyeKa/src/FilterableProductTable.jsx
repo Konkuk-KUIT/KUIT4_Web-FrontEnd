@@ -60,7 +60,13 @@ const FilterableProductTable = () => {
     setProduct((previousData) => previousData.filter((product) => product.id !== DeleteProduct.id))
   };
 
-  const editProduct = () => {};
+  const editProduct = (id, updatedFields) => {
+    setProduct((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id ? { ...product, ...updatedFields } : product
+      )
+    );
+  };
   return (
     <div>
       <SearchBar 
