@@ -17,8 +17,13 @@ const FilterableProductTable = ({ product, setProduct }) => {
         );
     };
 
-    // editProduct
-    const editProduct = () => {};
+    const editProduct = (id, updatedProduct) => {
+        setProduct((previousData) =>
+            previousData.map((item) =>
+                item.id === id ? { ...item, ...updatedProduct } : item
+            )
+        );
+    };
 
     return (
         <div>
@@ -33,6 +38,7 @@ const FilterableProductTable = ({ product, setProduct }) => {
                 filterText={filterText}
                 inStockOnly={inStockOnly}
                 deleteProduct={deleteProduct}
+                editProduct={editProduct}
             />
             <InputBar addProduct={addProduct} />
         </div>
