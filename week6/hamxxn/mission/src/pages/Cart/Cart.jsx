@@ -1,15 +1,17 @@
 import StatusBar from "../../components/StatusBar/StatusBar";
-import OrderBar from "../../components/OrderBar/OrderBar";
+import Button from "../../components/Button";
 import {
   OrderPayWrapper,
   OrderItemWrapper,
   OrderStore,
   MoreOrderBtn,
+  OrderBar,
 } from "./Cart.styles";
 import Warning from "../../assets/warning.svg";
 import OrderMenuItem from "../../components/OrderMenuItem/OrderMenuItem";
 import { useSearchParams } from "react-router-dom";
 import Plus from "../../assets/plus.svg";
+import BottomBar from "../../assets/bottomBar.svg";
 const Cart = () => {
   const [searchParams] = useSearchParams();
 
@@ -57,7 +59,13 @@ const Cart = () => {
           <p>10,010,600원</p>
         </div>
       </OrderPayWrapper>
-      <OrderBar />
+      <OrderBar>
+        <p>최소 주문금액 13,000원</p>
+        <Button width="350px" height="56px">
+          12,600원 결제하기
+        </Button>
+        <img src={BottomBar} alt="bar" />
+      </OrderBar>
     </>
   );
 };

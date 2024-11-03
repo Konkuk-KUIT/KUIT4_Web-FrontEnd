@@ -74,4 +74,27 @@ const MoreOrderBtn = styled.button`
     margin-right: 5px;
   }
 `;
-export { OrderItemWrapper, OrderPayWrapper, OrderStore, MoreOrderBtn };
+const OrderBar = styled.div`
+  width: var(--width-variable);
+  position: "fixed";
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: "white";
+  > button {
+    opacity: 0.3;
+  }
+
+  > p {
+    margin-bottom: 10px;
+  }
+`;
+export {
+  OrderItemWrapper,
+  OrderPayWrapper,
+  OrderStore,
+  MoreOrderBtn,
+  OrderBar,
+};
