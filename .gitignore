@@ -31,3 +31,7 @@ yarn-debug.log*
 yarn-error.log*
 /.changelog
 .npm/
+
+
+##
+pnpm-lock.yaml
