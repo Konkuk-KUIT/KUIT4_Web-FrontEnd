@@ -7,7 +7,13 @@ const Home = () => {
     <>
       <StatusBar cancel={false} back={false} />
       <Main />
-      <OrderBar />
+      <OrderBar
+        priceDesc="총"
+        btnWidth="84px"
+        btnHeight="38px"
+        btnSize="lg"
+        priceflexdirection="column"
+      />
     </>
   );
 };
