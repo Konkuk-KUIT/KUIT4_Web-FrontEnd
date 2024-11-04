@@ -15,7 +15,7 @@ const OrderContainer = styled.div`
   align-items: center;
   border-radius: 16px 16px 0px 0px;
   box-shadow: 0px -8px 16px 0px #0000001a;
-
+  box-sizing: border-box;
   > .price-desc {
     font-size: 15px;
     font-weight: 400;
@@ -25,6 +25,9 @@ const OrderContainer = styled.div`
     font-size: 17px;
     font-weight: 600;
     color: #4e5968;
+  }
+  > img {
+    height: 34px;
   }
 `;
 

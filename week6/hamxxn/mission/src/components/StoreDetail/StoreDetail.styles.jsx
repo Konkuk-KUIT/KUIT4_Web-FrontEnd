@@ -8,7 +8,6 @@ const StoreImg = styled.div`
   border-radius: 8px;
 `;
 const StoreWrapper = styled.div`
-  height: 116px;
   width: var(--width-variable);
   display: flex;
   padding: 20px 0;
@@ -22,11 +21,13 @@ const StoreDescWrapper = styled.div`
   font-size: 13px;
   font-weight: 500;
   text-align: left;
-
   .bold {
     color: black;
     font-size: 17px;
     font-weight: 600;
+  }
+  > * {
+    margin-bottom: 5px;
   }
 `;
 export { StoreDescWrapper, StoreWrapper, StoreImg };

@@ -1,7 +1,15 @@
 import Button from "../Button";
 import { OrderContainer, PriceWrapper } from "./OrderBar.styles.jsx";
 import BottomBar from "../../assets/bottomBar.svg";
-const OrderBar = () => {
+
+const OrderBar = ({
+  priceDesc,
+  btnDisable,
+  btnWidth,
+  btnHeight,
+  btnSize,
+  flexdirection,
+}) => {
   const menus = [];
   const store = null;
   const handleOrder = () => {};
@@ -14,6 +22,7 @@ const OrderBar = () => {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "white",
+        boxSizing: "border-box",
       }}
     >
       <OrderContainer>

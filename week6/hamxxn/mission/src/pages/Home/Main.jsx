@@ -11,15 +11,17 @@ const Header = styled.div`
     font-size: 26px;
     font-weight: 700;
   }
-  > .addres {
+  > .address {
+    display: flex;
     font-size: 17px;
     font-weight: 500;
-
     > img {
+      margin-left: 5px;
       width: 10px;
     }
   }
 `;
+
 export default function Main() {
   const statusBarHeight = getComputedStyle(
     document.documentElement
@@ -27,8 +29,6 @@ export default function Main() {
   const widthV = getComputedStyle(document.documentElement).getPropertyValue(
     "--width-variable"
   );
-  console.log("main");
-  console.log(widthV);
 
   return (
     <div
@@ -41,7 +41,7 @@ export default function Main() {
       <Header>
         <div className="title">먹지마</div>
         <div className="address">
-          한남중앙로 40길 (한남 빌리지)(으)로 배달
+          <p>한남중앙로 40길 (한남 빌리지)(으)로 배달</p>
           <img src={RigthChevron} alt="?" />
         </div>
       </Header>

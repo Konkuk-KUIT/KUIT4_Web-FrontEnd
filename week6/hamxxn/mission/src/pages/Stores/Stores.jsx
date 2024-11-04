@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "../../components/StatusBar/StatusBar";
 import StoreDetail from "../../components/StoreDetail/StoreDetail";
@@ -11,6 +12,9 @@ const Stores = () => {
     "--width-variable"
   );
 
+  const [searchParams] = useSearchParams();
+
+  const category = searchParams.get("category");
   return (
     <>
       <StatusBar back={true} />
@@ -21,7 +25,7 @@ const Stores = () => {
           width: widthV,
         }}
       >
-        <CategoryTitle>샐러드</CategoryTitle>
+        <CategoryTitle>{category}</CategoryTitle>
         <StoreDetailWrapper>
           <StoreDetail
             name="샐러리 한남점"

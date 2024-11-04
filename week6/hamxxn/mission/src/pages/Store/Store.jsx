@@ -14,6 +14,33 @@ import {
 
 import ColorStar from "../../assets/color-star.svg";
 
+const StoreIntr = ({ store }) => {
+  return (
+    <StoreTitle>
+      <div className="store-name">{store.name}</div>
+      <RatingReviewDisplay>
+        <img src={ColorStar} alt="star img" />
+        <p className="store-rate">{store.rate}</p>
+        <p className="store-review">리뷰 {store.reviewCnt}</p>
+      </RatingReviewDisplay>
+      <StoreDesc>
+        <p>결제 방법</p>
+        <p>토스결제만 현장결제 안됨</p>
+      </StoreDesc>
+      <StoreDesc>
+        <p>최소주문</p>
+        <p>{store.minDeliveryPrice}원</p>
+      </StoreDesc>
+      <StoreDesc>
+        <p>배달시간</p>
+        <p>
+          약 {store.minDeliveryTime}-{store.maxDeliveryTime}분
+        </p>
+      </StoreDesc>
+    </StoreTitle>
+  );
+};
+
 const Store = () => {
   const statusBarHeight = getComputedStyle(
     document.documentElement
@@ -23,8 +50,6 @@ const Store = () => {
   );
 
   const { storeId } = useParams();
-  console.log(storeId);
-
   const store = stores.find((store) => store.id.toString() === storeId);
 
   if (!store) {
@@ -39,30 +64,10 @@ const Store = () => {
           marginTop: statusBarHeight,
           padding: "20px 20px",
           width: widthV,
+          boxSizing: "border-box",
         }}
       >
-        <StoreTitle>
-          <div className="store-name">{store.name}</div>
-          <RatingReviewDisplay>
-            <img src={ColorStar} alt="star img" />
-            <p className="store-rate">{store.rate}</p>
-            <p className="store-review">리뷰 {store.reviewCnt}</p>
-          </RatingReviewDisplay>
-          <StoreDesc>
-            <p>결제 방법</p>
-            <p>토스결제만 현장결제 안됨</p>
-          </StoreDesc>
-          <StoreDesc>
-            <p>최소주문</p>
-            <p>{store.minDeliveryPrice}원</p>
-          </StoreDesc>
-          <StoreDesc>
-            <p>배달시간</p>
-            <p>
-              약 {store.minDeliveryTime}-{store.maxDeliveryTime}분
-            </p>
-          </StoreDesc>
-        </StoreTitle>
+        <StoreIntr store={store} />
         <MenuDetailWrapper>
           <div className="menu-category">샐러드</div>
           {store.menus.map((menu) => {

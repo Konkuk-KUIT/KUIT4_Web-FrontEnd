@@ -4,8 +4,9 @@ const StoreTitle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: var(--width-variable);
+  width: 100%;
   border-bottom: 1px solid #e5e8eb;
+
   > * {
     margin-bottom: 10px;
   }
@@ -18,7 +19,8 @@ const StoreTitle = styled.div`
 const MenuDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: var(--width-variable);
+  width: 100%;
+  box-sizing: border-box;
   margin-top: 30px;
   margin-bottom: var(--order-bar);
   overflow: scroll;

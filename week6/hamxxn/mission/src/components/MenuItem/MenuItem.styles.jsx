@@ -9,7 +9,7 @@ const MenuImg = styled.div`
 `;
 const MenuWrapper = styled.div`
   height: 116px;
-  width: var(--width-variable);
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 20px 0;

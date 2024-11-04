@@ -6,13 +6,12 @@ const MenuItem = ({ menu }) => {
   const navigate = useNavigate();
 
   const handleAddMenu = () => {
-    // 쿼리 파라미터 생성
     const params = new URLSearchParams({
       name: menu.name,
       price: menu.price,
       ingredients: menu.ingredients,
     });
-    console.log(params.toString());
+
     navigate(`/cart?${params.toString()}`);
   };
 

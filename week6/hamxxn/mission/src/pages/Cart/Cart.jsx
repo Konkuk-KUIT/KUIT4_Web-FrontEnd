@@ -1,35 +1,20 @@
+import { useSearchParams } from "react-router-dom";
 import StatusBar from "../../components/StatusBar/StatusBar";
-import Button from "../../components/Button";
+import OrderBar from "../../components/OrderBar/OrderBar";
+
 import {
   OrderPayWrapper,
   OrderItemWrapper,
   OrderStore,
   MoreOrderBtn,
-  OrderBar,
 } from "./Cart.styles";
 import Warning from "../../assets/warning.svg";
 import OrderMenuItem from "../../components/OrderMenuItem/OrderMenuItem";
-import { useSearchParams } from "react-router-dom";
 import Plus from "../../assets/plus.svg";
-import BottomBar from "../../assets/bottomBar.svg";
-const Cart = () => {
-  const [searchParams] = useSearchParams();
 
-  const name = searchParams.get("name");
-  const price = searchParams.get("price");
-  const isBest = searchParams.get("isBest") === "true";
-  const ingredients = searchParams.get("ingredients")?.split(",");
-  const menu = {
-    name,
-    price,
-    isBest,
-    ingredients,
-  };
-  console.log(menu);
-
+const OrderDiv = ({ menu }) => {
   return (
     <>
-      <StatusBar back={true} cancel={true} />
       <OrderItemWrapper>
         <OrderStore>
           <div className="store-name">샐러리 한남점</div>
@@ -44,7 +29,6 @@ const Cart = () => {
           <img src={Plus} alt="plus icon" />
         </MoreOrderBtn>
       </OrderItemWrapper>
-
       <OrderPayWrapper>
         <div className="price">
           <p>주문 금액</p>
@@ -59,13 +43,34 @@ const Cart = () => {
           <p>10,010,600원</p>
         </div>
       </OrderPayWrapper>
-      <OrderBar>
-        <p>최소 주문금액 13,000원</p>
-        <Button width="350px" height="56px">
-          12,600원 결제하기
-        </Button>
-        <img src={BottomBar} alt="bar" />
-      </OrderBar>
+    </>
+  );
+};
+const Cart = () => {
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get("name");
+  const price = searchParams.get("price");
+  const isBest = searchParams.get("isBest") === "true";
+  const ingredients = searchParams.get("ingredients")?.split(",");
+  const menu = {
+    name,
+    price,
+    isBest,
+    ingredients,
+  };
+
+  return (
+    <>
+      <StatusBar back={true} cancel={true} />
+      <OrderDiv menu={menu} />
+      <OrderBar
+        priceDesc="최소"
+        btnDisable={true}
+        btnWidth="350px"
+        btnHeight="56px"
+        flexdirection="row"
+        btnSize="lg"
+      />
     </>
   );
 };

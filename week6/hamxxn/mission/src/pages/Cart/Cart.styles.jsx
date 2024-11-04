@@ -91,10 +91,4 @@ const OrderBar = styled.div`
     margin-bottom: 10px;
   }
 `;
-export {
-  OrderItemWrapper,
-  OrderPayWrapper,
-  OrderStore,
-  MoreOrderBtn,
-  OrderBar,
-};
+export { OrderItemWrapper, OrderPayWrapper, OrderStore, MoreOrderBtn };
