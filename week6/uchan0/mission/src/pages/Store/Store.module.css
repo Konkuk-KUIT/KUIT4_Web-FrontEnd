@@ -1,0 +1,12 @@
+.headerArrow {
+  width: 100%;
+  padding: 7px 0px 10px 10px;
+}
+.storeName {
+  color: #191f28;
+  font-family: Pretendard;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

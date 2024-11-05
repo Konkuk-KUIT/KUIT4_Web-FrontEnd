@@ -1,0 +1,54 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 16px;
+  gap: 17px;
+}
+.storeImg {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #ececec;
+}
+
+.storeRank {
+  color: #333d4b;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 2px;
+}
+.storeName {
+  color: #333d4b;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 5px;
+}
+.scoreContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+.storeScore {
+  color: #6b7684;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.storeDelivery {
+  color: #6b7684;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
