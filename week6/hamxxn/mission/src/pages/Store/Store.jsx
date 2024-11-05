@@ -75,13 +75,7 @@ const Store = () => {
           })}
         </MenuDetailWrapper>
       </div>
-      <OrderBar
-        priceDesc="총"
-        btnWidth="84px"
-        btnHeight="38px"
-        btnSize="lg"
-        priceflexdirection="column"
-      />
+      <OrderBar />
     </>
   );
 };

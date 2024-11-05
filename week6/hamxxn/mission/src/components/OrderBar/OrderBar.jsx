@@ -8,9 +8,7 @@ const OrderBar = ({
   btnWidth,
   btnHeight,
   btnSize,
-  priceflexdirection,
-  divflexdirction,
-  ...props
+  flexdirection,
 }) => {
   const menus = [];
   const store = null;
@@ -27,9 +25,9 @@ const OrderBar = ({
         boxSizing: "border-box",
       }}
     >
-      <OrderContainer divflexdirction={divflexdirction}>
-        <PriceWrapper priceflexdirection={priceflexdirection}>
-          <div className="price-desc">{priceDesc} 주문금액</div>
+      <OrderContainer>
+        <PriceWrapper>
+          <div className="price-desc">총 주문금액</div>
           <div className="price">
             {menus.reduce((acc, cur) => acc + cur.price, 0)}원
           </div>
@@ -37,10 +35,9 @@ const OrderBar = ({
         <Button
           onClick={handleOrder}
           type="button"
-          size={btnSize}
-          width={btnWidth}
-          height={btnHeight}
-          disabled={btnDisable}
+          size="lg"
+          width="100px"
+          height="50px"
         >
           {store?.name && `${store.name}에서 `}주문하기
         </Button>

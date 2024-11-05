@@ -68,9 +68,8 @@ const Cart = () => {
         btnDisable={true}
         btnWidth="350px"
         btnHeight="56px"
-        priceflexdirection="row"
+        flexdirection="row"
         btnSize="lg"
-        divflexdirction="column"
       />
     </>
   );
