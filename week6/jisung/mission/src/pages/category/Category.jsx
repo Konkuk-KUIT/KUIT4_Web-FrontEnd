@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextContainer, StyledText1, StyledText2, CategoryListContainer, CategoryItemContainer, CategoryTextStyle } from './Category.styles'
 import TopBar from '../../components/TopBar/TopBar';
+import DeviceStatus from '../../components/DeviceStatus/DeviceStatusBar';
 import OrderBar from '../../components/OrderBar/OrderBar';
 import pizza from '../../assets/Image/pizza.png'
 
@@ -44,7 +45,7 @@ const Category = () => {
 
   return (
     <div>
-			<TopBar isBackButtonEnabled={false} />
+			<DeviceStatus />
       <CategoryText />
 			<CategoryList />
 			<OrderBar />
