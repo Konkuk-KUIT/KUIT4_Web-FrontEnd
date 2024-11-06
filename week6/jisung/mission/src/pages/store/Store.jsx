@@ -8,12 +8,12 @@ import TopBar from "../../components/TopBar/TopBar";
 import stores from "../../models/stores";
 
 import {
-    StoreInfoContainer,
+  StoreInfoContainer,
   StoreName,
   StoreRate,
   StoreReviewCnt,
   StoreDetailedInfo,
-  MenuCategory
+  MenuCategory,
 } from "./Store.styles";
 
 const Store = () => {
@@ -63,7 +63,7 @@ const Store = () => {
       <MenuCategory>샐러드</MenuCategory>
       <div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} displayMode="order"/>;
+          return <MenuItem key={menu.id} menu={menu} displayMode="order" />;
         })}
       </div>
       <OrderBar />

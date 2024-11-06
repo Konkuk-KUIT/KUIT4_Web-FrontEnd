@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
 export const OrderInfoRow = styled.div`
   display: flex;
@@ -56,7 +56,8 @@ export const PriceInfoRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: ${(props) => (props.$istotalprice ? "16px 24px 18px 24px" : "8px 24px 10px 24px")};
+  padding: ${(props) =>
+    props.$istotalprice ? "16px 24px 18px 24px" : "8px 24px 10px 24px"};
 `;
 
 export const PriceInfoTxt = styled.span`
@@ -80,25 +81,25 @@ export const PaymentContainer = styled.div`
   justify-content: center;
   margin-top: auto;
   margin-bottom: 34px;
-`
+`;
 
 export const MinDeliveryPriceNoti = styled.div`
-      font-family: "Pretendard";
+  font-family: "Pretendard";
   font-size: 17px;
   font-weight: 400;
-  color: #6B7684;
+  color: #6b7684;
   margin-bottom: 19px;
-`
+`;
 
 // 기본값을 false로 설정
 PriceInfoTxt.defaultProps = {
-    istotalprice: "false",
+  istotalprice: "false",
 };
 
 PriceInfoPrice.defaultProps = {
-    istotalprice: "false",
+  istotalprice: "false",
 };
 
 PriceInfoRow.defaultProps = {
-    istotalprice: "false"
+  istotalprice: "false",
 };

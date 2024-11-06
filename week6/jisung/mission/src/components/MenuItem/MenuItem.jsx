@@ -33,14 +33,14 @@ const MenuItem = ({ menu, displayMode }) => {
       </MenuContentWrapper>
       <MenuButtonWrapper>
         {displayMode === "cart" ? (
-            <MenuCartButton> 
-                <span style={{paddingRight: "14px"}}>1개</span> 
-                <img
-                     style={{ width: "16px", height: "16px" }}
-                    src={chevron_right}
-                  alt="Back"
-                 />
-            </MenuCartButton>
+          <MenuCartButton>
+            <span style={{ paddingRight: "14px" }}>1개</span>
+            <img
+              style={{ width: "16px", height: "16px" }}
+              src={chevron_right}
+              alt="Back"
+            />
+          </MenuCartButton>
         ) : (
           <Button onClick={handleAddMenu} type="button" size="sm">
             담기

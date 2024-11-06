@@ -6,7 +6,7 @@ import MenuItem from "../../components/MenuItem/MenuItem";
 import stores from "../../models/stores";
 import Button from "../../components/Button";
 import {
-    CartContainer,
+  CartContainer,
   OrderInfoRow,
   StoreName,
   MinDeliveryPriceAlert,
@@ -64,8 +64,8 @@ const Cart = () => {
           최소 주문 금액 {store.minDeliveryPrice}원
         </MinDeliveryPriceNoti>
         <Button type="button" size="xl" disabled={true}>
-            12,600원 결제하기
-          </Button>
+          12,600원 결제하기
+        </Button>
       </PaymentContainer>
     </CartContainer>
   );

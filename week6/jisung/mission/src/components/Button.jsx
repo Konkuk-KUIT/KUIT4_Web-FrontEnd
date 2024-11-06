@@ -39,4 +39,3 @@ const Button = ({ children, type = "button", size = "sm", disabled }) => {
 };
 
 export default Button;
-                

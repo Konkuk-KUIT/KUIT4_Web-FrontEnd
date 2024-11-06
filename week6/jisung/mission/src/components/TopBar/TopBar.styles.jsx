@@ -19,7 +19,7 @@ export const TopBarBackButton = styled.button`
 `;
 
 export const CancelOrderButton = styled.button`
-white-space: nowrap;
+  white-space: nowrap;
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 600;
@@ -30,4 +30,4 @@ white-space: nowrap;
   padding: 0; /* 기본 패딩 제거 */
   cursor: pointer; /* 마우스 커서 포인터로 설정 */
   outline: none; /* 포커스 outline 제거 */
-`
+`;

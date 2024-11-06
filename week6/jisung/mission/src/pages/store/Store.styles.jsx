@@ -48,9 +48,9 @@ export const StoreDetailedInfo = styled.span`
 `;
 
 export const MenuCategory = styled.div`
-    padding: 28px 0 11px 24px;
-    font-family: "Pretendard";
+  padding: 28px 0 11px 24px;
+  font-family: "Pretendard";
   font-size: 17px;
   font-weight: 600;
-  color: #6B7684;
-`
+  color: #6b7684;
+`;
