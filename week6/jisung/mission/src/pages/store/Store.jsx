@@ -63,7 +63,7 @@ const Store = () => {
       <MenuCategory>샐러드</MenuCategory>
       <div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} menu={menu} displayMode="order"/>;
         })}
       </div>
       <OrderBar />

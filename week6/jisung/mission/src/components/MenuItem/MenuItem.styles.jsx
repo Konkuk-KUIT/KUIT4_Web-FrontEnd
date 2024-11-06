@@ -69,3 +69,20 @@ export const MenuIngredients = styled.div`
 export const MenuButtonWrapper = styled.div`
     padding: 40px 24px 40px 0;
 `
+
+export const MenuCartButton = styled.button`
+        font-family: 'Pretendard';
+    font-size: 15px;
+    font-weight: 400;
+    color: #6B7684;
+    display: flex;
+    align-items: center; // 수직 중앙 정렬
+    padding: 48px 20px 48px 0;
+    
+
+    background: none; /* 배경색 제거 */
+  border: none; /* 테두리 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  cursor: pointer; /* 마우스 커서 포인터로 설정 */
+  outline: none; /* 포커스 outline 제거 */
+`

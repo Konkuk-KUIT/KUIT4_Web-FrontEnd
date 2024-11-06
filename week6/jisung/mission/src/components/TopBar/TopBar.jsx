@@ -2,11 +2,11 @@ import React from "react";
 
 import chevron_left from "../../assets/Image/chevron-left.png";
 
-import { TopBarBackButton } from "./TopBar.styles";
+import { TopBarWrapper, TopBarBackButton, CancelOrderButton } from "./TopBar.styles";
 
 const TopBar = ({ isCancelButtonEnabled }) => {
   return (
-    <div>
+    <TopBarWrapper>
         <TopBarBackButton>
         <img
             style={{ width: "24px", height: "24px" }}
@@ -15,9 +15,9 @@ const TopBar = ({ isCancelButtonEnabled }) => {
           />
         </TopBarBackButton>
       {isCancelButtonEnabled ? (
-        <div> 주문취소 </div>
+        <CancelOrderButton> 주문취소 </CancelOrderButton>
       ) : null}
-    </div>
+    </TopBarWrapper>
   );
 };
 

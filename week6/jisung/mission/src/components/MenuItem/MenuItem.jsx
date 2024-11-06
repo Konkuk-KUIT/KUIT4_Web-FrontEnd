@@ -1,4 +1,5 @@
 import Button from "../Button";
+import chevron_right from "../../assets/Image/chevron-right.png";
 
 import {
   MenuItemContainer,
@@ -11,9 +12,10 @@ import {
   MenuIngredients,
   MenuContentWrapper,
   MenuButtonWrapper,
+  MenuCartButton,
 } from "./MenuItem.styles";
 
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ menu, displayMode }) => {
   const handleAddMenu = () => {};
 
   return (
@@ -30,9 +32,20 @@ const MenuItem = ({ menu }) => {
         </MenuInfoContainer>
       </MenuContentWrapper>
       <MenuButtonWrapper>
-        <Button onClick={handleAddMenu} type="button" size="sm">
-          담기
-        </Button>
+        {displayMode === "cart" ? (
+            <MenuCartButton> 
+                <span style={{paddingRight: "14px"}}>1개</span> 
+                <img
+                     style={{ width: "16px", height: "16px" }}
+                    src={chevron_right}
+                  alt="Back"
+                 />
+            </MenuCartButton>
+        ) : (
+          <Button onClick={handleAddMenu} type="button" size="sm">
+            담기
+          </Button>
+        )}
       </MenuButtonWrapper>
     </MenuItemContainer>
   );
