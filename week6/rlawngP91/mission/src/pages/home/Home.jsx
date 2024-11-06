@@ -20,7 +20,7 @@ const Home = () => {
     ];
 
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.header_container}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>
@@ -38,7 +38,7 @@ const Home = () => {
                     />
                 ))}
             </div>
-        </>
+        </div>
 
     )
 }
