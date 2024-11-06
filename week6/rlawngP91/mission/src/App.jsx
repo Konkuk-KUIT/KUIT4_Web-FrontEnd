@@ -1,4 +1,4 @@
-import Router from "./pages/Router";
+import Router from "./Router";
 import { Normalize } from "styled-normalize";
 
 const App = () => {
