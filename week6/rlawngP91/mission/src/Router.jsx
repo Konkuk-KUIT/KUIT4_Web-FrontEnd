@@ -28,16 +28,10 @@ const Router = () => {
         {
             element: <BottomLayout />,
             children: [
-                { path: "/", element: <Home /> }
+                { path: "/", element: <Home /> }, {path: "/store", element: <Store />}, {path: "/store/:storeId", element: <StoreId />}
             ]
         },
         {
-            path: "/store",
-            element: <Store />
-        }, {
-            path: "/store/:storeId",
-            element: <StoreId />
-        }, {
             path: "/cart",
             element: <Cart />
         }

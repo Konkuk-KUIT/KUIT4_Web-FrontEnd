@@ -1,6 +1,5 @@
 import styles from './Store.module.css';
 import StoreItem from "../../components/menuItem/StoreItem";
-import OrderBar from "../../components/orderBar/OrderBar";
 
 import stores from "../../models/stores";
 
@@ -17,7 +16,6 @@ const Store = () => {
                     <StoreItem key={store.id} store={store} />
                 ))}
             </div>
-            <OrderBar />
         </div>
     );
 };

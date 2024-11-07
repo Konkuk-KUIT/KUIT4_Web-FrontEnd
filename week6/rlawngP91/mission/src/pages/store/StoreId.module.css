@@ -1,0 +1,73 @@
+.titleContainer{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.title{
+    display: flex;
+    padding: 26px 225px 2px 24px;
+    align-items: center;
+    color: #191F28;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.ratingContainer{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    height: 38px;
+    padding-left: 30px;
+    gap: 10px;
+}
+.star{
+    width: 18px;
+    height: 19px;
+    flex-shrink: 0;
+    fill: #FFD158;
+}
+.rating{
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.review{
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.titleSubContainer{
+    display: flex;
+padding: 9px 152px 1px 24px;
+align-items: flex-start;
+gap: 12px;
+}
+.infoStyle{
+    color: #4E5968;
+font-family: Pretendard;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.deliveryContainer{
+    display: flex;
+width: 390px;
+padding: 9px 232px 14px 24px;
+align-items: flex-start;
+gap: 12px;
+}
+.menuItem{
+    padding-bottom: 150px;
+}
