@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Home.module.css";
 import pizzaIcon from "../../assets/foodCategory/pizzaIcon.png";
 import OrderBar from "../../components/OrderBar/OrderBar";
+import CategoryItem from "../../components/categoryItem/CategoryItem";
 
 const foodCategory = [
   {
@@ -67,14 +68,15 @@ const Home = () => {
       </div>
       <div className={styles.categorySets}>
         {foodCategory.map((item, index) => (
-          <div className={styles.categoryBox} key={index}>
-            <img
-              src={item.img}
-              alt={item.category}
-              className={styles.categoryIcon}
-            />
-            <p className={styles.categoryText}>{item.category}</p>
-          </div>
+          // <div className={styles.categoryBox} key={index}>
+          //   <img
+          //     src={item.img}
+          //     alt={item.category}
+          //     className={styles.categoryIcon}
+          //   />
+          //   <p className={styles.categoryText}>{item.category}</p>
+          // </div>
+          <CategoryItem item={item} key={index} />
         ))}
       </div>
       <OrderBar />

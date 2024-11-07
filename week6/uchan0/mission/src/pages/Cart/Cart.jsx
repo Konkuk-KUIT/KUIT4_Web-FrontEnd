@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
-import OrderBar from "../../components/OrderBar/OrderBar";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
 import arrowRightIcon from "../../assets/arrow/arrowRightIcon.png";
 import cautionIcon from "../../assets/Caution.png";
 import plusIcon from "../../assets/PlusIcon.png";
 import Button from "../../components/Button";
+import store from "../../models/stores";
 
 const Cart = () => {
   return (
@@ -22,7 +22,7 @@ const Cart = () => {
       <div className={styles.borderLine}></div>
       <div className={styles.orderContentContainer}>
         <div className={styles.storeContent}>
-          <div className={styles.storeName}>샐로리 한남점</div>
+          <div className={styles.storeName}>{store[0].name}</div>
           <div className={styles.leastPriceContainer}>
             <div className={styles.leastPrice}>최소금액 미달</div>
             <img src={cautionIcon} alt="최소금액 미달" />
@@ -32,11 +32,13 @@ const Cart = () => {
           <div className={styles.menuInfo}>
             <div className={styles.menuImg}></div>
             <div className={styles.menuContent}>
-              <div className={styles.menuName}>토마토 샐러드</div>
+              <div className={styles.menuName}>{store[0].menus[0].name}</div>
               <div className={styles.menuSelect}>
-                추천소스, 채소볼, 베이컨추가, 시저드레싱 추가
+                {store[0].menus[0].ingredients}
               </div>
-              <div className={styles.menuPrice}>10,600원</div>
+              <div className={styles.menuPrice}>
+                {(store[0].menus[0].price + 3000).toLocaleString()}원
+              </div>
             </div>
           </div>
 
@@ -54,21 +56,37 @@ const Cart = () => {
       <div className={styles.orderResultContainer}>
         <div className={styles.orderPriceContainer}>
           <div className={styles.priceText}>주문금액</div>
-          <div className={styles.price}>10,600원</div>
+          <div className={styles.price}>
+            {(store[0].menus[0].price + 3000).toLocaleString()}원
+          </div>
         </div>
         <div className={styles.orderPriceContainer}>
           <div className={styles.priceText}>배달요금</div>
-          <div className={styles.price}>2,000원</div>
+          <div className={styles.price}>
+            {store[0].deliveryFee.toLocaleString()}원
+          </div>
         </div>
         <div className={styles.totalPriceContainer}>
           <div className={styles.totalPriceText}>총 결제금액</div>
-          <div className={styles.totalPrice}>12,600원</div>
+          <div className={styles.totalPrice}>
+            {(
+              store[0].menus[0].price +
+              3000 +
+              store[0].deliveryFee
+            ).toLocaleString()}
+            원
+          </div>
         </div>
       </div>
       <div className={styles.finalOrderContainer}>
         <div className={styles.finalLeastPrice}>최소 주문금액 13,000원</div>
         <Button type="button" size="xl" disabled={true}>
-          12,600원 결제하기
+          {(
+            store[0].menus[0].price +
+            3000 +
+            store[0].deliveryFee
+          ).toLocaleString()}
+          원 결제하기
         </Button>
       </div>
     </div>
