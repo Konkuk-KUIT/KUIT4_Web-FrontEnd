@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Page from "./page/Page";
-import PageId from "./pageId/PageId";
-import Home from "./home/Home";
+import PageId from "./PageId/PageId";
+import Home from "./home/home";
 
 const Layout = () => {
   return (
