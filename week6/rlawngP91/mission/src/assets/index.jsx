@@ -10,3 +10,4 @@ export { default as pastaIcon } from './pasta.png';
 export { default as dessertIcon } from './dessert.png';
 export { default as cokeIcon } from './coke.png';
 export { default as moreIcon } from './more.png';
+export {default as starIcon } from './star.svg';

@@ -1,25 +1,21 @@
-import { useParams } from "react-router-dom";
-
-import MenuItem from "../../components/menuItem/MenuItem";
+import styles from './Store.module.css';
+import StoreItem from "../../components/menuItem/StoreItem";
 import OrderBar from "../../components/orderBar/OrderBar";
 
 import stores from "../../models/stores";
 
 const Store = () => {
-    const { storeId } = useParams();
-    const store = stores.find((store) => store.id.toString() === storeId);
-
-    if (!store) {
+    if (!stores) {
         return <div>가게를 찾을 수 없어요 🥺</div>;
     }
 
     return (
-        <div>
-            <h1>{store.name}</h1>
-            <div>
-                {store.menus.map((menu) => {
-                    return <MenuItem key={menu.id} menu={menu} />;
-                })}
+        <div className={styles.container}>
+            <h1 className={styles.categoryTitle}>샐러드</h1>
+            <div className={styles.storeList}>
+                {stores.map((store) => (
+                    <StoreItem key={store.id} store={store} />
+                ))}
             </div>
             <OrderBar />
         </div>

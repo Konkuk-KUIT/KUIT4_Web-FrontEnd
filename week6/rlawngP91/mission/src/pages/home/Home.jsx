@@ -1,6 +1,6 @@
 import * as icons from '../../assets';
 import styles from './Home.module.css';
-import HomeMenuItem from '../../components/menuItem/HomeMenuItem'
+import HomeStoreItem from '../../components/menuItem/HomeStoreItem'
 
 
 const Home = () => {
@@ -31,7 +31,7 @@ const Home = () => {
             </div>
             <div className={styles.menu_grid}>
                 {menuItems.map((item, index) => (
-                    <HomeMenuItem
+                    <HomeStoreItem
                         key={index}
                         icon={item.icon}
                         label={item.label}
