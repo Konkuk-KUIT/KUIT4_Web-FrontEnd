@@ -14,6 +14,15 @@ const HeaderLayout = () => {
         </>
     );
 };
+const StoreLayout = () => {
+    return (
+        <>
+            <Header />
+            <Outlet />
+            <OrderBar />
+        </>
+    );
+};
 const BottomLayout = () => {
     return (
         <>
@@ -28,12 +37,20 @@ const Router = () => {
         {
             element: <BottomLayout />,
             children: [
-                { path: "/", element: <Home /> }, {path: "/store", element: <Store />}, {path: "/store/:storeId", element: <StoreId />}
+                { path: "/", element: <Home /> }
             ]
         },
         {
-            path: "/cart",
-            element: <Cart />
+            element: <StoreLayout />,
+            children: [
+                {path: "/store", element: <Store />}, {path: "/store/:storeId", element: <StoreId />}
+            ]
+        },
+        {
+            element: <HeaderLayout />,
+            children: [
+                {path: "/cart", element: <Cart />}
+            ]
         }
     ]);
     return <RouterProvider router={router} />;

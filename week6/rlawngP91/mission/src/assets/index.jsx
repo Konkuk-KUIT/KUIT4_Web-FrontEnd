@@ -11,4 +11,5 @@ export { default as dessertIcon } from './dessert.png';
 export { default as cokeIcon } from './coke.png';
 export { default as moreIcon } from './more.png';
 export { default as menuImgIcon } from './thumbnail.png';
-export {default as starIcon } from './star.svg';
+export { default as starIcon } from './star.svg';
+export { default as backBtn } from './back-arrow.png';
