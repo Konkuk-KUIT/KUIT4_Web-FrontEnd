@@ -110,8 +110,6 @@ section {
 }
 body {
 		line-height: 1;
-		width: 390px;
-		height: 844px;
 	}
 ol,
 ul {

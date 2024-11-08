@@ -1,19 +1,9 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home/Home";
 import Stores from "./Stores/Stores";
 import Store from "./Store/Store";
 import Cart from "./Cart/Cart";
-
-const Layout = () => {
-  return (
-    <>
-      <header>
-        <img src="StatusBar.svg" alt="statusBar image" />
-      </header>
-      <Outlet />
-    </>
-  );
-};
+import Layout from "./Router/Layout";
 
 const Router = () => {
   const router = createBrowserRouter([
