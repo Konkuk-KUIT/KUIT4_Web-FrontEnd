@@ -1,0 +1,62 @@
+.storeList {
+    padding: 26px 298px 2px 24px;
+}
+
+.storeCategory {
+    color: #191F28;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.storesContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.store {
+    display: flex;
+    align-items: flex-start;
+}
+
+.storeImage {
+    width: 54px;
+    height: 54px;
+    padding-top: 16px;
+    padding-left: 24px;
+}
+
+.storeContent {
+    display: flex;
+    flex-direction: column;
+    gap:2px
+}
+
+.storeRank {
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.storeName {
+    color: #333D4B;
+font-family: Pretendard;
+font-size: 17px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.storeDetail {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
