@@ -10,7 +10,7 @@ const Layout = () => {
     <Wrapper>
       <header>
         <img
-          src="StatusBar.svg"
+          src="/StatusBar.svg"
           alt="statusBar image"
           style={{ width: "390px", height: "47px" }}
         />

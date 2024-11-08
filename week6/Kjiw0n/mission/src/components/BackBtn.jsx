@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BackBtn = ({ onClick }) => {
-  return <Back src="arrowBack.svg" alt="back icon" onClick={onClick} />;
+  return <Back src="/arrowBack.svg" alt="back icon" onClick={onClick} />;
 };
 export default BackBtn;
 
