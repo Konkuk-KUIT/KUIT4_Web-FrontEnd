@@ -8,6 +8,7 @@ const MenuItem = ({ menu }) => {
   return (
     <MenuItemContainer>
       <MenuItemImage />
+
       <MenuItemWrapper>
         <ItemTitleWrapper>
           <ItemTitle>{menu.name}</ItemTitle>
@@ -20,6 +21,7 @@ const MenuItem = ({ menu }) => {
           {menu.ingredients}
         </ItemContent>
       </MenuItemWrapper>
+
       <Button onClick={handleAddMenu} type="button" size="sm">
         담기
       </Button>

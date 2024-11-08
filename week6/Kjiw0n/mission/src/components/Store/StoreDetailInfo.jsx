@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { Title, GrayContent } from "../../styles/FontStyle";
 import StarIcon from "/src/assets/Star1.svg";
 
+const storeDescriptions = [
+  { label: "결제방법", value: "토스결제만 현장결제 안됨" },
+  { label: "최소주문", value: "13,000원" },
+  { label: "배달시간", value: "약 15-25분" },
+];
+
 const StoreDetailInfo = () => {
   return (
     <StoreDetailInfoContainer>
@@ -13,18 +19,12 @@ const StoreDetailInfo = () => {
       </StoreReview>
 
       <StoreDescContainer>
-        <StoreDescWrapper>
-          <Desc>결제방법 </Desc>
-          <Desc>토스결제만 현장결제 안됨 </Desc>
-        </StoreDescWrapper>
-        <StoreDescWrapper>
-          <Desc>최소주문 </Desc>
-          <Desc>13,000원 </Desc>
-        </StoreDescWrapper>
-        <StoreDescWrapper>
-          <Desc>배달시간 </Desc>
-          <Desc>약 15-25분 </Desc>
-        </StoreDescWrapper>
+        {storeDescriptions.map((desc, index) => (
+          <StoreDescWrapper key={index}>
+            <Desc>{desc.label}</Desc>
+            <Desc>{desc.value}</Desc>
+          </StoreDescWrapper>
+        ))}
       </StoreDescContainer>
     </StoreDetailInfoContainer>
   );
