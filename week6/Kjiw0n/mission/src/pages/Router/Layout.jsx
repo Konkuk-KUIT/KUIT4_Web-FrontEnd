@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import BottomBar from "../BottomBar";
 import OrderBar from "../../components/OrderBar/OrderBar";
+import StatusBar from "/src/assets/StatusBar.svg";
 
 const Layout = () => {
   const location = useLocation();
@@ -9,11 +10,7 @@ const Layout = () => {
   return (
     <Wrapper>
       <header>
-        <img
-          src="/StatusBar.svg"
-          alt="statusBar image"
-          style={{ width: "390px", height: "47px" }}
-        />
+        <StatusBar style={{ width: "390px", height: "47px" }} />
       </header>
       <Outlet />
       {location.pathname !== "/cart" && <OrderBar />}

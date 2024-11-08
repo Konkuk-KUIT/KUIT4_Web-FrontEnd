@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import ArrowBack from "/src/assets/arrowBack.svg";
 
 const BackBtn = ({ onClick }) => {
-  return <Back src="/arrowBack.svg" alt="back icon" onClick={onClick} />;
+  return <Back onClick={onClick} />;
 };
 export default BackBtn;
 
-const Back = styled.img`
+const Back = styled(ArrowBack)`
   width: 24px;
   height: 24px;
   cursor: pointer;

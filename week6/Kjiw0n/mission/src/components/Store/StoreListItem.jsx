@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ItemTitle, ItemContent } from "../../styles/FontStyle";
 import { useNavigate } from "react-router-dom";
+import StarIcon from "/src/assets/Star1.svg";
 
 const StoreListItem = ({ store }) => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const StoreListItem = ({ store }) => {
 
   return (
     <StoreListItemContainer onClick={handleClick}>
-      <ItemImg src="http://placehold.co/54" />
+      <ItemImg />
 
       <ItemInfoContainer>
         <ItemTitle>
@@ -20,11 +21,7 @@ const StoreListItem = ({ store }) => {
         </ItemTitle>
 
         <ItemReviewContainer>
-          <img
-            src="Star1.svg"
-            alt="star icon"
-            style={{ width: "13.6px", height: "13.6px" }}
-          />
+          <StarIcon style={{ width: "13.6px", height: "13.6px" }} />
           <ItemContent>
             {store.rate} ({store.reviewCnt.toLocaleString()})
           </ItemContent>
@@ -47,9 +44,15 @@ const StoreListItemContainer = styled.div`
   align-items: flex-start;
   gap: 17px;
   padding: 16px 24px;
+  cursor: pointer;
 `;
 
-const ItemImg = styled.img``;
+const ItemImg = styled.img`
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  background: #ececec;
+`;
 
 const ItemInfoContainer = styled.div`
   display: flex;
@@ -61,5 +64,6 @@ const ItemReviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 3px;
   margin: 2px 0;
 `;
