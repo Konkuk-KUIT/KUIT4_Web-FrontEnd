@@ -41,6 +41,7 @@ const HomeTextWrapper = styled.section`
   padding: 25px 68px 4px 24px;
   flex-direction: column;
   align-items: flex-start;
+  gap: 13px;
 `;
 
 const Content = styled.p`

@@ -26,3 +26,12 @@ export const ItemContent = styled.p`
   font-weight: 500;
   line-height: normal;
 `;
+
+export const GrayContent = styled.p`
+  color: #4e5968;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;

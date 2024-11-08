@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Title } from "../../styles/FontStyle";
+import { Title, GrayContent } from "../../styles/FontStyle";
 import StarIcon from "/src/assets/Star1.svg";
 
 const StoreDetailInfo = () => {
@@ -8,7 +8,7 @@ const StoreDetailInfo = () => {
       <Title>샐로디 한남점</Title>
       <StoreReview>
         <ReviewIcon />
-        <ReviewScore>4.9</ReviewScore>
+        <GrayContent>4.9</GrayContent>
         <ReviewCnt>리뷰3,919</ReviewCnt>
       </StoreReview>
 
@@ -53,14 +53,6 @@ const ReviewIcon = styled(StarIcon)`
   }
 `;
 
-const ReviewScore = styled.p`
-  color: #4e5968;
-  font-family: Pretendard;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
 const ReviewCnt = styled.p`
   color: #4e5968;
   font-family: Pretendard;

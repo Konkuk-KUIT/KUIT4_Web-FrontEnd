@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
+import { GrayContent } from "../../styles/FontStyle";
 
 const OrderBar = ({ menus = [], store = null }) => {
   const navigate = useNavigate();
@@ -13,9 +14,9 @@ const OrderBar = ({ menus = [], store = null }) => {
     <OrderBarContainer>
       <OrderBarTextWrapper>
         <OrderBarTitle>총 주문금액</OrderBarTitle>
-        <TotalPrice>
+        <GrayContent>
           {menus.reduce((acc, cur) => acc + cur.price, 0).toLocaleString()}원
-        </TotalPrice>
+        </GrayContent>
       </OrderBarTextWrapper>
       <Button onClick={handleOrder} size="lg">
         {store?.name ? `${store.name}에서 ` : ""}주문하기
@@ -53,14 +54,5 @@ const OrderBarTitle = styled.h4`
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
-`;
-
-const TotalPrice = styled.p`
-  color: #4e5968;
-  font-family: Pretendard;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
   line-height: normal;
 `;
