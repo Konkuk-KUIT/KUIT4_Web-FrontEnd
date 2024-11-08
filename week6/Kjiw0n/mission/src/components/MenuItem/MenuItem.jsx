@@ -16,7 +16,9 @@ const MenuItem = ({ menu }) => {
           )}
         </ItemTitleWrapper>
         <ItemContent>{menu.price.toLocaleString()}원</ItemContent>
-        <ItemContent>{menu.ingredients}</ItemContent>
+        <ItemContent style={{ wordBreak: "keep-all" }}>
+          {menu.ingredients}
+        </ItemContent>
       </MenuItemWrapper>
       <Button onClick={handleAddMenu} type="button" size="sm">
         담기
