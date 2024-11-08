@@ -1,0 +1,151 @@
+.container {
+    padding: 0;
+    background: #f8f8f8;
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+  }
+  
+  .storeName {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .minOrderAlert {
+    color: #ff3d3d;
+    font-size: 13px;
+  }
+  
+  .cartItem {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #f2f2f2;
+    align-items: flex-start;
+  }
+  
+  .imageContainer {
+    width: 54px;
+    height: 54px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  .itemInfo {
+    flex: 1;
+  }
+  
+  .itemHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .itemName {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .quantity {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .rightArrow {
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .itemOptions {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 8px 0;
+  }
+  
+  .itemPrice {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .addMoreButton {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: white;
+    color: #4a7aff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    margin: 12px 0;
+  }
+  
+  .priceInfo {
+    background: white;
+    padding: 20px;
+  }
+  
+  .priceRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .priceRow:last-child {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .minOrderPrice {
+    position: fixed;
+    bottom: 70px;
+    left: 70px;
+    right: 70px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    padding: 20px;
+  }
+  
+  .orderButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 16px;
+    background: #D0DFFB;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 56px;
+  }
+
+  .cancelButton {
+    border: none;
+    background: none;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 0;
+  }
