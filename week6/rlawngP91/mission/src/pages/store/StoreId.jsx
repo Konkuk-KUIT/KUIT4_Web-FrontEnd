@@ -16,7 +16,7 @@ const StoreId = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
         <div className={styles.titleContainer}>
               <h1 className={styles.title}>{store.name}</h1>
               <span className={styles.ratingContainer}>
