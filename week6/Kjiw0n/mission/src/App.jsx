@@ -1,4 +1,4 @@
-import Router from "./pages/Router";
+import Router from "./pages/Router/Router";
 import { Normalize } from "styled-normalize";
 import GlobalStyle from "./styles/GlobalStyle";
 
