@@ -11,7 +11,7 @@ const Stores = () => {
   return (
     <div>
       <BackBtn onClick={() => navigate(-1)} />
-      <Title>샐러드</Title>
+      <Title style={{ margin: "26px 0 2px 24px" }}>샐러드</Title>
 
       <StoreList>
         {stores.map((store, index) => (
@@ -26,5 +26,5 @@ export default Stores;
 
 const StoreList = styled.section`
   height: 558px;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;

@@ -2,14 +2,29 @@ import styled from "styled-components";
 import CartItem from "../../components/Cart/CartItem";
 import Button from "../../components/Button";
 import BackBtn from "../../components/BackBtn";
+import { useNavigate } from "react-router-dom";
+import WarnningIcon from "/src/assets/WarnningIcon.svg";
+import { useState } from "react";
 
 const Cart = () => {
+  const navigate = useNavigate();
+  const [isUnderMinimumPrice, setIsUnderMinimumPrice] = useState(true);
+
   return (
     <CartContainer>
-      <BackBtn />
+      <CartHeader>
+        <BackBtn onClick={() => navigate(-1)} />
+        <Cancle>주문 취소</Cancle>
+      </CartHeader>
       <Line></Line>
 
       <CartItemContainer>
+        {isUnderMinimumPrice && (
+          <WarnningContainer>
+            <p>최소금액 미달</p>
+            <WarnningIcon style={{ width: "13px", height: "13px" }} />
+          </WarnningContainer>
+        )}
         <StoreName>샐로리 한남점</StoreName>
         <CartItem />
         <Line1></Line1>
@@ -34,7 +49,12 @@ const Cart = () => {
       </CartInfoContainer>
 
       <BtnContainer>
-        <Button size="xl">12,600원 결제하기</Button>
+        {isUnderMinimumPrice && (
+          <MinimumPriceInfo>최소 주문금액 13,000원</MinimumPriceInfo>
+        )}
+        <Button size="xl" disabled={isUnderMinimumPrice}>
+          12,600원 결제하기
+        </Button>
       </BtnContainer>
     </CartContainer>
   );
@@ -45,6 +65,22 @@ export default Cart;
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const CartHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 15px 10px 10px;
+`;
+
+const Cancle = styled.p`
+  color: #333d4b;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 
 const Line = styled.div`
@@ -58,6 +94,27 @@ const CartItemContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 26px 0 0 24px;
+  position: relative;
+`;
+
+const WarnningContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 30px;
+  right: 25px;
+
+  p {
+    color: #f04452;
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
 `;
 
 const StoreName = styled.p`
@@ -155,8 +212,20 @@ const CartTotalPrice = styled.p`
 
 const BtnContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 19px;
   width: 100%;
   justify-content: center;
   position: absolute;
   bottom: 12px;
+`;
+
+const MinimumPriceInfo = styled.p`
+  color: #6b7684;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;

@@ -42,7 +42,7 @@ const Line = styled.div`
   height: 1px;
   background: #e5e8eb;
 
-  margin: 14px 0 26px 0;
+  margin-bottom: 26px;
 `;
 
 const CategoryTitle = styled.h4`
@@ -58,4 +58,5 @@ const CategoryTitle = styled.h4`
 
 const MenuItemWrapper = styled.div`
   height: 445px;
+  overflow-y: auto;
 `;
