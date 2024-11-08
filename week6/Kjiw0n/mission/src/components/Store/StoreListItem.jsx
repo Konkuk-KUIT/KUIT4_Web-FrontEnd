@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { ItemTitle, ItemContent } from "../../styles/FontStyle";
 
-const StoreListItem = () => {
+const StoreListItem = ({ store }) => {
   return (
     <StoreListItemContainer>
       <ItemImg src="http://placehold.co/54" />
 
       <ItemInfoContainer>
         <ItemTitle>
-          1위 <br />
-          샐로리 한남점
+          {store.id}위 <br />
+          {store.name}
         </ItemTitle>
 
         <ItemReviewContainer>
@@ -18,9 +18,14 @@ const StoreListItem = () => {
             alt="star icon"
             style={{ width: "13.6px", height: "13.6px" }}
           />
-          <ItemContent>4.9 (3,919)</ItemContent>
+          <ItemContent>
+            {store.rate} ({store.reviewCnt.toLocaleString()})
+          </ItemContent>
         </ItemReviewContainer>
-        <ItemContent>13분~30분 ∙ 배달비 2,000원</ItemContent>
+        <ItemContent>
+          {store.minDeliveryTime}분~{store.maxDeliveryTime}분 ∙ 배달비{" "}
+          {store.deliveryFee.toLocaleString()}
+        </ItemContent>
       </ItemInfoContainer>
     </StoreListItemContainer>
   );

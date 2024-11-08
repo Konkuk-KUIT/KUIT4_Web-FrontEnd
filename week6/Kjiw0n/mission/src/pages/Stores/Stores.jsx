@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Title } from "../../styles/FontStyle";
 import StoreListItem from "../../components/Store/StoreListItem";
+import stores from "../../models/stores";
 
 const Stores = () => {
   return (
@@ -9,16 +10,9 @@ const Stores = () => {
       <Title>샐러드</Title>
 
       <StoreList>
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
-        <StoreListItem />
+        {stores.map((store, index) => (
+          <StoreListItem key={index} store={store} />
+        ))}
       </StoreList>
     </div>
   );
