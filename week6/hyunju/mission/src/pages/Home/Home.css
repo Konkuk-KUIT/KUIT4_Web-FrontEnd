@@ -1,0 +1,31 @@
+.food-menu-container{
+    height: 844px;
+}
+.header-name{
+    color: #191f28;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 26px;
+    font-weight: 700;
+}
+.title{
+    color: #191f28;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 26px;
+    font-weight: 700;
+}
+.sub-title{
+    color: #333d4b;
+    font-family: "Pretendard-Medium", Helvetica;
+    font-size: 17px;
+    font-weight: 500;
+}
+.item-name{letter-spacing: normal;
+    color: #333d4b;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 14px;
+    font-weight: 600;
+}
+.grid-container{
+    width: 342px;
+    height: 326px;
+}
