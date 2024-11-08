@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import BottomBar from "../BottomBar";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "/src/assets/StatusBar.svg";
 
