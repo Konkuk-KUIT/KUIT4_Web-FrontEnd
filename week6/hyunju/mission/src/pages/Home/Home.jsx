@@ -1,10 +1,10 @@
 // import Button from 'src/components/Button/Button.jsx';
-// import styles from './Home.module.css';
+import styles from './Home.module.css';
 import OrderBar from '../../components/OrderBar/OrderBar'
 
 
 const Home = () => {
-  const food = [
+  const foodOptions = [
     { name: '피자', icon: '🍕' },
     { name: '샐러드', icon: '🥗' },
   
