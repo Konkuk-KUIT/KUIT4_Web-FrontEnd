@@ -2,11 +2,15 @@ import styled from "styled-components";
 import { Title } from "../../styles/FontStyle";
 import StoreListItem from "../../components/Store/StoreListItem";
 import stores from "../../models/stores";
+import BackBtn from "../../components/BackBtn";
+import { useNavigate } from "react-router-dom";
 
 const Stores = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
-      <Back src="arrowBack.svg" alt="arrow back icon" style={{}} />
+      <BackBtn onClick={() => navigate(-1)} />
       <Title>샐러드</Title>
 
       <StoreList>
@@ -19,13 +23,6 @@ const Stores = () => {
 };
 
 export default Stores;
-
-const Back = styled.img`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  padding: 10px;
-`;
 
 const StoreList = styled.section`
   height: 558px;

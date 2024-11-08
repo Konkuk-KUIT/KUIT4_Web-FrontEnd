@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import { ItemTitle, ItemContent } from "../../styles/FontStyle";
+import { useNavigate } from "react-router-dom";
 
 const StoreListItem = ({ store }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/store/${store.id}`);
+  };
+
   return (
-    <StoreListItemContainer>
+    <StoreListItemContainer onClick={handleClick}>
       <ItemImg src="http://placehold.co/54" />
 
       <ItemInfoContainer>

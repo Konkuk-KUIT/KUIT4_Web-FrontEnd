@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const FoodCategory = ({ category }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // api 연결 시 수정 필요
+    navigate(`/store`);
+  };
+
   return (
-    <FoodCategoryContainer>
+    <FoodCategoryContainer onClick={handleClick}>
       <FoodCategoryImage src={category.img} alt={category.imgAlt} />
       <FoodCategoryName>{category.name}</FoodCategoryName>
     </FoodCategoryContainer>
@@ -21,6 +29,7 @@ const FoodCategoryContainer = styled.div`
   gap: 4px;
   border-radius: 8px;
   background: #fafafb;
+  cursor: pointer;
 `;
 
 const FoodCategoryImage = styled.img`
