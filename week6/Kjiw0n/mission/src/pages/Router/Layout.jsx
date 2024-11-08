@@ -1,8 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import BottomBar from "../BottomBar";
+import OrderBar from "../../components/OrderBar/OrderBar";
 
 const Layout = () => {
+  const location = useLocation();
+
   return (
     <Wrapper>
       <header>
@@ -13,7 +16,7 @@ const Layout = () => {
         />
       </header>
       <Outlet />
-      {location.pathname !== "/cart" && <BottomBar />}
+      {location.pathname !== "/cart" && <OrderBar />}
     </Wrapper>
   );
 };
