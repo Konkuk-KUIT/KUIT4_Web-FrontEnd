@@ -13,3 +13,5 @@ export { default as moreIcon } from './more.png';
 export { default as menuImgIcon } from './thumbnail.png';
 export { default as starIcon } from './star.svg';
 export { default as backBtn } from './back-arrow.png';
+export { default as exclamation } from './exclamation.svg';
+export { default as menuDetail } from './menudetail.png';
