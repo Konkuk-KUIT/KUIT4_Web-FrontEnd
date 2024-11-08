@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FoodCategory from "../../components/Home/FoodCategory";
+import { Title } from "../../styles/FontStyle";
 
 const dummyCategories = [
   { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
@@ -40,15 +41,6 @@ const HomeTextWrapper = styled.section`
   padding: 25px 68px 4px 24px;
   flex-direction: column;
   align-items: flex-start;
-`;
-
-const Title = styled.h1`
-  color: #191f28;
-  font-family: Pretendard;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 `;
 
 const Content = styled.p`
