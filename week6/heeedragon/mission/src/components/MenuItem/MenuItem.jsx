@@ -1,5 +1,6 @@
-import React from 'react'
-import Button from '../Button'; 
+import React from 'react';
+import Button from '../Button';
+import styles from "./MenuItem.module.css";
 
 const MenuItem = ({ menu }) => {
     const handleAddMenu = () => {
@@ -7,12 +8,17 @@ const MenuItem = ({ menu }) => {
     };
 
     return (
-        <div>
-            <h3>{menu.name}</h3>
-            <span>{menu.price}</span>
-            <p>{menu.ingredients}</p>
-            <Button onClick={handleAddMenu} type="button" size="sm">담기</Button>
-        </div>
+        <>
+            <div className={styles.menuRow}>
+                <img className={styles.menuImg}></img>
+                <div className={styles.menuContainer}>
+                    <div className={styles.menuName}>{menu.name}</div>
+                    <div className={styles.menuPrice}>{menu.price}원</div>
+                    <div className={styles.menuIngredients}>{menu.ingredients}</div>
+                </div>
+                <Button onClick={handleAddMenu} type="button" size="sm">담기</Button>
+            </div>
+        </>
     );
 };
 
