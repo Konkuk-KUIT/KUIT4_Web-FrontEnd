@@ -1,10 +1,11 @@
 import Button from "../Button";
 import { OrderContainer, PriceWrapper } from "./OrderBar.styles.jsx";
 import BottomBar from "../../assets/bottomBar.svg";
+import useCartStore from "../../pages/Store/cartStore.jsx";
 
 const OrderBar = () => {
-  const menus = [];
-  const store = null;
+  const menus = useCartStore((state) => state.menus);
+  const store = useCartStore((state) => state.store);
   const handleOrder = () => {};
 
   return (

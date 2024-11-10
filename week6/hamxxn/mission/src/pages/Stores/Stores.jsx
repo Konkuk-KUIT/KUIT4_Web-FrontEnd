@@ -41,7 +41,7 @@ const Stores = () => {
         <CategoryTitle>{category}</CategoryTitle>
         <StoreDetailWrapper>
           {sortStores.map((store) => (
-            <StoreDetail store={store} />
+            <StoreDetail key={store.id} store={store} />
           ))}
         </StoreDetailWrapper>
       </div>
