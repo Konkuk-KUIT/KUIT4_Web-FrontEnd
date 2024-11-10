@@ -33,7 +33,7 @@ const MenuItem = ({ menu }) => {
           fontSize:"14px",
           fontWeight: "600",
           margin: 0
-        }}>{menu.name}</p>
+        }}>{menu.name}{menu.id === 1 && <span style={{ color: "#3182F6" }}> BEST</span>}</p>
         <span style={{
           height:"16px",
           fontSize:"13px",
