@@ -4,6 +4,7 @@ import styles from "./Cart.module.css"
 import Mark from "../../assets/mark.svg"
 import MenuItem2 from "../../components/MenuItem/MenuItem2";
 import stores from "../../models/stores";
+import OrderBar2 from "../../components/OrderBar/OrderBar2";
 
 const Cart = () => {
   return (
@@ -23,6 +24,22 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <div className={styles.payment}>
+        <div className={styles.pay}>
+          <div style={{color:"#8B95A1"}}>주문금액</div>
+          <div>16,000원</div>
+        </div>
+        <div className={styles.pay}>
+          <div style={{color:"#8B95A1"}}>배달요금</div>
+          <div>2,000원</div>
+        </div>
+        <div className={styles.finalPayment}>
+          <div>총 결제금액</div>
+          <div>12,600원</div>
+        </div>
+      </div>
+
+      <OrderBar2/>
     </>
   );
   

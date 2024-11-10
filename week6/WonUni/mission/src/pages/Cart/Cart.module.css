@@ -51,3 +51,40 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 }
+
+.payment{
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+}
+
+.pay{
+    display: flex;
+    width: 343px;
+padding: 8px 23px 9px 24px;
+justify-content: center;
+align-items: flex-start;
+justify-content: space-between;
+font-family: Pretendard;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+    
+}
+
+.finalPayment{
+    display: flex;
+    width: 343px;
+padding: 8px 23px 9px 24px;
+justify-content: center;
+align-items: flex-start;
+justify-content: space-between;
+    color: #4E5968;
+font-family: Pretendard;
+font-size: 17px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}

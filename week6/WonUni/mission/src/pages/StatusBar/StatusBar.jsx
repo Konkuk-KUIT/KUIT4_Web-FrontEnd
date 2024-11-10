@@ -21,7 +21,7 @@ const Top = styled.div`
 `
 const Under = styled.div`
   display: flex;
-  width: 380px;
+  width: 365px;
   position: absolute;
   top: 47px;
   left: 10px;

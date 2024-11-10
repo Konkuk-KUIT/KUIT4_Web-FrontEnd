@@ -9,9 +9,36 @@
     
 }
 
+.bottomContainer2{
+    position: absolute;
+    width: 342px;
+    height: 77px;
+    bottom: 0px;
+    background: #FFF;
+    
+    padding: 16px 24px;
+    
+}
+
 .bottomContain{
     display: flex;
     justify-content: space-between;
+}
+
+.bottomContain2{
+    display: flex;
+    flex-direction: column;
+}
+
+.minMon{
+    color: #6B7684;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 19px;
 }
 
 .total{
