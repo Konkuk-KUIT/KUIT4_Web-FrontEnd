@@ -18,7 +18,7 @@ const Store = () => {
 
   return (
     <Wrapper>
-      <HeaderBar />
+      <HeaderBar arrow={true} cancel={false} />
       <StoreDescription store={store} />
       <SubTitle>샐러드</SubTitle>
       <div>

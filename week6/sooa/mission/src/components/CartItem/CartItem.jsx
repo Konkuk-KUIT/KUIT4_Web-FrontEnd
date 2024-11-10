@@ -4,7 +4,7 @@ import {
   ButtonWrapper,
   MenuImg,
 } from "./CartItem.styles";
-import ArrowBack from "../../assets/arrow-back.svg";
+import ArrowRight from "../../assets/arrow-right.svg";
 
 const MenuItem = () => {
   const handleAddMenu = () => {};
@@ -19,7 +19,7 @@ const MenuItem = () => {
       </RightWrapper>
       <ButtonWrapper>
         <span>1개</span>
-        <img src={ArrowBack} />
+        <img src={ArrowRight} />
       </ButtonWrapper>
     </Wrapper>
   );

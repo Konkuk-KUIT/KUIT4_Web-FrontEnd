@@ -1,12 +1,17 @@
 import Button from "../Button";
-import { Wrapper, RightWrapper, ButtonWrapper } from "./MenuItem.styles";
+import {
+  Wrapper,
+  RightWrapper,
+  ButtonWrapper,
+  MenuImg,
+} from "./MenuItem.styles";
 
 const MenuItem = ({ menu }) => {
   const handleAddMenu = () => {};
 
   return (
     <Wrapper>
-      <div></div>
+      <MenuImg />
       <RightWrapper>
         <h3>{menu.name}</h3>
         <span>{menu.price}</span>

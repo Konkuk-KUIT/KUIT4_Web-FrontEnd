@@ -67,4 +67,20 @@ const Cal = styled.div`
   }
 `;
 
-export { Bar, CartWrapper, CalWrapper, Cal };
+const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  > span {
+    font-size: 17px;
+    font-weight: 500;
+    color: #6b7684;
+  }
+  > Button {
+    margin: 19px 20px 0 20px;
+  }
+`;
+
+export { Bar, CartWrapper, CalWrapper, Cal, BottomWrapper };

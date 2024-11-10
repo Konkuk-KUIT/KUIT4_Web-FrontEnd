@@ -7,11 +7,11 @@ const StoreWrapper = styled.div`
   margin-top: 12px;
   padding: 14px 24px;
   box-sizing: border-box;
+  border-bottom: 1px solid #e5e8eb;
 `;
 
 const Title = styled.h1`
-  width: 390px;
-  height: 59px;
+  height: 31px;
   font-size: 26px;
   font-weight: 700;
   color: #191f28;
@@ -22,8 +22,8 @@ const SubTitle = styled.h3`
   height: 20px;
   font-size: 17px;
   font-weight: 600;
-  background: #6b7684;
-  margin: 24px 26px 11px 0;
+  color: #6b7684;
+  margin: 24px 0 11px 26px;
 `;
 
 const Desc = styled.div`
@@ -32,6 +32,7 @@ const Desc = styled.div`
   height: 38px;
   > img {
     margin-right: 5px;
+    height: 19px;
   }
   > .store-rate {
     width: 26px;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Pizza from "../assets/food-category.svg";
+import { Link } from "react-router-dom";
 
 const StyledFoodCategory = styled.div`
   width: 108px;
@@ -23,10 +24,12 @@ const StyledFoodCategory = styled.div`
 
 const FoodCategory = ({ children }) => {
   return (
-    <StyledFoodCategory>
-      <img src={Pizza} />
-      <span>{children}</span>
-    </StyledFoodCategory>
+    <Link to="/store">
+      <StyledFoodCategory>
+        <img src={Pizza} />
+        <span>{children}</span>
+      </StyledFoodCategory>
+    </Link>
   );
 };
 

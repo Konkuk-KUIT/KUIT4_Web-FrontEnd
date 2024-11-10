@@ -7,7 +7,7 @@ import { Wrapper } from "../../components/Wrapper.styles";
 const Home = () => {
   return (
     <Wrapper>
-      <HeaderBar />
+      <HeaderBar arrow={false} cancel={false} />
       <TitleWrapper>
         <p className="title">오늘은 무엇을 먹을까요?</p>
         <p className="sub-title">
