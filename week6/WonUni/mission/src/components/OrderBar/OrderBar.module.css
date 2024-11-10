@@ -1,0 +1,38 @@
+.bottomContainer{
+    width: 342px;
+    height: 77px;
+    flex-shrink: 0;
+    border-radius: 16px 16px 0px 0px;
+    background: #FFF;
+    box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.10);
+    padding: 16px 24px;
+    
+}
+
+.bottomContain{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total{
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.totalAmount{
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.bottomBar{
+    display: flex;
+    justify-content: center;
+}
