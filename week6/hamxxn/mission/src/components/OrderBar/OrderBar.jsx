@@ -34,7 +34,7 @@ const OrderBar = () => {
           width="100px"
           height="50px"
         >
-          주문하기
+          {store?.name && `${store.name}에서 `}주문하기
         </Button>
       </OrderContainer>
       <img src={BottomBar} style={{ height: "34px" }} />
