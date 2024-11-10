@@ -1,39 +1,32 @@
 import { StoreWrapper, StoreDescWrapper, StoreImg } from "./StoreDetail.styles";
 import Star from "../../assets/star.svg";
 import { useNavigate } from "react-router-dom";
-const StoreDetail = ({
-  name,
-  rating,
-  reviewCount,
-  deliveryTimeMin,
-  deliveryTimeMax,
-  deliveryFee,
-  rank,
-}) => {
+
+const StoreDetail = ({ store }) => {
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
-    navigate("/store/" + 1);
+  const handleClick = () => {
+    navigate("/store/" + store.id);
   };
 
   return (
     <StoreWrapper onClick={handleClick}>
       <StoreImg />
       <StoreDescWrapper>
-        {rank && <div className="bold">{rank}위</div>}
-        <div className="bold">{name}</div>
+        {store.rank && <div className="bold">{store.rank}위</div>}
+        <div className="bold">{store.name}</div>
         <div style={{ display: "flex" }}>
           <img src={Star} style={{ marginRight: "3px" }} />
           <p>
-            {rating} ({reviewCount})
+            {store.rate} ({store.reviewCnt})
           </p>
         </div>
         <div style={{ display: "flex" }}>
           <p>
-            {deliveryTimeMin}분 ~ {deliveryTimeMax}분
+            {store.minDeliveryTime}분 ~ {store.maxDeliveryTime}분
           </p>
           <p> ∙ </p>
-          <p>배달비 {deliveryFee}원</p>
+          <p>배달비 {store.deliveryFee}원</p>
         </div>
       </StoreDescWrapper>
     </StoreWrapper>

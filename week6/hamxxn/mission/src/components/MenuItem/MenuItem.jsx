@@ -4,8 +4,10 @@ import { MenuWrapper, MenuImg, MenuDescWrapper } from "./MenuItem.styles";
 
 const MenuItem = ({ menu }) => {
   const navigate = useNavigate();
+  //const addMenu = useCartStore((state) => state.addMenu);
 
   const handleAddMenu = () => {
+    //addMenu(menu);
     const params = new URLSearchParams({
       name: menu.name,
       price: menu.price,

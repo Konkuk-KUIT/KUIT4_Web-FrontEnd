@@ -13,8 +13,14 @@ import {
 } from "./Store.styles.jsx";
 
 import ColorStar from "../../assets/color-star.svg";
+import { createContext } from "react";
+import { useContext } from "react";
 
-const StoreIntr = ({ store }) => {
+const StoreContext = createContext();
+
+const StoreIntr = () => {
+  //provider에서 value로 전달한 데이터 가져오기
+  const store = useContext(StoreContext);
   return (
     <StoreTitle>
       <div className="store-name">{store.name}</div>
@@ -59,22 +65,24 @@ const Store = () => {
   return (
     <>
       <StatusBar back={true} />
-      <div
-        style={{
-          marginTop: statusBarHeight,
-          padding: "20px 20px",
-          width: widthV,
-          boxSizing: "border-box",
-        }}
-      >
-        <StoreIntr store={store} />
-        <MenuDetailWrapper>
-          <div className="menu-category">샐러드</div>
-          {store.menus.map((menu) => {
-            return <MenuItem key={menu.id} menu={menu} />;
-          })}
-        </MenuDetailWrapper>
-      </div>
+      <StoreContext.Provider value={store}>
+        <div
+          style={{
+            marginTop: statusBarHeight,
+            padding: "20px 20px",
+            width: widthV,
+            boxSizing: "border-box",
+          }}
+        >
+          <StoreIntr />
+          <MenuDetailWrapper>
+            <div className="menu-category">샐러드</div>
+            {store.menus.map((menu) => {
+              return <MenuItem key={menu.id} menu={menu} />;
+            })}
+          </MenuDetailWrapper>
+        </div>
+      </StoreContext.Provider>
       <OrderBar />
     </>
   );

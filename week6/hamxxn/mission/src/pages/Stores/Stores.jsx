@@ -4,6 +4,19 @@ import StatusBar from "../../components/StatusBar/StatusBar";
 import StoreDetail from "../../components/StoreDetail/StoreDetail";
 import { CategoryTitle, StoreDetailWrapper } from "./Store.styles";
 
+import stores from "../../models/stores.js";
+
+const addRankToStores = (stores) => {
+  const sortedStores = [...stores].sort((a, b) => b.rate - a.rate);
+
+  // 상위 3개에 rank 속성 추가
+  return sortedStores.map((store, index) => {
+    if (index < 3) {
+      return { ...store, rank: index + 1 };
+    }
+    return store;
+  });
+};
 const Stores = () => {
   const statusBarHeight = getComputedStyle(
     document.documentElement
@@ -13,8 +26,8 @@ const Stores = () => {
   );
 
   const [searchParams] = useSearchParams();
-
   const category = searchParams.get("category");
+  const sortStores = addRankToStores(stores);
   return (
     <>
       <StatusBar back={true} />
@@ -27,49 +40,9 @@ const Stores = () => {
       >
         <CategoryTitle>{category}</CategoryTitle>
         <StoreDetailWrapper>
-          <StoreDetail
-            name="샐러리 한남점"
-            rating="4.9"
-            reviewCount="3,199"
-            deliveryTimeMin="13"
-            deliveryTimeMax="30"
-            deliveryFee="2000"
-            rank="1"
-          />
-          <StoreDetail
-            name="아"
-            rating="4.9"
-            reviewCount="3,199"
-            deliveryTimeMin="13"
-            deliveryTimeMax="30"
-            deliveryFee="2000"
-            rank="2"
-          />
-          <StoreDetail
-            name="으악"
-            rating="4.9"
-            reviewCount="3,199"
-            deliveryTimeMin="13"
-            deliveryTimeMax="30"
-            deliveryFee="2000"
-            rank="3"
-          />
-          <StoreDetail
-            name="휴"
-            rating="4.9"
-            reviewCount="3,199"
-            deliveryTimeMin="13"
-            deliveryTimeMax="30"
-            deliveryFee="2000"
-          />
-          <StoreDetail
-            name="힘안난다 샐러드"
-            rating="4.9"
-            reviewCount="3,199"
-            deliveryTimeMin="13"
-            deliveryTimeMax="30"
-            deliveryFee="2000"
-          />
+          {sortStores.map((store) => (
+            <StoreDetail store={store} />
+          ))}
         </StoreDetailWrapper>
       </div>
       <OrderBar />

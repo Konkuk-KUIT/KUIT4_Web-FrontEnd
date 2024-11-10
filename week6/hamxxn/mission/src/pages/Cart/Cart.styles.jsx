@@ -75,20 +75,26 @@ const MoreOrderBtn = styled.button`
   }
 `;
 const OrderBar = styled.div`
+  height: 129px;
   width: var(--width-variable);
   position: "fixed";
   bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   background-color: "white";
-  > button {
-    opacity: 0.3;
-  }
-
-  > p {
+  box-sizing: border-box;
+  > .price-desc {
+    font-size: 17px;
+    font-weight: 500;
+    color: #6b7684;
     margin-bottom: 10px;
   }
 `;
-export { OrderItemWrapper, OrderPayWrapper, OrderStore, MoreOrderBtn };
+export {
+  OrderItemWrapper,
+  OrderPayWrapper,
+  OrderStore,
+  MoreOrderBtn,
+  OrderBar,
+};

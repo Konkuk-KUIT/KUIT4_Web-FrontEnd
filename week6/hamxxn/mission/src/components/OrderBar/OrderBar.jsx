@@ -2,14 +2,7 @@ import Button from "../Button";
 import { OrderContainer, PriceWrapper } from "./OrderBar.styles.jsx";
 import BottomBar from "../../assets/bottomBar.svg";
 
-const OrderBar = ({
-  priceDesc,
-  btnDisable,
-  btnWidth,
-  btnHeight,
-  btnSize,
-  flexdirection,
-}) => {
+const OrderBar = () => {
   const menus = [];
   const store = null;
   const handleOrder = () => {};
@@ -20,6 +13,7 @@ const OrderBar = ({
         position: "fixed",
         bottom: 0,
         display: "flex",
+        height: "111px",
         flexDirection: "column",
         backgroundColor: "white",
         boxSizing: "border-box",
@@ -42,7 +36,7 @@ const OrderBar = ({
           {store?.name && `${store.name}에서 `}주문하기
         </Button>
       </OrderContainer>
-      <img src={BottomBar} />
+      <img src={BottomBar} style={{ height: "34px" }} />
     </div>
   );
 };

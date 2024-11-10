@@ -1,12 +1,13 @@
 import { useSearchParams } from "react-router-dom";
 import StatusBar from "../../components/StatusBar/StatusBar";
-import OrderBar from "../../components/OrderBar/OrderBar";
-
+import BottomBar from "../../assets/bottomBar.svg";
+import Button from "../../components/Button";
 import {
   OrderPayWrapper,
   OrderItemWrapper,
   OrderStore,
   MoreOrderBtn,
+  OrderBar,
 } from "./Cart.styles";
 import Warning from "../../assets/warning.svg";
 import OrderMenuItem from "../../components/OrderMenuItem/OrderMenuItem";
@@ -63,14 +64,13 @@ const Cart = () => {
     <>
       <StatusBar back={true} cancel={true} />
       <OrderDiv menu={menu} />
-      <OrderBar
-        priceDesc="최소"
-        btnDisable={true}
-        btnWidth="350px"
-        btnHeight="56px"
-        flexdirection="row"
-        btnSize="lg"
-      />
+      <OrderBar>
+        <div className="price-desc">최소 주문금액 13,000원</div>
+        <Button disabled={true} width="350px" height="56px">
+          {price}원 결제하기
+        </Button>
+        <img src={BottomBar} />
+      </OrderBar>
     </>
   );
 };
