@@ -36,14 +36,7 @@ const Button = ({
   onClick,
 }) => {
   return (
-    <StyledButton
-      type={type}
-      size={size}
-      disabled={disabled}
-      width={width}
-      height={height}
-      onClick={onClick}
-    >
+    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick}>
       {children}
     </StyledButton>
   );
