@@ -27,7 +27,7 @@ const Store = () => {
         </div>
       </Link>
       {/* 버튼과 onClickButton을 이용하고 싶음 */}
-      {/* <button style={{ all: "unset" }}>
+      {/* <button style={{ all: "unset" }} onClick={onClickButton}>
         <div className={styles.headerArrow}>
           <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
         </div>
