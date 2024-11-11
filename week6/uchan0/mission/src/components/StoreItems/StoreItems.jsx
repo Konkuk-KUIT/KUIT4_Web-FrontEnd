@@ -7,18 +7,21 @@ const StoreItems = ({ storeInfo }) => {
     <div className={styles.Container}>
       <div className={styles.storeImg}></div>
       <div className={styles.storeInfoContainer}>
-        {storeInfo.rank <= 3 && (
-          <div className={styles.storeRank}>{storeInfo.rank}위</div>
+        {storeInfo.id <= 3 && (
+          <div className={styles.storeRank}>{storeInfo.id}위</div>
         )}
 
         <div className={styles.storeName}>{storeInfo.name}</div>
         <div className={styles.scoreContainer}>
           <img src={starIcon} alt="리뷰" />
           <div className={styles.storeScore}>
-            {storeInfo.score} ({storeInfo.reviewCount.toLocaleString()})
+            {storeInfo.rate} ({storeInfo.reviewCnt.toLocaleString()})
           </div>
         </div>
-        <div className={styles.storeDelivery}>13분~30분 ∙ 배달비 2,000원</div>
+        <div className={styles.storeDelivery}>
+          {storeInfo.minDeliveryTime}~{storeInfo.maxDeliveryTime}분 ∙ 배달비{" "}
+          {storeInfo.deliveryFee.toLocaleString()}원
+        </div>
       </div>
     </div>
   );

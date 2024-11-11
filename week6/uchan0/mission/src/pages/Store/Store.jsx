@@ -5,6 +5,8 @@ import stores from "../../models/stores";
 import styles from "./Store.module.css";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
 import yellowStarIcon from "../../assets/YellowStar.png";
+import useCartStore from "../../store/cartStore";
+import { useEffect } from "react";
 
 //onClickButton을 버튼에 적용시키고 싶은데 어떻게 하는지 모르겠음..
 const onClickButton = () => {
@@ -13,7 +15,15 @@ const onClickButton = () => {
 
 const Store = () => {
   const { storeId } = useParams();
+  const setStore = useCartStore((state) => state.setStore);
+
   const store = stores.find((store) => store.id.toString() === storeId);
+
+  useEffect(() => {
+    if (store) {
+      setStore(store);
+    }
+  }, []);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -21,7 +31,7 @@ const Store = () => {
 
   return (
     <div>
-      <Link to="/" className={styles.homeLink}>
+      <Link to="/store" className={styles.homeLink}>
         <div className={styles.headerArrow}>
           <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
         </div>

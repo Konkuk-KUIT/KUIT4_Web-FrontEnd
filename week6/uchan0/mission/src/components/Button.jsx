@@ -26,9 +26,16 @@ const StyledButton = styled.button`
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
 `;
 
-const Button = ({ children, type = "button", size = "sm", disabled }) => {
+const Button = ({
+  children,
+  type = "button",
+  size = "sm",
+  disabled,
+  onClick,
+}) => {
   return (
-    <StyledButton type={type} size={size} disabled={disabled}>
+    //onClick을 추가하여 prop으로 받은 함수 실행
+    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick}>
       {children}
     </StyledButton>
   );

@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import pizzaIcon from "../../assets/foodCategory/pizzaIcon.png";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import CategoryItem from "../../components/categoryItem/CategoryItem";
+import { Link, useNavigate } from "react-router-dom";
 
 const foodCategory = [
   {
@@ -56,6 +57,16 @@ const foodCategory = [
 ];
 
 const Home = () => {
+  // useNavigate를 사용해서 클릭한 category가 샐러드가 아니면 이동하지 않게 만듦.
+  const navigate = useNavigate();
+
+  const handleClick = (category) => {
+    if (category === "샐러드") {
+      navigate("/store");
+    } else {
+      alert("아직 준비중입니다.");
+    }
+  };
   return (
     <div className={styles.homeContainer}>
       <div className={styles.makeMargin}></div>
@@ -76,7 +87,16 @@ const Home = () => {
           //   />
           //   <p className={styles.categoryText}>{item.category}</p>
           // </div>
-          <CategoryItem item={item} key={index} />
+          // <Link to="/store" key={index} style={{ textDecoration: "none" }}>
+          //   <CategoryItem item={item} />
+          // </Link>
+          <div
+            key={index}
+            onClick={() => handleClick(item.category)}
+            style={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            <CategoryItem item={item} />
+          </div>
         ))}
       </div>
       <OrderBar />
