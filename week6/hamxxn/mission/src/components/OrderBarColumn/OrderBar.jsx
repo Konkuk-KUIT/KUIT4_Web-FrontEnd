@@ -9,16 +9,13 @@ const OrderBar = () => {
   const totalPrice = menus.reduce((acc, cur) => acc + cur.price, 0);
 
   const handleOrder = () => {};
-  console.log(totalPrice);
-  console.log(store.minDeliveryPrice);
 
   return (
     <Wrapper>
       <div className="price-desc">최소 주문금액 {store.minDeliveryPrice}원</div>
       <Button
         disabled={!store || totalPrice < store.minDeliveryPrice}
-        width="350px"
-        height="56px"
+        size="xl"
       >
         {totalPrice + store.deliveryFee}원 결제하기
       </Button>
