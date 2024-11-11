@@ -1,6 +1,6 @@
 .homeLink {
   display: flex;
-  width: 40px;
+  width: 110px;
 }
 .header {
   display: flex;
@@ -9,7 +9,9 @@
   align-items: center;
 }
 .headerArrow {
+  display: flex;
   width: 100%;
+  align-items: center;
 }
 .orderCancel {
   color: #333d4b;
@@ -53,69 +55,7 @@
   font-weight: 500;
   line-height: normal;
 }
-.menuContentContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px 16px 24px;
-  border-bottom: 1px solid #e5e8eb;
-}
-.menuInfo {
-  display: flex;
-  flex-direction: row;
-}
-.menuImg {
-  width: 54px;
-  height: 54px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: #ececec;
-  padding-top: 3px;
-}
-.menuContent {
-  padding-left: 17px;
-}
-.menuName {
-  color: #333d4b;
-  font-family: Pretendard;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  padding-bottom: 5px;
-}
-.menuSelect {
-  width: 201px;
-  color: #6b7684;
-  font-family: Pretendard;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  padding-bottom: 5px;
-}
-.menuPrice {
-  color: #6b7684;
-  font-family: Pretendard;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-.menuProcess {
-  display: flex;
-  flex-direction: row;
-  gap: 14px;
-}
-.menuCnt {
-  color: #6b7684;
-  font-family: Pretendard;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
+
 .moreBox {
   display: flex;
   flex-direction: row;
@@ -166,7 +106,9 @@
   flex-direction: row;
   justify-content: space-between;
   padding-top: 16px;
-  padding-bottom: 18px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-bottom: 200px;
 }
 .totalPriceText {
   color: #4e5968;
@@ -194,6 +136,9 @@
   position: fixed;
   bottom: 0px;
   padding-bottom: 21px;
+  padding-top: 20px;
+  background-color: white;
+  border-top: 1px solid #e5e8eb;
 }
 .finalLeastPrice {
   color: #6b7684;

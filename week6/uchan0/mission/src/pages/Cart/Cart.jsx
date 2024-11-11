@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Cart.module.css";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
 import cautionIcon from "../../assets/Caution.png";
@@ -7,12 +7,39 @@ import plusIcon from "../../assets/PlusIcon.png";
 import Button from "../../components/Button";
 import store from "../../models/stores";
 import OrderItems from "../../components/OrderItems/OrderItems";
+import useCartStore from "../../store/cartStore";
 
 const Cart = () => {
+  const menus = useCartStore((state) => state.menus);
+  const store = useCartStore((state) => state.store);
+
   const navigate = useNavigate();
   const onClickButton = () => {
     navigate("/");
   };
+  const onClickMoreButton = () => {
+    // 담은 음식에 해당하는 storeId로 이동하게 구현
+    navigate(`/store/${store.id}`);
+  };
+
+  // 아직 아무것도 안 담았을 때 early return
+  if (!store) {
+    return (
+      <div>
+        <div
+          className={styles.homeLink}
+          onClick={() => onClickButton()}
+          style={{ textDecoration: "none", cursor: "pointer" }}
+        >
+          <div className={styles.headerArrow}>
+            <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
+            담으러 가기
+          </div>
+        </div>
+        아직 아무것도 담지 않았어요
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -37,16 +64,28 @@ const Cart = () => {
       <div className={styles.borderLine}></div>
       <div className={styles.orderContentContainer}>
         <div className={styles.storeContent}>
-          <div className={styles.storeName}>{store[0].name}</div>
+          <div className={styles.storeName}>{store.name}</div>
+
+          {/* 최소 주문 금액보다 작을 때만 보이게하기 */}
           <div className={styles.leastPriceContainer}>
-            <div className={styles.leastPrice}>최소금액 미달</div>
-            <img src={cautionIcon} alt="최소금액 미달" />
+            {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
+              store.minDeliveryPrice && (
+              <>
+                <div className={styles.leastPrice}>최소금액 미달</div>
+                <img src={cautionIcon} alt="최소금액 미달" />
+              </>
+            )}
           </div>
         </div>
-
-        <OrderItems />
+        {menus.map((menu) => (
+          <OrderItems menu={menu} key={menu.id} />
+        ))}
       </div>
-      <div className={styles.moreBox}>
+      <div
+        className={styles.moreBox}
+        onClick={onClickMoreButton}
+        style={{ cursor: "pointer" }}
+      >
         <div className={styles.moreText}>더 담기</div>
         <img src={plusIcon} alt="더 담기" />
       </div>
@@ -55,34 +94,44 @@ const Cart = () => {
         <div className={styles.orderPriceContainer}>
           <div className={styles.priceText}>주문금액</div>
           <div className={styles.price}>
-            {(store[0].menus[0].price + 3000).toLocaleString()}원
+            {menus
+              .reduce((acc, currentMenu) => acc + currentMenu.price, 0)
+              .toLocaleString()}
+            원
           </div>
         </div>
         <div className={styles.orderPriceContainer}>
           <div className={styles.priceText}>배달요금</div>
           <div className={styles.price}>
-            {store[0].deliveryFee.toLocaleString()}원
+            {store.deliveryFee.toLocaleString()}원
           </div>
         </div>
         <div className={styles.totalPriceContainer}>
           <div className={styles.totalPriceText}>총 결제금액</div>
           <div className={styles.totalPrice}>
             {(
-              store[0].menus[0].price +
-              3000 +
-              store[0].deliveryFee
+              menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
+              store.deliveryFee
             ).toLocaleString()}
             원
           </div>
         </div>
       </div>
       <div className={styles.finalOrderContainer}>
-        <div className={styles.finalLeastPrice}>최소 주문금액 13,000원</div>
-        <Button type="button" size="xl" disabled={true}>
+        <div className={styles.finalLeastPrice}>
+          최소 주문금액 {store.minDeliveryPrice.toLocaleString()}원
+        </div>
+        <Button
+          type="button"
+          size="xl"
+          disabled={
+            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
+            store.minDeliveryPrice
+          }
+        >
           {(
-            store[0].menus[0].price +
-            3000 +
-            store[0].deliveryFee
+            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
+            store.deliveryFee
           ).toLocaleString()}
           원 결제하기
         </Button>

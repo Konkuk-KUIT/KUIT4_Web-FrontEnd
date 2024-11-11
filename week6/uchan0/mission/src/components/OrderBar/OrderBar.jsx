@@ -5,7 +5,7 @@ import styles from "./OrderBar.module.css";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
-  // const store = useCartStore((state) => state.store);
+  const store = useCartStore((state) => state.store);
 
   // useNavigate사용하여 주문하기 버튼 클릭시 cart로 넘어가게 설정
   const navigate = useNavigate();
@@ -15,10 +15,10 @@ const OrderBar = () => {
   };
 
   // 제대로 들어갔나 확인
-  // console.log(store);
-  // menus.map((menu) => {
-  //   console.log(menu.name);
-  // });
+  console.log(store);
+  menus.map((menu) => {
+    console.log(menu.name);
+  });
 
   return (
     <div className={styles.orderBarContainer}>
