@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import stores from "../../models/stores";
@@ -8,12 +8,12 @@ import yellowStarIcon from "../../assets/YellowStar.png";
 import useCartStore from "../../store/cartStore";
 import { useEffect } from "react";
 
-//onClickButton을 버튼에 적용시키고 싶은데 어떻게 하는지 모르겠음..
-const onClickButton = () => {
-  return <Link to="/">Home으로</Link>;
-};
-
 const Store = () => {
+  const navigate = useNavigate();
+  const onClickButton = () => {
+    navigate("/store");
+  };
+
   const { storeId } = useParams();
   const setStore = useCartStore((state) => state.setStore);
 
@@ -31,11 +31,21 @@ const Store = () => {
 
   return (
     <div>
-      <Link to="/store" className={styles.homeLink}>
+      {/* useNavigate 사용으로 바꿈 */}
+      <div
+        className={styles.homeLink}
+        onClick={() => onClickButton()}
+        style={{ textDecoration: "none", cursor: "pointer" }}
+      >
         <div className={styles.headerArrow}>
           <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
         </div>
-      </Link>
+      </div>
+      {/* <Link to="/store" className={styles.homeLink}>
+        <div className={styles.headerArrow}>
+          <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
+        </div>
+      </Link> */}
       {/* 버튼과 onClickButton을 이용하고 싶음 */}
       {/* <button style={{ all: "unset" }} onClick={onClickButton}>
         <div className={styles.headerArrow}>

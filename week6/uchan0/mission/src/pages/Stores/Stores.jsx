@@ -4,16 +4,31 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 import arrowBack from "../../assets/arrow/arrowBackIcon.png";
 import StoreItems from "../../components/StoreItems/StoreItems";
 import stores from "../../models/stores";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Stores = () => {
+  const navigate = useNavigate();
+  const onClickButton = () => {
+    navigate("/");
+  };
+
   return (
     <div>
-      <Link to="/" className={styles.homeLink}>
+      {/* useNavigage사용으로 변경 */}
+      <div
+        className={styles.homeLink}
+        onClick={() => onClickButton()}
+        style={{ textDecoration: "none", cursor: "pointer" }}
+      >
         <div className={styles.headerArrow}>
           <img src={arrowBack} alt="Home으로 가기 버튼" />
         </div>
-      </Link>
+      </div>
+      {/* <Link to="/" className={styles.homeLink}>
+        <div className={styles.headerArrow}>
+          <img src={arrowBack} alt="Home으로 가기 버튼" />
+        </div>
+      </Link> */}
       <div className={styles.storesContent}>
         <div className={styles.categoryName}>샐러드</div>
         <div className={styles.storeInfo}>

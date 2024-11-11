@@ -7,9 +7,10 @@ const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
   // const store = useCartStore((state) => state.store);
 
+  // useNavigate사용하여 주문하기 버튼 클릭시 cart로 넘어가게 설정
   const navigate = useNavigate();
 
-  const handleOrder = (category) => {
+  const handleOrder = () => {
     navigate("/cart");
   };
 

@@ -1,22 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Cart.module.css";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
-import arrowRightIcon from "../../assets/arrow/arrowRightIcon.png";
 import cautionIcon from "../../assets/Caution.png";
 import plusIcon from "../../assets/PlusIcon.png";
 import Button from "../../components/Button";
 import store from "../../models/stores";
+import OrderItems from "../../components/OrderItems/OrderItems";
 
 const Cart = () => {
+  const navigate = useNavigate();
+  const onClickButton = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div className={styles.header}>
-        <Link to="/" className={styles.homeLink}>
+        {/* useNavigage사용으로 변경 */}
+        <div
+          className={styles.homeLink}
+          onClick={() => onClickButton()}
+          style={{ textDecoration: "none", cursor: "pointer" }}
+        >
           <div className={styles.headerArrow}>
             <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
           </div>
-        </Link>
+        </div>
+        {/* <Link to="/" className={styles.homeLink}>
+          <div className={styles.headerArrow}>
+            <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
+          </div>
+        </Link> */}
         <div className={styles.orderCancel}>주문취소</div>
       </div>
       <div className={styles.borderLine}></div>
@@ -28,25 +43,8 @@ const Cart = () => {
             <img src={cautionIcon} alt="최소금액 미달" />
           </div>
         </div>
-        <div className={styles.menuContentContainer}>
-          <div className={styles.menuInfo}>
-            <div className={styles.menuImg}></div>
-            <div className={styles.menuContent}>
-              <div className={styles.menuName}>{store[0].menus[0].name}</div>
-              <div className={styles.menuSelect}>
-                {store[0].menus[0].ingredients}
-              </div>
-              <div className={styles.menuPrice}>
-                {(store[0].menus[0].price + 3000).toLocaleString()}원
-              </div>
-            </div>
-          </div>
 
-          <div className={styles.menuProcess}>
-            <div className={styles.menuCnt}>1개</div>
-            <img src={arrowRightIcon} alt="다음" />
-          </div>
-        </div>
+        <OrderItems />
       </div>
       <div className={styles.moreBox}>
         <div className={styles.moreText}>더 담기</div>
