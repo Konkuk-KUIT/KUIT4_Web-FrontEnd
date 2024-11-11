@@ -31,8 +31,6 @@ const Button = ({
   type = "button",
   size = "sm",
   disabled,
-  width,
-  height,
   onClick,
 }) => {
   return (
