@@ -18,13 +18,6 @@ const addRankToStores = (stores) => {
   });
 };
 const Stores = () => {
-  const statusBarHeight = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--status-bar");
-  const widthV = getComputedStyle(document.documentElement).getPropertyValue(
-    "--width-variable"
-  );
-
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   const sortStores = addRankToStores(stores);
@@ -33,9 +26,9 @@ const Stores = () => {
       <StatusBar back={true} />
       <div
         style={{
-          marginTop: statusBarHeight,
+          marginTop: "var(--status-bar)",
           padding: "20px 20px",
-          width: widthV,
+          width: "var(--width-variable)",
         }}
       >
         <CategoryTitle>{category}</CategoryTitle>

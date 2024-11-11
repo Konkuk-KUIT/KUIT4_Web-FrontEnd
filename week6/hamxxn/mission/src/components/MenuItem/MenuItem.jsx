@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import { MenuWrapper, MenuImg, MenuDescWrapper } from "./MenuItem.styles";
 import useCartStores from "../../pages/Store/cartStore";
-import { useContext } from "react";
+
 const MenuItem = ({ store, menu }) => {
   const navigate = useNavigate();
   const statestore = useCartStores((state) => state.store);

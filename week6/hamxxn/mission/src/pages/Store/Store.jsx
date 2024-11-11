@@ -49,13 +49,6 @@ const StoreIntr = () => {
 };
 
 const Store = () => {
-  const statusBarHeight = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--status-bar");
-  const widthV = getComputedStyle(document.documentElement).getPropertyValue(
-    "--width-variable"
-  );
-
   const { storeId } = useParams();
   const store = stores.find((store) => store.id.toString() === storeId);
 
@@ -75,9 +68,9 @@ const Store = () => {
       <StoreContext.Provider value={store}>
         <div
           style={{
-            marginTop: statusBarHeight,
-            padding: "20px 20px",
-            width: widthV,
+            marginTop: "var(--status-bar)",
+            padding: "20px",
+            width: "var(--width-variable)",
             boxSizing: "border-box",
           }}
         >

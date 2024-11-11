@@ -4,7 +4,7 @@ import Mobile from "../../assets/mobile.svg";
 import LeftChevron from "../../assets/left-chevron.svg";
 
 import { StatusWrapper, Under } from "./StausBar.styles";
-// eslint-disable-next-line react/prop-types
+
 const StatusBar = ({ back, cancel }) => {
   return (
     <div
