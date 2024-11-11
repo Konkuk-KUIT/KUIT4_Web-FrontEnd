@@ -1,17 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/cartStore";
 import Button from "../Button";
 import styles from "./OrderBar.module.css";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
-  const store = useCartStore((state) => state.store);
+  // const store = useCartStore((state) => state.store);
 
-  console.log(store);
-  menus.map((menu) => {
-    console.log(menu.name);
-  });
+  const navigate = useNavigate();
 
-  const handleOrder = () => {};
+  const handleOrder = (category) => {
+    navigate("/cart");
+  };
+
+  // 제대로 들어갔나 확인
+  // console.log(store);
+  // menus.map((menu) => {
+  //   console.log(menu.name);
+  // });
 
   return (
     <div className={styles.orderBarContainer}>
