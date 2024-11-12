@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 
 const Stores = ({header_bar}) => {
   const StoreIntro = ({store}) =>{
-    return (<Link to={"/store/1"}>
+    return (
+    <Link to={`/store/${store.id}`}>
       <div className={styles.box}>
         <div className={styles.graybox}></div>
         <div className={styles.id}>{store.id}위</div>
