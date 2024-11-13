@@ -6,107 +6,32 @@ import {
   StoreHeader,
   StoreDetail,
 } from "./StoreItem.styles";
+import stores from "../../models/stores"
 
 const StoreItem = () => {
   return (
     <div style={{ paddingBottom: "88px" }}>
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
-
-      <StoreItemContainer>
-        <StoreImageRectangle />
-        <StoreInfoContainer>
-          <StoreHeader style={{ marginBottom: "2px" }}>1위</StoreHeader>
-          <StoreHeader style={{ marginBottom: "5px" }}>
-            셀로리 한남점
-          </StoreHeader>
-          <StoreDetail style={{ marginBottom: "4px" }}>
-            ⭐️ 4.9 (3,919)
-          </StoreDetail>
-          <StoreDetail>13분~30분 배달비 2,000원 </StoreDetail>
-        </StoreInfoContainer>
-      </StoreItemContainer>
+			{
+				stores.map((store, index) => (
+					<StoreItemContainer key={store.id}>
+					<StoreImageRectangle />
+					<StoreInfoContainer>
+						<StoreHeader style={{ marginBottom: "2px" }}>
+							{index + 1}위
+						</StoreHeader>
+						<StoreHeader style={{ marginBottom: "5px" }}>
+							{store.name}
+						</StoreHeader>
+						<StoreDetail style={{ marginBottom: "4px" }}>
+							⭐️ {store.rate} ({store.reviewCnt})
+						</StoreDetail>
+						<StoreDetail>
+						{store.minDeliveryTime}분~{store.maxDeliveryTime}분 배달비 {store.deliveryFee}원
+						</StoreDetail>
+					</StoreInfoContainer>
+				</StoreItemContainer>
+				))
+			}
     </div>
   );
 };
