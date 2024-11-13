@@ -24,7 +24,7 @@ export const CategoryGrid = styled.div`
   gap: 10px 9px;
   box-sizing: border-box;
   position: absolute;
-  top: 251px;
+  top: 70px;
   left: 24px;
 
 `;
@@ -38,3 +38,10 @@ export const CategoryTextStyle = styled.div`
   font-weight: 600;
   line-height: normal;
 `;
+
+export const CategoryComponent =styled.div`
+  width: 390px;
+  height: 552px;
+  position: relative;
+  top: 134px;
+`

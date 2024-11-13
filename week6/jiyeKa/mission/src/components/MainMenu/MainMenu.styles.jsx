@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const Title = styled.div`
     width: 298px;
     height: 64px;
@@ -9,7 +8,7 @@ export const Title = styled.div`
     padding: 25px 68px 4px 24px;
     gap: 13px;
     white-space: nowrap; 
-    position: absolute;
+    position: fixed;
     top: 41px;
     `
 

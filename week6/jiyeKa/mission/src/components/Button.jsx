@@ -6,7 +6,7 @@ const sizeStyles = {
     fontSize: "13px",
   },
   lg: {
-    padding: "10px 16px",
+    padding: "10px 16px 10px 16px",
     fontSize: "15px",
   },
   xl: {
@@ -22,6 +22,7 @@ const StyledButton = styled.button`
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   border-width: 0;
   border-radius: 8px;
+  
   padding: ${(props) => sizeStyles[props.size]?.padding};
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
 `;

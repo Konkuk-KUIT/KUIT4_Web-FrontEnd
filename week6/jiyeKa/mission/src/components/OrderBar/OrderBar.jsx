@@ -7,7 +7,6 @@ const OrderBar = () => {
   const store = null;
   const navigate=useNavigate();
   const handleOrder = () => {
-    console.log("Navigating to /cart");
     navigate("/cart"); //Link처럼 /cart로 이동 -> 이동 안됨 문제 해결
   };
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Category, CategoryGrid, CategoryTextStyle } from './MainMenuCategory.styles'
+import { Category, CategoryGrid, CategoryTextStyle, CategoryComponent } from './MainMenuCategory.styles'
 import pizza from "../../assets/pizza.svg"
 import salad from "../../assets/salad.svg"
 import hamburger from "../../assets/hamburger.svg"
@@ -20,7 +20,8 @@ const MainMenuCategory = () => {
 
     
 
-    
+    <CategoryComponent>
+
     <CategoryGrid>
       <Category>
         <img src={pizza} style={{width:"28px", height:"28px"}}/>
@@ -72,6 +73,7 @@ const MainMenuCategory = () => {
       </Category>
 
     </CategoryGrid>
+    </CategoryComponent>
   )
 }
 
