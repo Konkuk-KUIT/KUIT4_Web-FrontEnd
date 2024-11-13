@@ -1,6 +1,5 @@
 import Button from "../Button";
 import chevron_right from "../../assets/Image/chevron-right.png";
-
 import {
   MenuItemContainer,
   MenuImageCircle,
@@ -14,9 +13,13 @@ import {
   MenuButtonWrapper,
   MenuCartButton,
 } from "./MenuItem.styles";
+import useCartStore from "../../pages/cartStore";
 
 const MenuItem = ({ menu, displayMode }) => {
-  const handleAddMenu = () => {};
+  const addMenu = useCartStore((state) => state.addMenu);
+  const handleAddMenu = () => {
+    addMenu(menu);
+  };
 
   return (
     <MenuItemContainer>
@@ -42,9 +45,10 @@ const MenuItem = ({ menu, displayMode }) => {
             />
           </MenuCartButton>
         ) : (
-          <Button onClick={handleAddMenu} type="button" size="sm">
-            담기
-          </Button>
+        //   <Button onClick={handleAddMenu} type="button" size="sm">
+        //     담기
+        //   </Button>
+        <button onClick={handleAddMenu} type="button">담기</button>
         )}
       </MenuButtonWrapper>
     </MenuItemContainer>

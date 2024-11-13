@@ -1,3 +1,4 @@
+import useCartStore from "../../pages/cartStore";
 import Button from "../Button";
 import {
   OrderBarContainer,
@@ -6,8 +7,10 @@ import {
 } from "./OrderBar.styles";
 
 const OrderBar = () => {
-  const menus = [];
-  const store = null;
+  const menus = useCartStore((state) => state.menus);
+    // cartStore에서 menus배열을 가져옴
+  const store = useCartStore((state) => state.store);
+  console.log(store)
   const handleOrder = () => {};
 
   return (

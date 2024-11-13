@@ -15,6 +15,8 @@ import {
   StoreDetailedInfo,
   MenuCategory,
 } from "./Store.styles";
+import useCartStore from "../cartStore";
+import { useEffect } from "react";
 
 const Store = () => {
   const { storeId } = useParams();
@@ -27,7 +29,14 @@ const Store = () => {
   // path의 파라미터값을 받으려면 useParams에서도 무조건 storeId로 받아야 함
   // 즉 Router.jsx의 path: "/store/:storeId"와 const { storeId } = useParams()의 변수 이름이 일치해야 함
 
+  const setStore = useCartStore((state) => state.setStore);
   const store = stores.find((store) => store.id.toString() === storeId);
+
+  useEffect(() => {
+    if (store) { // store가 존재한다면
+        setStore(store)
+    }
+  }, [])
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
