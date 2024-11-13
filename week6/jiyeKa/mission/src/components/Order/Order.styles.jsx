@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const OrderWrapper = styled.div`
+    width: 390px;
     diplay: flex;
     flex-direction: column;
     position: fixed;
-    bottom: 0;
-    width: 100%;
+    top: 668px;
     height: 129px;
     text-align: center;
     align-items: center;

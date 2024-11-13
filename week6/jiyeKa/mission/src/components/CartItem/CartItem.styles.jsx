@@ -25,6 +25,8 @@ export const ItemDescWrapper = styled.div`
     color: #333D4B;
   }
 > .myOrder {
+    width:210px;
+    height: 32px;
     font-family: Pretendard;
     font-size: 13px;
     font-weight: 500;
@@ -51,7 +53,7 @@ export const ButtonWrapper = styled.div`
     font-family: Pretendard;
     font-size: 15px;
     font-weight: 500;
-    line-height: 17.9px;
+    // margin-top:46px;
     color: #6B7684;
   }
 > img {

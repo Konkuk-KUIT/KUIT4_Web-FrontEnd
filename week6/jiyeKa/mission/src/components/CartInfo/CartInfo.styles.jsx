@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const CartInfoWrapper = styled.div`
   position: relative;
-  top: 100px;
+  top: 41px;
+  width: 390px;
 `;
 
 const OrderInfo = styled.div`
@@ -14,9 +15,9 @@ const OrderInfo = styled.div`
     font-family: Pretendard;
     font-size: 17px;
     font-weight: 600;
-    line-height: 20.29px;
-    color: #3182F6;
+    line-height: 20px;
     border-top: 1px solid #E4E7EB;
+    color: #3182F6;
     text-align: center;
     padding-top: 19px;
     padding-bottom: 20px;
