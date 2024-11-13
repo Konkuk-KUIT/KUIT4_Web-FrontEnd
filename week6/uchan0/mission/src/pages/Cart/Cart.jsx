@@ -12,6 +12,7 @@ import useCartStore from "../../store/cartStore";
 const Cart = () => {
   const menus = useCartStore((state) => state.menus);
   const store = useCartStore((state) => state.store);
+  const reset = useCartStore((state) => state.resetAll);
 
   const navigate = useNavigate();
   const onClickButton = () => {
@@ -20,6 +21,16 @@ const Cart = () => {
   const onClickMoreButton = () => {
     // 담은 음식에 해당하는 storeId로 이동하게 구현
     navigate(`/store/${store.id}`);
+  };
+
+  const resetOrder = () => {
+    if (
+      window.confirm(
+        "주문 취소를 하시면 장바구니가 초기화됩니다. 주문최소하시겠습니까?"
+      )
+    ) {
+      reset(); // 확인을 누른 경우 reset 실행
+    }
   };
 
   // 아직 아무것도 안 담았을 때 early return
@@ -59,7 +70,9 @@ const Cart = () => {
             <img src={arrowBackIcon} alt="Home으로 가기 버튼" />
           </div>
         </Link> */}
-        <div className={styles.orderCancel}>주문취소</div>
+        <div onClick={resetOrder} className={styles.orderCancel}>
+          주문취소
+        </div>
       </div>
       <div className={styles.borderLine}></div>
       <div className={styles.orderContentContainer}>

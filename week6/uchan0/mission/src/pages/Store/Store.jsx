@@ -15,15 +15,8 @@ const Store = () => {
   };
 
   const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
 
   const store = stores.find((store) => store.id.toString() === storeId);
-
-  useEffect(() => {
-    if (store) {
-      setStore(store);
-    }
-  }, []);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -84,7 +77,7 @@ const Store = () => {
       <div className={styles.menuInfoContainer}>
         <div className={styles.menuCategory}>샐러드</div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} newStore={store} menu={menu} />;
         })}
       </div>
       <OrderBar />
