@@ -1,12 +1,10 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import stores from "../../models/stores";
 import styles from "./Store.module.css";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
 import yellowStarIcon from "../../assets/YellowStar.png";
-import useCartStore from "../../store/cartStore";
-import { useEffect } from "react";
 
 const Store = () => {
   const navigate = useNavigate();

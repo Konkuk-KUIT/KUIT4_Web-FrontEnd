@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import pizzaIcon from "../../assets/foodCategory/pizzaIcon.png";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import CategoryItem from "../../components/categoryItem/CategoryItem";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const foodCategory = [
   {

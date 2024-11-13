@@ -14,12 +14,6 @@ const OrderBar = () => {
     navigate("/cart");
   };
 
-  // 제대로 들어갔나 확인
-  console.log(store);
-  menus.map((menu) => {
-    console.log(menu.name);
-  });
-
   return (
     <div className={styles.orderBarContainer}>
       <div className={styles.orderBarText}>
@@ -27,7 +21,10 @@ const OrderBar = () => {
         <div className={styles.orderTotalPrice}>
           {/* toLocalString으로 사용하여 1000단위 쉼표 넣기 */}
           {menus
-            .reduce((acc, currentMenu) => acc + currentMenu.price, 0)
+            .reduce(
+              (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+              0
+            )
             .toLocaleString()}
           원
         </div>

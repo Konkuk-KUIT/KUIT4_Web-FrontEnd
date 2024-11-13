@@ -16,7 +16,17 @@ const useCartStore = create((set) => ({
     set((state) => ({ ...state, store: store }));
   },
   resetAll: () => {
+    set((state) => ({
+      menus: state.menus.map((menu) => ({ ...menu, cnt: 0 })),
+    }));
     set(initialState);
+  },
+  updateMenuCount: (menuId) => {
+    set((state) => ({
+      menus: state.menus.map((menu) =>
+        menu.id === menuId ? { ...menu, cnt: menu.cnt + 1 } : menu
+      ),
+    }));
   },
 }));
 

@@ -18,7 +18,7 @@ const OrderItems = ({ menu }) => {
       </div>
 
       <div className={styles.menuProcess}>
-        <div className={styles.menuCnt}>1개</div>
+        <div className={styles.menuCnt}>{menu.cnt}개</div>
         <img src={arrowRightIcon} alt="다음" />
       </div>
     </div>

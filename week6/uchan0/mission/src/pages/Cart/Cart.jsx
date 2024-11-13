@@ -5,7 +5,6 @@ import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
 import cautionIcon from "../../assets/Caution.png";
 import plusIcon from "../../assets/PlusIcon.png";
 import Button from "../../components/Button";
-import store from "../../models/stores";
 import OrderItems from "../../components/OrderItems/OrderItems";
 import useCartStore from "../../store/cartStore";
 
@@ -81,8 +80,10 @@ const Cart = () => {
 
           {/* 최소 주문 금액보다 작을 때만 보이게하기 */}
           <div className={styles.leastPriceContainer}>
-            {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
-              store.minDeliveryPrice && (
+            {menus.reduce(
+              (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+              0
+            ) < store.minDeliveryPrice && (
               <>
                 <div className={styles.leastPrice}>최소금액 미달</div>
                 <img src={cautionIcon} alt="최소금액 미달" />
@@ -108,7 +109,10 @@ const Cart = () => {
           <div className={styles.priceText}>주문금액</div>
           <div className={styles.price}>
             {menus
-              .reduce((acc, currentMenu) => acc + currentMenu.price, 0)
+              .reduce(
+                (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+                0
+              )
               .toLocaleString()}
             원
           </div>
@@ -123,8 +127,10 @@ const Cart = () => {
           <div className={styles.totalPriceText}>총 결제금액</div>
           <div className={styles.totalPrice}>
             {(
-              menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
-              store.deliveryFee
+              menus.reduce(
+                (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+                0
+              ) + store.deliveryFee
             ).toLocaleString()}
             원
           </div>
@@ -138,13 +144,17 @@ const Cart = () => {
           type="button"
           size="xl"
           disabled={
-            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
-            store.minDeliveryPrice
+            menus.reduce(
+              (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+              0
+            ) < store.minDeliveryPrice
           }
         >
           {(
-            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
-            store.deliveryFee
+            menus.reduce(
+              (acc, currentMenu) => acc + currentMenu.price * currentMenu.cnt,
+              0
+            ) + store.deliveryFee
           ).toLocaleString()}
           원 결제하기
         </Button>
