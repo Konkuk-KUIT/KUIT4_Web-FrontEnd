@@ -58,7 +58,7 @@ const Store = () => {
         </div>
         <div>
           <StoreDetailedInfo>최소주문</StoreDetailedInfo>
-          <StoreDetailedInfo>{store.minDeliveryPrice}</StoreDetailedInfo>
+          <StoreDetailedInfo>{store.minDeliveryPrice}원</StoreDetailedInfo>
         </div>
         <div>
           <StoreDetailedInfo>배달시간</StoreDetailedInfo>
@@ -72,7 +72,7 @@ const Store = () => {
       <MenuCategory>샐러드</MenuCategory>
       <div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} displayMode="order" />;
+          return <MenuItem key={menu.id} store={store} menu={menu} displayMode="order" />;
         })}
       </div>
       <OrderBar />

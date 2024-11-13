@@ -11,7 +11,7 @@ const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
     // cartStore에서 menus배열을 가져옴
   const store = useCartStore((state) => state.store);
-  console.log(store)
+  // console.log(store)
 
   const navigate = useNavigate(); // useNavigate 훅 사용
   const handleOrder = () => {

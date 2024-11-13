@@ -21,8 +21,15 @@ const useCartStore = create((set) => ({
     },
     setStore: (store) => { // 외부에서 setStore 사용할 때 인자로 가게를 받음
         set((state) => ({
-            ...state, 
-            store: store 
+            ...state,
+            store: store
+        }))
+    },
+    clearCartAndAddMenu: (store, menu) => {
+        set((state) => ({
+            ...state,
+            store: store,
+            menus: [menu]
         }))
     }
 }));
