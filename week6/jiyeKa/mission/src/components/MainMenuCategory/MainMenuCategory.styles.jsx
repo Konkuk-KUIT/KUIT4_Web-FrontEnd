@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Category = styled.div`
   display: flex;
   width: 108px;
@@ -16,17 +17,16 @@ export const Category = styled.div`
 `;
 
 export const CategoryGrid = styled.div`
-  width: 100%;
   height: auto;
   display: grid;
   grid-template-rows: repeat(4, 74px);
   grid-template-columns: repeat(3, 108px);
   gap: 10px 9px;
-  margin-bottom: 169px;
-  position: absolute; // 절대 위치로 설정
-  top: 170px;
-  left: 50px; // 수정 필요!!!! -> 질문
   box-sizing: border-box;
+  position: absolute;
+  top: 251px;
+  left: 24px;
+
 `;
 
 export const CategoryTextStyle = styled.div`

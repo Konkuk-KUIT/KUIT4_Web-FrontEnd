@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const HeaderBarWrapper = styled.div`
-    width: 100%;
     height: 41px;
+    width: 365px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items:center;
     padding-left:10px;
     padding-right:15px;
-    position:fixed;
+    position:absolute;
     top:0;
     background-color: #FFFFFF;
     > img {
