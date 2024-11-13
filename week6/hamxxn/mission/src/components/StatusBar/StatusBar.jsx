@@ -5,7 +5,7 @@ import LeftChevron from "../../assets/left-chevron.svg";
 
 import { StatusWrapper, Under } from "./StausBar.styles";
 
-const StatusBar = ({ back, cancel }) => {
+const StatusBar = ({ back, cancel, onClick }) => {
   return (
     <div
       style={{
@@ -23,7 +23,9 @@ const StatusBar = ({ back, cancel }) => {
         </div>
       </StatusWrapper>
       <Under>
-        {back && <img src={LeftChevron} alt="Go back button" />}
+        {back && (
+          <img src={LeftChevron} alt="Go back button" onClick={onClick} />
+        )}
         {cancel && <p>주문취소</p>}
       </Under>
     </div>

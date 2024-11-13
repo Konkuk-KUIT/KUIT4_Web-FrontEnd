@@ -11,6 +11,7 @@ const useCartStore = create((set) => ({
     set((state) => ({ ...state, menus: [...state.menus, menu] }));
   },
   setStore: (store) => {
+    console.log("set store");
     set((state) => ({ ...state, store: store }));
   },
   clearCart: () => {

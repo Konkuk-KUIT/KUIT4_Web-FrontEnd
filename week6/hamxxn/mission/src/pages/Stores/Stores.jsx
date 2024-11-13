@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "../../components/StatusBar/StatusBar";
 import StoreDetail from "../../components/StoreDetail/StoreDetail";
@@ -21,9 +21,14 @@ const Stores = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
   const sortStores = addRankToStores(stores);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
   return (
     <>
-      <StatusBar back={true} />
+      <StatusBar back={true} onClick={handleClick} />
       <div
         style={{
           marginTop: "var(--status-bar)",
@@ -31,7 +36,7 @@ const Stores = () => {
           width: "var(--width-variable)",
         }}
       >
-        <CategoryTitle>{category}</CategoryTitle>
+        <CategoryTitle>{category || "Category"}</CategoryTitle>
         <StoreDetailWrapper>
           {sortStores.map((store) => (
             <StoreDetail key={store.id} store={store} />
