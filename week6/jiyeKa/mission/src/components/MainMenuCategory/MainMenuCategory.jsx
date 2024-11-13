@@ -68,7 +68,7 @@ const MainMenuCategory = () => {
         <CategoryTextStyle>커피</CategoryTextStyle>
       </Category>
       <Category>
-        <img src={etc} style={{width:"21px", height:"5px"}}/>
+        <img src={etc} style={{width:"21px", height:"5px", "margin-bottom":"12px"}}/>
         <CategoryTextStyle>더보기</CategoryTextStyle>
       </Category>
 

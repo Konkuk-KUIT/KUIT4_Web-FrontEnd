@@ -1,13 +1,13 @@
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import StoreList from "../../components/StoreList/StoreList";
-import Order from "../../components/Order/Order";
+import OrderBar from "../../components/OrderBar/OrderBar";
 
 const Stores = () => {
     return (
       <>
       <HeaderBar backTo={true}/>
       <StoreList />
-      <Order />
+      <OrderBar />
     </>
     );
   };

@@ -10,6 +10,7 @@ export const Category = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  gap: 4px;
   background: #FAFAFB;
   &:hover{
     cursor:pointer;

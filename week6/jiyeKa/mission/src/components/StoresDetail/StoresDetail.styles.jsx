@@ -1,42 +1,45 @@
 import styled from 'styled-components';
 
 const DetailWrapper = styled.div`
-    position: relative;
-    top: 26px;
     width: 390px;
-    height: 90px;
     display: flex;
+    flex-direction: row;
     box-sizing: border-box;
-    margin-top: 17px;
-    margin-left: 24px;
 `;
 
-const DetailImg = styled.img`
+const IMG = styled.div`
     width: 54px;
     height: 54px;
-    border-radius: 8px;
-    background-color: #ECECEC;
-`;
-
+    margin-left: 24px;
+    margin-top:20px;
+    margin-bottom: 46px;
+    margin-right: 17px;
+`
 const Details = styled.div`
-    margin-left: 17px;
-    > .TopThree, .name {
+    > .TopThree, .inTopThreeName {
         font-family: Pretendard;
         font-size: 17px;
         font-weight: 600;
         line-height: 20.29px;
         text-color: #333D4B;
     }
+    > .TopThree {
+        margin-top: 16px;
+        margin-bottom: 2px;
+    }
     > .name {
-        margin-top: 2px;
+        font-family: Pretendard;
+        font-size: 17px;
+        font-weight: 600;
+        text-color: #333D4B;
+        margin-top: 16px;
     }
     > .score, .delivery {
         font-family: Pretendard;
         font-size: 13px;
         font-weight: 500;
-        line-height: 15.51px;
         text-color: #6B7684;
         margin-top: 4px;
     }
 `;
-export {DetailWrapper, DetailImg, Details};
+export {DetailWrapper, IMG, Details};
