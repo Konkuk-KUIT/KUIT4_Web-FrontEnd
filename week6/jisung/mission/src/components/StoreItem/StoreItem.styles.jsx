@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const StoreButton = styled.button`
+  padding-bottom: 88px;
+  background: none; /* 배경색 제거 */
+  border: none; /* 테두리 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  cursor: pointer; /* 마우스 커서 포인터로 설정 */
+  outline: none; /* 포커스 outline 제거 */
+`
+
 export const StoreItemContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
@@ -22,6 +31,7 @@ export const StoreInfoContainer = styled.div`
   flex-direction: column;
   padding-top: 16px;
   padding-bottom: 17px;
+  align-items: flex-start;
 `;
 
 export const StoreHeader = styled.div`
