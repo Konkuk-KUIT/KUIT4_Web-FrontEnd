@@ -19,6 +19,7 @@ import {
   MinDeliveryPriceNoti,
 } from "./Cart.styles";
 import useCartStore from "../../pages/cartStore";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const store = useCartStore((state) => (state.store))
@@ -46,7 +47,7 @@ const Cart = () => {
       </OrderInfoRow>
       {
         Object.values(menus).map((menu, index) => (
-            <MenuItem key={menu.id} menu={menu} displayMode="cart" />
+            <CartItem key={menu.id} menu={menu}/>
         ))
       }
 

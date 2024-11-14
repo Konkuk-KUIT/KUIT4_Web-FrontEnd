@@ -15,7 +15,7 @@ import {
 } from "./MenuItem.styles";
 import useCartStore from "../../pages/cartStore";
 
-const MenuItem = ({ store, menu, displayMode }) => {
+const MenuItem = ({ store, menu }) => {
   const addMenu = useCartStore((state) => state.addMenu);
   const curCartMenus = useCartStore((state) => state.menus);
   const clearCartAndAddMenu = useCartStore((state) => state.clearCartAndAddMenu);
@@ -63,22 +63,9 @@ const MenuItem = ({ store, menu, displayMode }) => {
         </MenuInfoContainer>
       </MenuContentWrapper>
       <MenuButtonWrapper>
-        {displayMode === "cart" ? (
-          <MenuCartButton>
-            <span style={{ paddingRight: "14px" }}>
-                {menu.quantity}개
-            </span>
-            <img
-              style={{ width: "16px", height: "16px" }}
-              src={chevron_right}
-              alt="Back"
-            />
-          </MenuCartButton>
-        ) : (
           <Button onClick={handleAddMenu} type="button" size="sm">
             담기
           </Button>
-        )}
       </MenuButtonWrapper>
     </MenuItemContainer>
   );
