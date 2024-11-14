@@ -63,7 +63,7 @@ const MenuItem = ({ store, menu }) => {
         </MenuInfoContainer>
       </MenuContentWrapper>
       <MenuButtonWrapper>
-          <Button onClick={handleAddMenu} type="button" size="sm">
+          <Button onClick={isSameStore} type="button" size="sm">
             담기
           </Button>
       </MenuButtonWrapper>
