@@ -70,7 +70,7 @@ const Store = () => {
 
       {/* 메뉴 정보 */}
       <MenuCategory>샐러드</MenuCategory>
-      <div>
+      <div style={{paddingBottom: "111px"}}>
         {store.menus.map((menu) => {
           return <MenuItem key={menu.id} store={store} menu={menu}/>;
         })}
