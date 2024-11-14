@@ -14,11 +14,46 @@ const useCartStore = create((set) => ({
     menus: initialState.menus,
 
     addMenu: (menu) => { // 외부에서 addMenu 사용할 때 인자로 메뉴를 받음
-        set((state) => ({ 
-            ...state, 
-            menus: [ ...state.menus, menu] 
-        }));
+        set((state) => { 
+            const menuId = menu.id;
+            const existingMenu = state.menus[menuId];
+            // 만약 menuId라는 Key가 menus에 없으면 existingMenu는 undefined
+
+            return {
+                ...state,
+                menus: {
+                    ...state.menus,
+                    [menuId]: {
+                        ...menu,
+                        quantity: existingMenu ? existingMenu.quantity + 1 : 1
+                        // quantity라는 Key가 없으면 key를 새로 추가함
+                        // existingMenu가 undefined면 1로 초기화
+                        // 이미 있는 메뉴라면 해당 메뉴의 수량을 1 추가함
+                    }
+                }
+            }
+        });
     },
+    /* 이런 형태로 저장됨
+        menus: {
+            1: {
+                id: 1,
+                name: "토마토 샐러드",
+                price: 7600,
+                ingredients: "계란, 옥수수, 양파",
+                storeId: 1,
+                quantity: 5
+            },
+            2: {
+                id: 2,
+                name: "샐러드2",
+                price: 8000,
+                ingredients: "피망, 옥수수, 양파",
+                storeId: 1,
+                quantity: 3
+        }
+    */
+
     setStore: (store) => { // 외부에서 setStore 사용할 때 인자로 가게를 받음
         set((state) => ({
             ...state,
@@ -29,9 +64,14 @@ const useCartStore = create((set) => ({
         set((state) => ({
             ...state,
             store: store,
-            menus: [menu]
+            menus: {
+                [menu.id]: {
+                    ...menu,
+                    quantity: 1
+                }
+            }
         }))
-    }
+    },
 }));
 
 export default useCartStore;

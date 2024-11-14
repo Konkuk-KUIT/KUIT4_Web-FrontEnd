@@ -18,10 +18,18 @@ import {
   PaymentContainer,
   MinDeliveryPriceNoti,
 } from "./Cart.styles";
+import useCartStore from "../../pages/cartStore";
 
 const Cart = () => {
-  const store = stores.find((store) => store.id === 1);
-  const menu = store.menus.find((menu) => menu.id === 1);
+  const store = useCartStore((state) => (state.store))
+  const menus = useCartStore((state) => (state.menus))
+  const totalPrice = (menus ? Object.values(menus) : []).reduce((acc, cur) => {
+    return acc + cur.price * cur.quantity;
+  }, 0);
+  // Object.values(menus)를 통해 메뉴 객체의 값을 배열 형태로 가져옴
+  // menus가 빈 배열일 경우 값을 0으로 초기화
+  const deliveryFee = store?.deliveryFee || 0;
+  const minDeliveryPrice = store?.minDeliveryPrice || 0;
 
   return (
     <CartContainer>
@@ -31,12 +39,16 @@ const Cart = () => {
       <Separator heightType="medium" />
 
       <OrderInfoRow>
-        <StoreName>샐로리 한남점</StoreName>
-        {store.minDeliveryPrice > 10000 ? (
+        <StoreName>{store?.name}</StoreName>
+        {store?.minDeliveryPrice > totalPrice + deliveryFee ? (
           <MinDeliveryPriceAlert>최소금액 미달❗️</MinDeliveryPriceAlert>
         ) : null}
       </OrderInfoRow>
-      <MenuItem menu={menu} displayMode="cart" />
+      {
+        Object.values(menus).map((menu, index) => (
+            <MenuItem key={menu.id} menu={menu} displayMode="cart" />
+        ))
+      }
 
       <Separator heightType="thin" />
 
@@ -48,23 +60,23 @@ const Cart = () => {
 
       <PriceInfoRow style={{ marginTop: "16px" }}>
         <PriceInfoTxt>주문금액</PriceInfoTxt>
-        <PriceInfoPrice> 10,600원</PriceInfoPrice>
+        <PriceInfoPrice>{totalPrice}원</PriceInfoPrice>
       </PriceInfoRow>
       <PriceInfoRow>
         <PriceInfoTxt>배달요금</PriceInfoTxt>
-        <PriceInfoPrice>2,000원</PriceInfoPrice>
+        <PriceInfoPrice>{deliveryFee}원</PriceInfoPrice>
       </PriceInfoRow>
       <PriceInfoRow $istotalprice={"true"}>
         <PriceInfoTxt $istotalprice={"true"}>총 결제금액</PriceInfoTxt>
-        <PriceInfoPrice $istotalprice={"true"}>12,600원</PriceInfoPrice>
+        <PriceInfoPrice $istotalprice={"true"}>{totalPrice + deliveryFee}원</PriceInfoPrice>
       </PriceInfoRow>
 
       <PaymentContainer>
         <MinDeliveryPriceNoti>
-          최소 주문 금액 {store.minDeliveryPrice}원
+          최소 주문 금액 {minDeliveryPrice}원
         </MinDeliveryPriceNoti>
-        <Button type="button" size="xl" disabled={true}>
-          12,600원 결제하기
+        <Button type="button" size="xl" disabled={totalPrice + deliveryFee < minDeliveryPrice}>
+        {totalPrice + deliveryFee}원 결제하기
         </Button>
       </PaymentContainer>
     </CartContainer>

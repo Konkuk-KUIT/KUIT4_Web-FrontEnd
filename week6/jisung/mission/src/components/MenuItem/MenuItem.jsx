@@ -27,11 +27,12 @@ const MenuItem = ({ store, menu, displayMode }) => {
   // 이 값과 
 
   const isSameStore = () => {
-    console.log("isSameStore")
-    if ((curCartMenus.length > 0 && curCartMenus[0].storeId === menu.storeId) || curCartMenus.length === 0) {
+    if ((Object.keys(curCartMenus).length > 0 && Object.values(curCartMenus)[0]?.storeId === menu.storeId) || Object.keys(curCartMenus).length === 0) {
         // 장바구니에 메뉴가 담겨있음 && 추가하는 메뉴가 장바구니의 메뉴와 같은 가게의 메뉴
         // 아님 그냥 장바구니가 비어있을 때
         // => 장바구니에 메뉴 추가
+        // curCartMenus배열이 형태가 { [menuId]: { ...menu, quantity }} 이런 구조이므로
+        // Object.values로 접근해야 함
         handleAddMenu(menu)
     } else { // 아니면 알림 보여주기
         const userConfirmed = window.confirm(
@@ -64,7 +65,9 @@ const MenuItem = ({ store, menu, displayMode }) => {
       <MenuButtonWrapper>
         {displayMode === "cart" ? (
           <MenuCartButton>
-            <span style={{ paddingRight: "14px" }}>1개</span>
+            <span style={{ paddingRight: "14px" }}>
+                {menu.quantity}개
+            </span>
             <img
               style={{ width: "16px", height: "16px" }}
               src={chevron_right}
