@@ -75,10 +75,9 @@ const MenuItem = ({ store, menu, displayMode }) => {
             />
           </MenuCartButton>
         ) : (
-        //   <Button onClick={handleAddMenu} type="button" size="sm">
-        //     담기
-        //   </Button>
-        <button onClick={isSameStore} type="button">담기</button>
+          <Button onClick={handleAddMenu} type="button" size="sm">
+            담기
+          </Button>
         )}
       </MenuButtonWrapper>
     </MenuItemContainer>

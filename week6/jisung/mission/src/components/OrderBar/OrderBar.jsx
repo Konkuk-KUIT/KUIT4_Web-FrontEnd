@@ -31,12 +31,9 @@ const OrderBar = () => {
           {totalPrice}원
         </TotalPriceNum>
       </div>
-      {/* <Button onClick={() => handleOrder()} type="button" size="lg">
+      <Button onClick={() => handleOrder()} type="button" size="lg">
         {store?.name && `${store.name}에서 `}주문하기
-      </Button> */}
-      <button type="button" onClick={() => handleOrder()}>
-      {store?.name && `${store.name}에서 `}주문하기
-      </button>
+      </Button>
     </OrderBarContainer>
   );
 };
