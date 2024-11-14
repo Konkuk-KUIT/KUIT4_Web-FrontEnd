@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import { BottomOrderBar, TotalPriceInKor, TotalPrice, ToTalPriceContainer } from "./OrderBar.styles";
+import useCartStore from "../../store/cartStore";
 
 const OrderBar = () => {
-  const menus = [];
-  const store = null;
-  const navigate=useNavigate();
+  const menus = useCartStore((state) => state.menus);
+  const store = useCartStore((state) => state.store);
   const handleOrder = () => {
-    navigate("/cart"); //Link처럼 /cart로 이동 -> 이동 안됨 문제 해결
+    navigate("/cart"); 
   };
 
   return (

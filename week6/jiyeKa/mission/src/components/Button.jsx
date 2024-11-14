@@ -27,9 +27,9 @@ const StyledButton = styled.button`
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
 `;
 
-const Button = ({ children, type = "button", size = "sm", disabled }) => {
+const Button = ({ onClick="onClick", children, type = "button", size = "sm", disabled }) => {
   return (
-    <StyledButton type={type} size={size} disabled={disabled}>
+    <StyledButton onClick={onClick} type={type}  size={size} disabled={disabled}>
       {children}
     </StyledButton>
   );

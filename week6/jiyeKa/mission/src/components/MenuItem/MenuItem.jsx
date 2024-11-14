@@ -1,15 +1,22 @@
 import Button from "../Button";
 import {MenuItemContainer} from './MenuItem.styles'
+import storeList from "../../assets/storeList.svg"
+import useCartStore from "../../store/cartStore.js"
+
 const MenuItem = ({ menu }) => {
-  const handleAddMenu = () => {};
+
+  const addMenu = useCartStore((state) => state.addMenu);
+  const handleAddMenu = () => {
+    addMenu(menu);
+  };
 
   return (
     <div>
       <MenuItemContainer>
-      <img src="http://placehold.co/54x54" alt="" />
+      <img src={storeList} />
       </MenuItemContainer>
       <h3>{menu.name}</h3>
-      <span>{menu.price}</span>
+      <span>{menu.price}원</span>
       <p>{menu.ingredients}</p>
       <Button onClick={handleAddMenu} type="button" size="sm">
         담기

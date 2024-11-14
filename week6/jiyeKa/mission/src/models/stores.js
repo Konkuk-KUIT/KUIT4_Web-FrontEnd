@@ -28,7 +28,7 @@ const stores = [
           name: "리코타치즈 샐러드",
           isBest: false,
           price: 6900,
-          ingredients: "리코타치즈, 양상추, 베이비채소, 방울토마톹, 블랙올리브",
+          ingredients: "리코타치즈, 양상추, 베이비채소, 방울토마토, 블랙올리브",
         },
         {
           id: 4,

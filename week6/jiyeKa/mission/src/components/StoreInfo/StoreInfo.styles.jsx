@@ -4,14 +4,18 @@ export const NoStoreWrapper = styled.div`
   position: relative;
   top: 100px;
   text-align: center;
+  width: 390px;
 `;
 
-export const StoreInfoWrapper = styled.div``;
+export const StoreInfoWrapper = styled.div`
+  height: 
+`;
 
 export const InfoWrapper = styled.div`
 
     position: relative;
-    top: 80px;
+    top: 41px;
+    width: 390px;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #E5E8EB;
@@ -61,7 +65,7 @@ export const InfoWrapper = styled.div`
 `;
 
 export const MenuWrapper = styled.div`
-
+  height: 749px;
   position: relative;
   top: 110px;
   padding-left: 24px;
