@@ -17,7 +17,7 @@ const useCartStore = create((set) => ({
     set((state) => ({ ...state, store: store }));
   },
   resetAll: () => {
-    // allStores의 모든 메뉴의 cnt를 0으로 초기화
+    // allStores의 모든 메뉴의 cnt를 0으로 초기화.
     allStore.forEach((store) => {
       store.menus.forEach((menu) => {
         menu.cnt = 0;
