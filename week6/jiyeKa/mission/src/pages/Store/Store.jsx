@@ -31,7 +31,7 @@ const Store = () => {
     <>
     <HeaderBar backTo={true}/>
     <StoreInfo />
-    <OrderBar />
+    <OrderBar style={{bottom:"0px"}} />
     </>
   );
 };

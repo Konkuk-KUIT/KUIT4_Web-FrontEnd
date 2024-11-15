@@ -41,7 +41,7 @@ const MenuItem = ({ menu }) => {
       <Button onClick={handleAddMenu} type="button" size="sm">담기</Button>
       </MenuButtonWrapper>
       </MenuItemContainer>
-    </div>
+    </div>  
   );
 };
 

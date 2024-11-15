@@ -66,13 +66,14 @@ export const InfoWrapper = styled.div`
 
 export const MenuWrapper = styled.div`
   height: 749px;
+  width: 390px;
+  box-sizing: border-box;
   position: fixed;
   top: 235px;
-  left: 24px;
+  padding-left: 24px;
   > .category {
       width: 45px;
       height: 20px;
-      margin-left: 24px;
       margin-top: 26px;
       
       font-family: Pretendard;
