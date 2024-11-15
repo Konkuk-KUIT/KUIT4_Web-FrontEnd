@@ -18,13 +18,15 @@ const Cart = () => {
     return (
         <div className={styles.CartContainer}>
             <div className={styles.storeInfoContainer}>
-                <h2 className={styles.storeName}>{store?.name || "somthing error"}</h2>
-                <div className={styles.alert}>
-                    <div className={styles.alertContainer}>
-                        <span className={styles.minOrderText}>최소금액 미달</span>
-                        <img src={exclamation} alt="exclamation-mark" className={styles.exclamationMark} />
+                <h2 className={styles.storeName}>{store?.name}</h2>
+                {!isMinOrderSatisfied && (
+                    <div className={styles.alert}>
+                        <div className={styles.alertContainer}>
+                            <span className={styles.minOrderText}>최소금액 미달</span>
+                            <img src={exclamation} alt="exclamation-mark" className={styles.exclamationMark} />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
             {menus.map((menu, index) => (
                 <CartMenuItem 
@@ -43,21 +45,21 @@ const Cart = () => {
                 </div>
                 <div className={styles.summaryRow}>
                     <span className={styles.summaryLabel}>배달요금</span>
-                    <span className={styles.summaryValue}>{deliveryFee.toLocaleString()}원</span>
+                    <span className={styles.summaryValue}>{deliveryFee?.toLocaleString() || "0"}원</span>
                 </div>
                 <div className={`${styles.summaryRow} ${styles.totalRow}`}>
                     <span className={styles.summaryLabel}>총 결제금액</span>
-                    <span className={styles.summaryValue}>{total.toLocaleString()}원</span>
+                    <span className={styles.summaryValue}>{total?.toLocaleString()}원</span>
                 </div>
             </div>
 
             <div className={styles.bottombar}>
                 <span className={styles.totalPrice}>
-                    최소주문금액 {store?.minDeliveryPrice?.toLocaleString() || "something error"}원
+                    최소주문금액 {store?.minDeliveryPrice?.toLocaleString()}원
                 </span>
                 <button 
                     className={styles.orderBtn}
-                    disabled={subtotal < (store?.minDeliveryPrice)}
+                    disabled={!isMinOrderSatisfied}
                 >
                     <span className={styles.orderBtnText}>
                         {total.toLocaleString()}원 결제하기

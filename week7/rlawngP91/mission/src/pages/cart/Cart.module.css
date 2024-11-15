@@ -2,7 +2,7 @@
     width: 100%;
     min-width: 390px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: white;
 }
 
 .storeInfoContainer {
@@ -147,9 +147,14 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    
     border-radius: 16px;
-    background: #D0DFFB;
+    background: #3182F6;
+    border: none;
+    cursor: pointer; 
+}
+.orderBtn:disabled {
+    background: #DDE1E6;  /* 비활성화 시 색상 */
+    cursor: not-allowed;
 }
 
 .orderBtnText{
