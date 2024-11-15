@@ -1,8 +1,7 @@
 import styles from './CartMenuItem.module.css';
 import { menuDetail } from '../../assets';
-import useCartStore from '../../store/cartStore';  // 추가
 
-const CartMenuItem = ({ menu }) => {  // menu prop 추가
+const CartMenuItem = ({ menu }) => {
     return (
         <div className={styles.cartItemContainer}>
             <img 

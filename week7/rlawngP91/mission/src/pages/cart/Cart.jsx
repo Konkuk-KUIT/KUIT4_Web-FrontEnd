@@ -10,13 +10,15 @@ const Cart = () => {
     
     // 총 주문금액 계산
     const subtotal = menus.reduce((sum, menu) => sum + menu.price, 0);
-    const deliveryFee = store?.deliveryFee || 0;
+    const deliveryFee = store?.deliveryFee;
     const total = subtotal + deliveryFee;
 
+    const isMinOrderSatisfied = store && subtotal >= store.minDeliveryPrice;
+    
     return (
         <div className={styles.CartContainer}>
             <div className={styles.storeInfoContainer}>
-                <h2 className={styles.storeName}>{store?.name || "매장명"}</h2>
+                <h2 className={styles.storeName}>{store?.name || "somthing error"}</h2>
                 <div className={styles.alert}>
                     <div className={styles.alertContainer}>
                         <span className={styles.minOrderText}>최소금액 미달</span>
@@ -24,15 +26,12 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
-
-            {/* 장바구니 아이템 목록 */}
             {menus.map((menu, index) => (
                 <CartMenuItem 
                     key={index} 
                     menu={menu}
                 />
             ))}
-            
             <div className={styles.addMoreContainer}>
                 <button className={styles.addMoreButton}>더 담기 +</button>
             </div>
@@ -54,11 +53,11 @@ const Cart = () => {
 
             <div className={styles.bottombar}>
                 <span className={styles.totalPrice}>
-                    최소주문금액 {store?.minDeliveryPrice?.toLocaleString() || "13,000"}원
+                    최소주문금액 {store?.minDeliveryPrice?.toLocaleString() || "something error"}원
                 </span>
                 <button 
                     className={styles.orderBtn}
-                    disabled={subtotal < (store?.minDeliveryPrice || 13000)}
+                    disabled={subtotal < (store?.minDeliveryPrice)}
                 >
                     <span className={styles.orderBtnText}>
                         {total.toLocaleString()}원 결제하기

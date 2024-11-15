@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
-import styles from "./StoreId.module.css";
+import { useEffect } from "react";
+
 import { starIcon } from "../../assets";
+import styles from "./StoreId.module.css";
 
 import MenuItem from "../../components/menuItem/MenuItem";
 import stores from "../../models/stores";
 import useCartStore from "../../store/cartStore";
-import { useEffect } from "react";
+
 
 
 const StoreId = () => {

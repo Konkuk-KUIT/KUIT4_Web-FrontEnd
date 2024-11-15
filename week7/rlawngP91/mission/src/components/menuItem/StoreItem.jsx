@@ -1,16 +1,16 @@
-import { useNavigate } from 'react-router-dom';  // 추가
+import { useNavigate } from 'react-router-dom';
 import styles from './StoreItem.module.css';
 import { starIcon } from '../../assets';
 
 const StoreItem = ({ store }) => {
-    const navigate = useNavigate();  // 추가
+    const navigate = useNavigate();
 
-    const handleClick = () => {      // 추가
+    const handleClick = () => {
         navigate(`/store/${store.id}`);
     };
 
     return (
-        <div className={styles.storeItem} onClick={handleClick}>  {/* onClick 추가 */}
+        <div className={styles.storeItem} onClick={handleClick}>
             <div className={styles.imageContainer}>
                 <img src='/api/placeholder/70/70' alt="store" className={styles.image} />
             </div>

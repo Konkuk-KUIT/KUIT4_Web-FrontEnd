@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom';
 import styles from './Store.module.css';
-import StoreItem from "../../components/menuItem/StoreItem";
 
+import StoreItem from "../../components/menuItem/StoreItem";
 import stores from "../../models/stores";
 
 const Store = () => {

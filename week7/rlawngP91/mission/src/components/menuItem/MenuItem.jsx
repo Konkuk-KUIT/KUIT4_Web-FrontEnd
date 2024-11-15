@@ -7,7 +7,7 @@ import { menuImgIcon } from "../../assets";
 
 const MenuItem = ({ menu, store }) => {
     const [showModal, setShowModal] = useState(false);
-    const { addMenu, store: cartStore, menus, resetCart } = useCartStore();  // menus 추가
+    const { addMenu, store: cartStore, menus, resetCart } = useCartStore();
 
     const handleAddMenu = () => {
         // 장바구니가 비어있는 경우

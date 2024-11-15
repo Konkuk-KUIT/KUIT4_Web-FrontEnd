@@ -8,7 +8,7 @@ const OrderBarContainer = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;  // 배경을 투명하게 설정
+    background: white;
 `;
 
 const OrderBarWrapper = styled.div`
@@ -53,29 +53,6 @@ const Price = styled.div`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-`;
-
-const OrderButton = styled.button`
-    display: inline-flex;
-    padding: 10px 16px;
-    justify-content: center;
-    align-items: center;
-    margin-right: 40px;
-    border-radius: 8px;
-    background: #3182F6;
-    border: none;
-    color: white;
-    font-family: Pretendard;
-    font-size: 16px;
-    font-weight: 600;
-    height: fit-content;
-    white-space: nowrap;
-    cursor: pointer;
-
-    &:disabled {
-        background: #DDE1E6;
-        cursor: not-allowed;
-    }
 `;
 
 const OrderBar = () => {
