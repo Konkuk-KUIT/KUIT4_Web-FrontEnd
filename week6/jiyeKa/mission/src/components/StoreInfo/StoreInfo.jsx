@@ -23,7 +23,7 @@ const StoreInfo = () => {
         <div className="storeReputation">
           <img src={star} alt="star" />
           <div className="storeRate">{store.rate}</div>
-          <div className="storeReviewCnt">리뷰{store.reviewCnt}</div>
+          <div className="storeReviewCnt">리뷰 {store.reviewCnt}</div>
         </div>
         <div className="desc">
           <div className="descLine">

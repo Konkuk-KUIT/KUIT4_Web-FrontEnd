@@ -1,5 +1,7 @@
 import Button from "../Button";
-import {MenuItemContainer} from './MenuItem.styles'
+import {BestMenu, MenuItemContainer, MenuName, MenuPrice, MenuIngredients, MenuButtonWrapper, MenuNameContainer
+  , MenuInfoContainer
+} from './MenuItem.styles'
 import roundIMG from "../../assets/roundIMG.svg"
 import useCartStore from "../../store/cartStore.js"
 
@@ -18,7 +20,6 @@ const MenuItem = ({ menu }) => {
         addMenu(menu);
       }
     } else {
-      // 가게가 같거나 장바구니가 비어있는 경우, 메뉴 추가
       addMenu(menu);
     }
   };
@@ -26,15 +27,20 @@ const MenuItem = ({ menu }) => {
 
   return (
     <div>
-      <MenuItemContainer>
+      <MenuItemContainer /*메뉴 단위 , row */>   
       <img src={roundIMG} />
+      <MenuInfoContainer /* 메뉴 이름 ~ 가격 ~ 재료 까지 column단위 컴포넌트 */>  
+        <MenuNameContainer /* 메뉴 이름 + BEST 메뉴 여부 */>  
+          <MenuName>{menu.name}</MenuName>
+          {menu.isBest && <BestMenu>BEST</BestMenu>}
+        </MenuNameContainer>
+        <MenuPrice>{menu.price}원</MenuPrice>
+        <MenuIngredients>{menu.ingredients}</MenuIngredients>
+      </MenuInfoContainer>
+      <MenuButtonWrapper /* 버튼 컴포넌트 */> 
+      <Button onClick={handleAddMenu} type="button" size="sm">담기</Button>
+      </MenuButtonWrapper>
       </MenuItemContainer>
-      <h3>{menu.name}</h3>
-      <span>{menu.price}원</span>
-      <p>{menu.ingredients}</p>
-      <Button onClick={handleAddMenu} type="button" size="sm">
-        담기
-      </Button>
     </div>
   );
 };

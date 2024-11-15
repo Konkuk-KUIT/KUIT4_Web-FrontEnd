@@ -24,6 +24,8 @@ export const MenuImage = styled.div`
 
 export const MenuInfoContainer = styled.div`
     padding: 16px 0;
+    display: flex;
+    flex-direction: column;
 `
 
 export const MenuNameContainer = styled.span`

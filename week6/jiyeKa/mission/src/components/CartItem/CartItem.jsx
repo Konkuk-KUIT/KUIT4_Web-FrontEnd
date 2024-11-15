@@ -5,20 +5,26 @@ import useCartStore from "../../store/cartStore";
 
 const CartItem = () => {
   const menus = useCartStore((state) => state.menus);
-  // console.log(menus);
+  if (!menus || menus.length === 0) return null;
+
   return (
-    <CartItemWrapper>
-      <img src={storeList} />
-      <ItemDescWrapper>
-        <div className="name"></div>
-        <div className="myOrder">추천소스, 채소볼, 베이컨추가, 시저드레싱 추가</div>
-        <div className="price">10,600원</div>
-      </ItemDescWrapper>
-      <ButtonWrapper>
-        <div className="count">1개</div>
-        <img src={right_arrow} />
-      </ButtonWrapper>
-    </CartItemWrapper>
+    <>
+      {menus.map((menu, index) => (
+        <CartItemWrapper key={index}>
+          <img src={storeList} alt="menu" />
+          <ItemDescWrapper>
+            <div className="name">{menu.name}</div>
+            <div className="myOrder">{menu.ingredients}</div>
+            <div className="price">{menu.price.toLocaleString()}원</div>
+          </ItemDescWrapper>
+          <ButtonWrapper>
+            <div className="count">1개</div>
+            <img src={right_arrow} alt="arrow" />
+          </ButtonWrapper>
+        </CartItemWrapper>
+      ))}
+    </>
   );
 };
+
 export default CartItem;
