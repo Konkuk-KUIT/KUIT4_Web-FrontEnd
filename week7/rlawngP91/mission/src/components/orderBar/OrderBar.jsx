@@ -1,5 +1,6 @@
 import Button from "../Button";
 import styled from "styled-components";
+import useCartStore from "../../store/cartStore";
 
 const OrderBarContainer = styled.div`
     position: fixed;
@@ -77,8 +78,8 @@ const OrderButton = styled.button`
 `;
 
 const OrderBar = () => {
-    const menus = [];
-    const store = null;
+    const menus = useCartStore((state) => state.menus);
+    const store = useCartStore((state) => state.store);
     const totalPrice = menus.reduce((acc, cur) => acc + cur.price, 0);
 
     const handleOrder = () => { };
@@ -91,13 +92,13 @@ const OrderBar = () => {
                         <PriceLabel>총 주문금액</PriceLabel>
                         <Price>{totalPrice.toLocaleString()}원</Price>
                     </PriceRow>
-                    <OrderButton
+                    <Button
                         onClick={handleOrder}
                         type="button"
                         disabled={totalPrice === 0}
                     >
                         {store?.name && `${store.name}에서 `}주문하기
-                    </OrderButton>
+                    </Button>
                 </OrderContent>
             </OrderBarWrapper>
         </OrderBarContainer>

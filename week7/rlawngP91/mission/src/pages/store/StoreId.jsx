@@ -3,14 +3,22 @@ import styles from "./StoreId.module.css";
 import { starIcon } from "../../assets";
 
 import MenuItem from "../../components/menuItem/MenuItem";
-
 import stores from "../../models/stores";
+import useCartStore from "../../store/cartStore";
+import { useEffect } from "react";
 
 
 const StoreId = () => {
   const { storeId } = useParams();
   const store = stores.find((store) => store.id.toString() === storeId);
 
+  const setStore = useCartStore((state) => state.setStore);
+
+  useEffect(() => {
+    if (store) {
+      setStore(store);
+    }
+  }, [])
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }

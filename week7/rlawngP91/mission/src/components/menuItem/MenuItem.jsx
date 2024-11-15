@@ -1,10 +1,16 @@
 import Button from "../Button";
 import styles from './MenuItem.module.css';
+import useCartStore from "../../store/cartStore";
 
 import { menuImgIcon } from "../../assets";
 
 const MenuItem = ({ menu }) => {
-    const handleAddMenu = () => { };
+
+    const addMenu = useCartStore((state) => state.addMenu);
+    const handleAddMenu = () => {
+        console.log("here");
+        addMenu(menu);
+    };
 
     return (
         <div className={styles.menuItem}>
