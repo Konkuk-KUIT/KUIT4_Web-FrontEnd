@@ -1,40 +1,57 @@
 import { create } from "zustand";
 
 const initialState = {
-    store: undefined,
-    menus: [],
+    store: null,
+    menus: [],  // [{menu, storeId}] 형태로 저장하도록 수정
 };
 
-const useCartStore = create((set) => ({
+const useCartStore = create((set, get) => ({
     store: initialState.store,
     menus: initialState.menus,
 
     addMenu: (menu, newStore) => {
-        set((state) => {
-            // 장바구니가 비어있는 경우
-            if (!state.store || state.menus.length === 0) {
-                return {
-                    store: newStore,
-                    menus: [menu]
-                };
-            }
+        const currentState = get();
+        console.log('Current state:', currentState);
 
-            // 같은 가게의 메뉴인 경우
-            if (state.store.id === newStore.id) {
-                return {
-                    ...state,
-                    menus: [...state.menus, menu]
-                };
-            }
+        // 장바구니가 비어있는 경우
+        if (!currentState.store || currentState.menus.length === 0) {
+            console.log('Cart is empty, adding first item');
+            set({
+                store: newStore,
+                menus: [{
+                    ...menu,
+                    storeId: newStore.id
+                }]
+            });
+            return;
+        }
 
-            // 다른 가게의 메뉴인 경우 - 여기서는 실제로 추가하지 않음
-            return state;
-        });
+        // 첫 번째 메뉴의 storeId와 비교
+        const firstMenuStoreId = currentState.menus[0].storeId;
+        if (firstMenuStoreId === newStore.id) {
+            console.log('Same store, adding item');
+            set({
+                ...currentState,
+                menus: [...currentState.menus, {
+                    ...menu,
+                    storeId: newStore.id
+                }]
+            });
+            return;
+        }
+
+        // 다른 가게의 메뉴인 경우
+        console.log('Different store detected');
+        return;
     },
-    // addMenu: (menu) => { set((state) => ({ ...state, menus: [...state.menus, menu]})); },
-    setStore: (store) => { set((state) => ({ ...state, store: store })); },
-    resetCart: () => { set(initialState);   },
-})
-);
+
+    setStore: (store) => {
+        set({ store });
+    },
+
+    resetCart: () => {
+        set(initialState);
+    },
+}));
 
 export default useCartStore;

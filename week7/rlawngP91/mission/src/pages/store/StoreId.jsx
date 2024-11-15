@@ -15,11 +15,10 @@ const StoreId = () => {
   const setStore = useCartStore((state) => state.setStore);
 
   useEffect(() => {
-    // console.log('StoreId effect - store:', store);  // 디버깅용
-    if (store) {
-        setStore(store);
+    if (store && storeId) {
+      setStore(store);
     }
-}, [store, setStore]);
+  }, [storeId]);
   
   
   if (!store) {
