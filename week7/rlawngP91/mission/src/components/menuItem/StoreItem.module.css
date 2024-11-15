@@ -6,6 +6,8 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    cursor: pointer;  /* 추가 */
+    transition: background-color 0.2s;
   }
   
   .storeItem:hover {

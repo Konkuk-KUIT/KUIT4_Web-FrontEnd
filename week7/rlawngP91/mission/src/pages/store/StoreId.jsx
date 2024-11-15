@@ -15,10 +15,13 @@ const StoreId = () => {
   const setStore = useCartStore((state) => state.setStore);
 
   useEffect(() => {
+    // console.log('StoreId effect - store:', store);  // 디버깅용
     if (store) {
-      setStore(store);
+        setStore(store);
     }
-  }, [])
+}, [store, setStore]);
+  
+  
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }
@@ -46,8 +49,8 @@ const StoreId = () => {
               </div>
           </div>
           <div className={styles.menuItem}>
-                {store.menus.map((menu) => {
-                return <MenuItem key={menu.id} menu={menu} />;
+        {store.menus.map((menu) => {
+                return <MenuItem menu={menu} store={store} />;
                 })}
             </div>
     </div>

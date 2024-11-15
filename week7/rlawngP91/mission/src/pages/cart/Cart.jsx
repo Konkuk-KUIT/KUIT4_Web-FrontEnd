@@ -1,23 +1,37 @@
 import styles from './Cart.module.css';
-import CartMenuItem from '../../components/menuItem/CartMenuItem'
+import CartMenuItem from '../../components/menuItem/CartMenuItem';
 import { exclamation } from '../../assets';
+import useCartStore from '../../store/cartStore';
 
 const Cart = () => {
+
+    const store = useCartStore((state) => state.store);
+    const menus = useCartStore((state) => state.menus);
+    
+    // 총 주문금액 계산
+    const subtotal = menus.reduce((sum, menu) => sum + menu.price, 0);
+    const deliveryFee = store?.deliveryFee || 0;
+    const total = subtotal + deliveryFee;
+
     return (
-        <>
         <div className={styles.CartContainer}>
             <div className={styles.storeInfoContainer}>
-                <h2 className={styles.storeName}>샐러리 한남점</h2>
+                <h2 className={styles.storeName}>{store?.name || "매장명"}</h2>
                 <div className={styles.alert}>
                     <div className={styles.alertContainer}>
                         <span className={styles.minOrderText}>최소금액 미달</span>
                         <img src={exclamation} alt="exclamation-mark" className={styles.exclamationMark} />
                     </div>
                 </div>
-                
             </div>
 
-            <CartMenuItem />
+            {/* 장바구니 아이템 목록 */}
+            {menus.map((menu, index) => (
+                <CartMenuItem 
+                    key={index} 
+                    menu={menu}
+                />
+            ))}
             
             <div className={styles.addMoreContainer}>
                 <button className={styles.addMoreButton}>더 담기 +</button>
@@ -26,31 +40,33 @@ const Cart = () => {
             <div className={styles.orderSummaryContainer}>
                 <div className={styles.summaryRow}>
                     <span className={styles.summaryLabel}>주문금액</span>
-                    <span className={styles.summaryValue}>10,600원</span>
+                    <span className={styles.summaryValue}>{subtotal.toLocaleString()}원</span>
                 </div>
                 <div className={styles.summaryRow}>
                     <span className={styles.summaryLabel}>배달요금</span>
-                    <span className={styles.summaryValue}>2,000원</span>
+                    <span className={styles.summaryValue}>{deliveryFee.toLocaleString()}원</span>
                 </div>
                 <div className={`${styles.summaryRow} ${styles.totalRow}`}>
                     <span className={styles.summaryLabel}>총 결제금액</span>
-                    <span className={styles.summaryValue}>12,600원</span>
+                    <span className={styles.summaryValue}>{total.toLocaleString()}원</span>
                 </div>
-                </div>
-                <div className={styles.bottombar}>
+            </div>
+
+            <div className={styles.bottombar}>
                 <span className={styles.totalPrice}>
-                    최소주문금액 13,000원
+                    최소주문금액 {store?.minDeliveryPrice?.toLocaleString() || "13,000"}원
                 </span>
-                <button className={styles.orderBtn}>
+                <button 
+                    className={styles.orderBtn}
+                    disabled={subtotal < (store?.minDeliveryPrice || 13000)}
+                >
                     <span className={styles.orderBtnText}>
-                    126,00원 결제하기
+                        {total.toLocaleString()}원 결제하기
                     </span>
                 </button>
             </div>
         </div>
-        
-        </>
     );
 };
 
-export default Cart
+export default Cart;

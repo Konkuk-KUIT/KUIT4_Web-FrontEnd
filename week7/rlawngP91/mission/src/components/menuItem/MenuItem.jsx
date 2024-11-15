@@ -1,15 +1,27 @@
+import { useState } from 'react';
 import Button from "../Button";
 import styles from './MenuItem.module.css';
 import useCartStore from "../../store/cartStore";
+import Modal from "../modal/Modal";
 
 import { menuImgIcon } from "../../assets";
 
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ menu, store }) => {
+    const [showModal, setShowModal] = useState(false);
+    const { addMenu, store: cartStore, resetCart } = useCartStore();
 
-    const addMenu = useCartStore((state) => state.addMenu);
     const handleAddMenu = () => {
-        console.log("here");
-        addMenu(menu);
+        if (!cartStore || !cartStore.id || cartStore.id === store.id) {
+            addMenu(menu, store);
+            return;
+        }
+        setShowModal(true);
+    };
+
+    const handleConfirmReset = () => {
+        resetCart();
+        addMenu(menu, store);
+        setShowModal(false);
     };
 
     return (
@@ -37,7 +49,14 @@ const MenuItem = ({ menu }) => {
             </div>
             </div>
             </div>
-            
+            {showModal && (
+            <Modal
+                title="장바구니 초기화"
+                message="다른 가게의 메뉴입니다. 장바구니를 초기화하고 새로운 메뉴를 담으시겠습니까?"
+                onConfirm={handleConfirmReset}
+                onCancel={() => setShowModal(false)}
+            />
+        )}
         </div>
     );
 };

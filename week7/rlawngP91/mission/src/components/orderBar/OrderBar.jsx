@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Button from "../Button";
 import styled from "styled-components";
 import useCartStore from "../../store/cartStore";
@@ -78,11 +79,15 @@ const OrderButton = styled.button`
 `;
 
 const OrderBar = () => {
+    const navigate = useNavigate();
+
     const menus = useCartStore((state) => state.menus);
     const store = useCartStore((state) => state.store);
     const totalPrice = menus.reduce((acc, cur) => acc + cur.price, 0);
 
-    const handleOrder = () => { };
+    const handleOrder = () => {
+        navigate('/cart');
+    };
 
     return (
         <OrderBarContainer>
