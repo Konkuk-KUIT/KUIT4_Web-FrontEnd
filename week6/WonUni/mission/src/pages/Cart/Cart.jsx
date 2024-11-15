@@ -29,7 +29,7 @@ const Cart = () => {
 
   return (
     <>
-      <StatusBar back={true} cancel={true} link={"/"}/>
+      <StatusBar back={true} cancel={true} link={store ? `/store/${store.id}` : "/"}/>
       <div className={styles.orderContainer}>
         <div className={styles.orderMenu}>
           <div className={styles.orderStore}>

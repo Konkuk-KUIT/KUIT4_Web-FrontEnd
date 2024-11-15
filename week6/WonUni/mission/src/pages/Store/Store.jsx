@@ -6,12 +6,11 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "../StatusBar/StatusBar";
 import stores from "../../models/stores";
 import ColorStar from "../../assets/ColorStar.svg";
-import useCartStore from "../../store/cartStore";
-import { useEffect } from "react";
+
 
 const StyledH1 = styled.h1`
   display: flex;
-  padding: 26px 225px 2px 24px;
+  padding: 26px 0 2px 24px;
   margin: 0px;
   align-items: center;
   color: #191F28;
@@ -47,14 +46,14 @@ const StyledDiv2 = styled.div`
 
 const Store = () => {
   const { storeId } = useParams();
-  const setStore = useCartStore((state)=>state.setStore);
+  //const setStore = useCartStore((state)=>state.setStore);
   const store = stores.find((store) => store.id.toString() === storeId);
 
-  useEffect(()=>{
-    if(store){
-      setStore(store);
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(store){
+  //     setStore(store);
+  //   }
+  // },[])
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;

@@ -14,7 +14,7 @@ const OrderBar2 = () => {
         <div className={styles.minMon}>최소 주문 금액 {store?.minDeliveryPrice && store.minDeliveryPrice}원</div>
         <div>
             <Button type="button" size="xl" disabled={ (menus.reduce((acc, cur) => acc + cur.price, 0) + (store?.deliveryFee || 0)) < (store?.minDeliveryPrice || 0)}>
-            {menus.reduce((acc, cur) => acc + cur.price, 0)+(store?.deliveryFee && store.deliveryFee)}원
+            {menus.reduce((acc, cur) => acc + cur.price, 0)+(store?.deliveryFee && store.deliveryFee)}원 결제하기
             </Button>
         </div>
       
