@@ -6,8 +6,6 @@ const OrderBar = ({ store }) => {
   const navigate = useNavigate();
   const { menus } = useCartStore();
   const cartStore = useCartStore((state) => state.store);
-
-  // store 정보는 props로 받은 것과 cartStore 중 있는 것 사용
   const currentStore = store || cartStore;
 
   const totalPrice = menus.reduce(

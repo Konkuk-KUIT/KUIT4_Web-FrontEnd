@@ -52,7 +52,7 @@ const Store = () => {
           ))}
         </div>
       </div>
-      <OrderBar store={store} /> {/* store props 유지 */}
+      <OrderBar store={store} />
     </>
   );
 };

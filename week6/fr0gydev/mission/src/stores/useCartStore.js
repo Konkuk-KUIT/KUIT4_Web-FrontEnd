@@ -46,7 +46,7 @@ const useCartStore = create((set, get) => ({
       if (currentMenus.length === 0) {
         set({ store: newStore });
       }
-      // menus가 있으면 기존 store 유지 (다른 가게 메뉴 담을 때 handleAddMenu에서 처리)
+      // menus가 있으면 기존 store 유지
     }
   },
 
