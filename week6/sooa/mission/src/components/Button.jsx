@@ -17,6 +17,7 @@ const sizeStyles = {
 
 const StyledButton = styled.button`
   color: white;
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
   background-color: ${(props) => (props.disabled ? "#D0DFFB" : "#3182f6")};
   font-weight: 500;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};

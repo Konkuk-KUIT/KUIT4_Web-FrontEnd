@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import HeaderBarIMG from "../assets/header-bar.svg";
 import ArrowBack from "../assets/arrow-back.svg";
+import { useNavigate } from "react-router-dom";
 
 const StyledDiv = styled.div`
   width: 390px;
@@ -36,6 +37,17 @@ const Holder = styled.div`
   width: 390px;
   height: 88px;
 `;
+
+const Arrow = () => {
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
+
+  return (
+    <>
+      <img src={ArrowBack} onClick={goBack} style={{ cursor: "pointer" }} />
+    </>
+  );
+};
 const HeaderBar = ({ arrow, cancel }) => {
   console.log("arrow:", arrow); // true가 출력되어야 함
   console.log("cancel:", cancel); // false가 출력되어야 함
@@ -46,7 +58,7 @@ const HeaderBar = ({ arrow, cancel }) => {
         <img src={HeaderBarIMG} />
       </StyledDiv>
       <PlaceHolder>
-        {arrow && <img src={ArrowBack} />}
+        {arrow && <Arrow />}
         {cancel && <span>주문취소</span>}
       </PlaceHolder>
       <Holder />

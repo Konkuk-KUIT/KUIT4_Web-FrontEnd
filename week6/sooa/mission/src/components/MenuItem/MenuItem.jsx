@@ -1,3 +1,4 @@
+import useCartStore from "../../store/useCartStore";
 import Button from "../Button";
 import {
   Wrapper,
@@ -7,7 +8,13 @@ import {
 } from "./MenuItem.styles";
 
 const MenuItem = ({ menu }) => {
-  const handleAddMenu = () => {};
+  const addMenu = useCartStore((state) => state.addMenu);
+
+  const handleAddMenu = () => {
+    console.log("Button clicked!"); // 버튼 클릭 확인
+
+    addMenu(menu);
+  };
 
   return (
     <Wrapper>

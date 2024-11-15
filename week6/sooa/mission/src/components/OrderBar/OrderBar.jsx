@@ -2,10 +2,13 @@ import Button from "../Button";
 import BottomBar from "./BottomBar";
 import { Link } from "react-router-dom";
 import { Wrapper, TopWrapper, PriceWrapper } from "./OrderBar.styles";
+import useCartStore from "../../store/useCartStore";
 
 const OrderBar = () => {
-  const menus = [];
-  const store = null;
+  const menus = useCartStore((state) => state.menus);
+  console.log(menus); // 상태가 변경될 때마다 출력
+
+  const store = useCartStore((state) => state.store);
   const handleOrder = () => {};
 
   return (

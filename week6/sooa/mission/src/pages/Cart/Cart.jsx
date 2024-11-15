@@ -11,20 +11,29 @@ import {
 } from "./Cart.styles";
 import Button from "../../components/Button";
 import BottomBar from "../../components/OrderBar/BottomBar";
+import useCartStore from "../../store/useCartStore";
 
 const Cart = () => {
+  const store = useCartStore((state) => state.store);
+  const menus = useCartStore((state) => state.menus);
+  const price = menus.reduce((acc, cur) => acc + cur.price, 0);
+
   return (
     <Wrapper>
       <HeaderBar arrow={true} cancel={true} />
       <Bar />
       <CartWrapper>
-        <p>샐로리 한남점</p>
+        <p>{store.name}</p>
         <div>
           <span>최소금액 미달</span>
           <img src={Warning} />
         </div>
       </CartWrapper>
-      <CartItem />
+      <div>
+        {menus.map((menu) => {
+          return <CartItem key={menu.id} menu={menu} />;
+        })}
+      </div>
       <CartWrapper>
         <span>더 담기 +</span>
       </CartWrapper>
@@ -32,21 +41,21 @@ const Cart = () => {
       <CalWrapper>
         <Cal>
           <span className="description">주문금액</span>
-          <span className="price">10,600원</span>
+          <span className="price">{price}원</span>
         </Cal>
         <Cal>
           <span className="description">배달요금</span>
-          <span className="price">2,000원</span>
+          <span className="price">{store.deliveryFee}원</span>
         </Cal>
         <Cal>
           <span className="result-description">총 결제금액</span>
-          <span className="result-price">12,600원</span>
+          <span className="result-price">{price + store.deliveryFee}원</span>
         </Cal>
       </CalWrapper>
       <BottomWrapper>
-        <span>최소 주문금액 13,000원</span>
+        <span>최소 주문금액 {store.minDeliveryPrice}원</span>
         <Button type="button" size="xl" disabled={true}>
-          12,600원 결제하기
+          {price + store.deliveryFee}원 결제하기
         </Button>
         <BottomBar />
       </BottomWrapper>

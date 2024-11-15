@@ -6,16 +6,14 @@ import {
 } from "./CartItem.styles";
 import ArrowRight from "../../assets/arrow-right.svg";
 
-const MenuItem = () => {
-  const handleAddMenu = () => {};
-
+const CartItem = ({ menu }) => {
   return (
     <Wrapper>
-      <MenuImg></MenuImg>
+      <MenuImg />
       <RightWrapper>
-        <h3>토마토 샐러드</h3>
+        <h3>{menu.name}</h3>
         <p>추천소스, 채소볼, 베이컨추가, 시저드레싱 추가</p>
-        <span>10,600원</span>
+        <span>{menu.price}</span>
       </RightWrapper>
       <ButtonWrapper>
         <span>1개</span>
@@ -25,4 +23,4 @@ const MenuItem = () => {
   );
 };
 
-export default MenuItem;
+export default CartItem;
