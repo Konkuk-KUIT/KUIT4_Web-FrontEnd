@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MenuItemContainer = styled.div`
-    width: 100%;
+    width: 390px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -49,7 +49,7 @@ export const BestMenu = styled.span`
 `
 
 export const MenuPrice = styled.div`
-        font-family: 'Pretendard';
+    font-family: 'Pretendard';
     font-size: 13px;
     font-weight: 400;
     color: #6B7684;

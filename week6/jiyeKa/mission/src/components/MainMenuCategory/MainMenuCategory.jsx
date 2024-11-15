@@ -12,22 +12,25 @@ import pasta from "../../assets/pasta.svg"
 import dessert from "../../assets/dessert.svg"
 import coffee from "../../assets/coffee.svg"
 import etc from "../../assets/etc.svg"
+import { useNavigate } from 'react-router-dom'
 
 // 홈 화면의 음식 카테고리 3*4
 
 const MainMenuCategory = () => {
+
+  const navigate = useNavigate();
+  const onClickhandle = () => {
+    navigate("/store");
+  }
+
   return (
-
-    
-
     <CategoryComponent>
-
     <CategoryGrid>
       <Category>
         <img src={pizza} style={{width:"28px", height:"28px"}}/>
         <CategoryTextStyle>피자</CategoryTextStyle>
       </Category>
-      <Category>
+      <Category onClick={onClickhandle}>
         <img src={salad} style={{width:"28px", height:"28px"}}/>
         <CategoryTextStyle>샐러드</CategoryTextStyle>
       </Category>
@@ -68,7 +71,7 @@ const MainMenuCategory = () => {
         <CategoryTextStyle>커피</CategoryTextStyle>
       </Category>
       <Category>
-        <img src={etc} style={{width:"21px", height:"5px", "margin-bottom":"12px"}}/>
+        <img src={etc} style={{width:"21px", height:"5px", "marginBottom":"12px"}}/>
         <CategoryTextStyle>더보기</CategoryTextStyle>
       </Category>
 

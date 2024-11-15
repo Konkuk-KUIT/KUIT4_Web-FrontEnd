@@ -11,6 +11,7 @@ const stores = [
       menus: [
         {
           id: 1,
+          storeID: 1,
           name: "토마토 샐러드",
           isBest: true,
           price: 7600,
@@ -19,6 +20,7 @@ const stores = [
         {
           id: 2,
           name: "시저 샐러드",
+          storeID: 1,
           isBest: false,
           price: 6900,
           ingredients: "로메인 상추와 크루통이며, 달걀, 올리브유, 레몬 즙, 마늘",
@@ -26,12 +28,14 @@ const stores = [
         {
           id: 3,
           name: "리코타치즈 샐러드",
+          storeID: 1,
           isBest: false,
           price: 6900,
           ingredients: "리코타치즈, 양상추, 베이비채소, 방울토마토, 블랙올리브",
         },
         {
           id: 4,
+          storeID: 1,
           name: "탄단지 샐러드",
           isBest: false,
           price: 7600,
@@ -51,6 +55,7 @@ const stores = [
       menus: [
         {
           id: 1,
+          storeID: 2,
           name: "아보카도 그린 샐러드",
           isBest: true,
           price: 8900,
@@ -58,6 +63,7 @@ const stores = [
         },
         {
           id: 2,
+          storeID: 2,
           name: "베리 믹스 샐러드",
           isBest: false,
           price: 8500,
@@ -77,6 +83,7 @@ const stores = [
       menus: [
         {
           id: 1,
+          storeID: 3,
           name: "쿼리노아 비트 샐러드",
           isBest: true,
           price: 9200,
@@ -84,6 +91,7 @@ const stores = [
         },
         {
           id: 2,
+          storeID: 3,
           name: "펌프킨 넛 샐러드",
           isBest: false,
           price: 8700,

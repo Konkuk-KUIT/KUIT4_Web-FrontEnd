@@ -6,6 +6,7 @@ import useCartStore from "../../store/cartStore";
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
   const store = useCartStore((state) => state.store);
+  const navigate = useNavigate();
   const handleOrder = () => {
     navigate("/cart"); 
   };
