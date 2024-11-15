@@ -61,8 +61,8 @@ font-weight: 500;
     display: flex;
     flex-direction: column; 
     position: absolute;
-    margin: 0 auto;
-    background-color: red;
+    margin: 0 300px;
+    /* background-color: red; */
     }
     .category{
         display: flex;
