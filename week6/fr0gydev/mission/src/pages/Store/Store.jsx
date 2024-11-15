@@ -1,13 +1,22 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import styles from "./Store.module.css";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import stores from "../../models/stores";
 import TopBar from "../../components/TopBar/TopBar";
+import useCartStore from "../../stores/useCartStore";
 
 const Store = () => {
   const { id } = useParams();
   const store = stores.find((store) => store.id.toString() === id);
+  const { setStore } = useCartStore();
+
+  useEffect(() => {
+    if (store) {
+      setStore(store);
+    }
+  }, [store, setStore]);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -39,11 +48,11 @@ const Store = () => {
         <h1 className={styles.pageTitle}>샐러드</h1>
         <div className={styles.menuList}>
           {store.menus.map((menu) => (
-            <MenuItem key={menu.id} menu={menu} />
+            <MenuItem key={menu.id} menu={menu} storeId={store.id.toString()} />
           ))}
         </div>
       </div>
-      <OrderBar store={store} menus={[]} />
+      <OrderBar store={store} /> {/* store props 유지 */}
     </>
   );
 };

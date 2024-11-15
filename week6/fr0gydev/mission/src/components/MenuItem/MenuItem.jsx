@@ -1,25 +1,41 @@
 import styles from "./MenuItem.module.css";
-import { useNavigate } from "react-router-dom";
+import useCartStore from "../../stores/useCartStore";
 
-const MenuItem = ({ menu }) => {
-  const navigate = useNavigate();
+const MenuItem = ({ menu, storeId }) => {
+  const { addMenu, store, clearCart, menus } = useCartStore();
 
   const handleAddMenu = () => {
-    // TODO: 실제로는 여기서 장바구니에 메뉴를 추가하는 로직이 필요
-    console.log("메뉴 추가:", menu.name);
+    // 장바구니가 비어있거나 첫 주문인 경우
+    if (menus.length === 0) {
+      addMenu(menu);
+      return;
+    }
 
-    // 장바구니 페이지로 이동
-    navigate("/cart");
+    // 현재 담긴 메뉴의 가게와 새로 담으려는 메뉴의 가게가 다른 경우
+    if (store && store.id.toString() !== storeId.toString()) {
+      if (
+        window.confirm(
+          "이전에 담은 메뉴가 있습니다. 다른 가게의 메뉴를 담을 경우 이전 메뉴가 삭제됩니다. 계속하시겠습니까?"
+        )
+      ) {
+        clearCart();
+        addMenu(menu);
+      }
+      return;
+    }
+
+    // 같은 가게의 메뉴인 경우
+    addMenu(menu);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer} />
       <div className={styles.info}>
-        <h3 className={styles.name}>
+        <h2 className={styles.name}>
           {menu.name}
           {menu.isBest && <span className={styles.bestBadge}>BEST</span>}
-        </h3>
+        </h2>
         <p className={styles.price}>{menu.price.toLocaleString()}원</p>
         <p className={styles.ingredients}>{menu.ingredients}</p>
       </div>

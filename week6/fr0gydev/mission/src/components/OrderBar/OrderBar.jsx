@@ -1,13 +1,24 @@
-// components/OrderBar/OrderBar.jsx
 import styles from "./OrderBar.module.css";
+import { useNavigate } from "react-router-dom";
+import useCartStore from "../../stores/useCartStore";
 
-const OrderBar = ({ menus = [], store = null }) => {
-  const totalPrice = menus.reduce((acc, cur) => acc + cur.price, 0) || 12100;
-  // 임시 가격으로 12,100원 설정, 실제로는 menus가 있을 때 계산된 값 사용
+const OrderBar = ({ store }) => {
+  const navigate = useNavigate();
+  const { menus } = useCartStore();
+  const cartStore = useCartStore((state) => state.store);
+
+  // store 정보는 props로 받은 것과 cartStore 중 있는 것 사용
+  const currentStore = store || cartStore;
+
+  const totalPrice = menus.reduce(
+    (acc, cur) => acc + cur.price * (cur.quantity || 1),
+    0
+  );
 
   const handleOrder = () => {
-    // 주문 처리 로직
-    console.log("주문하기 클릭:", store?.name || "홈");
+    if (totalPrice > 0) {
+      navigate("/cart");
+    }
   };
 
   return (
@@ -16,8 +27,16 @@ const OrderBar = ({ menus = [], store = null }) => {
         <span className={styles.totalPriceLabel}>총 주문금액</span>
         <div className={styles.priceValue}>{totalPrice.toLocaleString()}원</div>
       </div>
-      <button className={styles.orderButton} onClick={handleOrder}>
-        {store?.name ? `${store.name}에서 ` : ""}주문하기
+      <button
+        className={`${styles.orderButton} ${
+          totalPrice === 0 ? styles.disabled : ""
+        }`}
+        onClick={handleOrder}
+        disabled={totalPrice === 0}
+      >
+        {totalPrice === 0
+          ? "메뉴를 담아주세요"
+          : `${currentStore?.name ? `${currentStore.name}에서 ` : ""}주문하기`}
       </button>
     </div>
   );
