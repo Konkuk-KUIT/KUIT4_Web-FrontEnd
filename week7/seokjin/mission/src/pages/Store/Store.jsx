@@ -51,10 +51,10 @@ const Store = () => {
 
   
   useEffect(() => {
-    if(store) {
-      setStore(store);
+    if (store) {
+      setStore(store); // zustand 전역 상태에 store 설정
     }
-  }, [storeId]); // storeId가 변경될 때마다 실행되도록 수정
+  }, [store, setStore]); // storeId가 변경될 때마다 실행되도록 수정
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -65,7 +65,7 @@ const Store = () => {
     <Top />
     <div>
       <StyledH1>{store.name}</StyledH1>
-      <InformationGroup />
+      <InformationGroup store={store}/>
       <CategoryName><p>샐러드</p></CategoryName>
       <div>
         <StyledScrollContainer>
