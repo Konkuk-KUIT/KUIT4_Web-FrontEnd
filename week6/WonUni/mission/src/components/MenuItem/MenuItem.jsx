@@ -1,12 +1,27 @@
 import useCartStore from "../../store/cartStore";
 import Button from "../Button";
 import styled from "styled-components";
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ menu , newStore}) => {
 
   const addMenu = useCartStore((state)=> state.addMenu);
+  const setStore = useCartStore((state) => state.setStore);
+  const store = useCartStore((state)=>state.store);
+  const resetStore = useCartStore((state)=>state.resetStore);
 
-  const handleAddMenu = () => {
-    addMenu(menu);
+  const handleAddMenu = () => { 
+    
+    if (store && store != newStore){
+      const confirmClear = window.confirm(
+        "장바구니에는 동일 가게의 메뉴만 추가할 수 있습니다. 기존 항목을 초기화할까요?"
+      );
+      if(confirmClear){
+        resetStore();
+      }
+    }
+    else{
+      addMenu(menu, store);
+      setStore(newStore);
+    }
   };
 
 

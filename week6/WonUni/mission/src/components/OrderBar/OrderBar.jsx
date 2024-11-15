@@ -7,7 +7,8 @@ import useCartStore from "../../store/cartStore";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
-  const store = null;
+  const store = useCartStore((state)=>state.store);
+  
   const handleOrder = () => {};
 
   return (

@@ -6,6 +6,8 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "../StatusBar/StatusBar";
 import stores from "../../models/stores";
 import ColorStar from "../../assets/ColorStar.svg";
+import useCartStore from "../../store/cartStore";
+import { useEffect } from "react";
 
 const StyledH1 = styled.h1`
   display: flex;
@@ -45,7 +47,14 @@ const StyledDiv2 = styled.div`
 
 const Store = () => {
   const { storeId } = useParams();
+  const setStore = useCartStore((state)=>state.setStore);
   const store = stores.find((store) => store.id.toString() === storeId);
+
+  useEffect(()=>{
+    if(store){
+      setStore(store);
+    }
+  },[])
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -86,7 +95,7 @@ const Store = () => {
         width:"390px"
       }}>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} menu={menu} newStore={store} />;
         })}
       </div>
       <OrderBar />

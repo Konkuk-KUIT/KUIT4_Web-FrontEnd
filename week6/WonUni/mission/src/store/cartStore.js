@@ -10,11 +10,15 @@ const useCartStore = create((set) =>({
     store: initialState.store,
     menus: initialState.menus,
 
-    addMenu: (menu) => {
+    addMenu: (menu, store) => {
         set((state)=>({...state, menus:[...state.menus, menu]}));
+        console.log(store);
     },
     setStore: (store) => {
         set((state)=>({...state, store: store}));
+    },
+    resetStore: () => {
+        set(initialState);
     },
 }));
 

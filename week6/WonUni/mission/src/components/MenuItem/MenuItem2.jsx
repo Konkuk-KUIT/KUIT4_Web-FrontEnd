@@ -1,7 +1,7 @@
 import Button from "../Button";
 import styled from "styled-components";
 import RightChev from "../../assets/RightChevron.svg"
-const MenuItem2 = ({ menu }) => {
+const MenuItem2 = ({ menu , quantity}) => {
   const handleAddMenu = () => {};
 
 
@@ -56,7 +56,7 @@ const MenuItem2 = ({ menu }) => {
         color: "#6B7684",
         fontSize: "12px"
       }}>
-        1개
+        {quantity}개
       </div>
       <div style={{
         paddingTop: "24px"
