@@ -1,7 +1,13 @@
+import useCartStore from "../../store/cartStore";
 import Button from "../Button";
 import styled from "styled-components";
 const MenuItem = ({ menu }) => {
-  const handleAddMenu = () => {};
+
+  const addMenu = useCartStore((state)=> state.addMenu);
+
+  const handleAddMenu = () => {
+    addMenu(menu);
+  };
 
 
   const StyledDiv = styled.div`

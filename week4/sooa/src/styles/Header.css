@@ -1,0 +1,33 @@
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
+
+header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgb(238, 238, 238, 1);
+}
+
+header .icon-container span {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: left;
+  color: rgb(0, 0, 0, 1);
+  margin-right: 6px;
+}
+
+header .icon-container .icon-container__right-img {
+  margin-left: 16px;
+}

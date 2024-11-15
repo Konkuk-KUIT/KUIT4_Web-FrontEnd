@@ -1,6 +1,5 @@
 import StatusBar from "../StatusBar/StatusBar";
 import styles from "./Cart.module.css"
-
 import Mark from "../../assets/mark.svg"
 import MenuItem2 from "../../components/MenuItem/MenuItem2";
 import stores from "../../models/stores";

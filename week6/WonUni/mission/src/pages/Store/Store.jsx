@@ -58,7 +58,7 @@ const Store = () => {
       <StatusBar back={true} cancel={false} link={"/stores"}/>
       <div style={{
         borderBottom: "1px solid #6B7684",
-        height: "194px"
+        paddingBottom: "24px"
       }}>
         <StyledH1>{store.name}</StyledH1>
         <StyledDiv> <img src={ColorStar}/> {store.rate} 리뷰{store.reviewCnt}</StyledDiv>

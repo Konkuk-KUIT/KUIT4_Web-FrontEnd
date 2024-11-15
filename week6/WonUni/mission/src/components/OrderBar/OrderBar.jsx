@@ -2,10 +2,11 @@ import Button from "../Button";
 import styles from "./OrderBar.module.css";
 import BottomBar from "../../assets/BottomBar.svg"
 import { Link } from "react-router-dom";
+import useCartStore from "../../store/cartStore";
 
 
 const OrderBar = () => {
-  const menus = [];
+  const menus = useCartStore((state) => state.menus);
   const store = null;
   const handleOrder = () => {};
 

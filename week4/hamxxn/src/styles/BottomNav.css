@@ -1,0 +1,30 @@
+.bottom-bar {
+  width: var(--width-variable);
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  height: 58px;
+  background-color: white;
+  box-sizing: border-box;
+}
+.bottom-bar__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.plus__btn {
+  position: fixed;
+  bottom: 80px;
+  left: 320px;
+  background-color: #ff7e36;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
