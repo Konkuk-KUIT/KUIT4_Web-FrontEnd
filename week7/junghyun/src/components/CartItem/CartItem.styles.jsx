@@ -34,6 +34,7 @@ const ItemDescWrapper = styled.div`
     line-height: 15.51px;
     color: #6B7684;
     margin-top: 5px;
+    padding-right: 10px;
   }
 
 > .itemPrice {
@@ -51,6 +52,7 @@ const ButtonWrapper = styled.div`
   margin-top: 20px;
   margin-left: auto;
   margin-right: 20px;
+  cursor: pointer;
 
 > .itemNum {
     font-family: Pretendard;

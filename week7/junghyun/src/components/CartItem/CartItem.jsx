@@ -6,11 +6,8 @@ const CartItem = () => {
   const menus = useCartStore((state) => state.menus);
   const reducedMenus = menus.reduce((acc, current) => {
     const x = acc.find(item => item.id === current.id);
-    if (!x) {
-      return acc.concat([current]);
-    } else {
-      return acc;
-    }
+    if (!x) { return acc.concat([current]); } 
+    else { return acc; }
   }, []);
 
   return (

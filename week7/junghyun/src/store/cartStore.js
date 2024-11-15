@@ -18,6 +18,9 @@ const useCartStore = create((set) => ({
   },
   reset: () => {
     set(() => ({ ...initialState }));
+  },
+  resetMenus: () => {
+    set((state) => ({...state, menus: []}));
   }
 }));
 export default useCartStore;
