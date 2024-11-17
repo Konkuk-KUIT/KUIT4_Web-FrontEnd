@@ -1,13 +1,24 @@
+import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import stores from "../../models/stores";
 import styles from "./Store.module.css";
 import Header from "../../components/Header";
+import useCartStore from "../Cart/cartStore";
 
 const Store = () => {
     const { storeId } = useParams();
+    const setStore = useCartStore((state) => state.setStore);
+
+
     const store = stores.find((store) => store.id.toString() === storeId);
+
+    useEffect(() => {
+        if(store) {
+            setStore(store);
+        }
+    },[]);
 
     if (!store) {
         return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -20,8 +31,9 @@ const Store = () => {
                 <div className={styles.storeName}>{store.name}</div>
                 <div className={styles.comment}>
                     <img src="../../public/yellowStar.svg" className={styles.starIcon}></img>
-                    <div className={styles.score}>4.9</div>
-                    <div className={styles.review}>리뷰3,919</div>
+                    <div className={styles.score}>{store.rate}</div>
+                    <div className={styles.review}>리뷰</div>
+                    <div className={styles.review}>{store.reviewCnt}</div>
                 </div>
 
                 <div className={styles.storeDetail}>
@@ -31,11 +43,15 @@ const Store = () => {
                     </div>
                     <div className={styles.storeDetailRow}>
                         <div>최소주문</div>
-                        <div>13,000원</div>
+                        <div>{store.minDeliveryPrice}원</div>
                     </div>
                     <div className={styles.storeDetailRow}>
                         <div>배달시간</div>
-                        <div>약 15-25분</div>
+                        <div>약</div>
+                        <div>{store.minDeliveryTime}</div>
+                        <div>-</div>
+                        <div>{store.maxDeliveryTime}</div>
+                        <div>분</div>
                     </div>
                 </div>
             </div>

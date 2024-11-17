@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "../Button";
 import styles from "./OrderBar.module.css";
+import useCartStore from "../../pages/Cart/cartStore";
 
 const OrderBar = () => {
-    const menus = [];
-    const store = null;
+    const menus = useCartStore((state) => state.menus);
+    const store = useCartStore((state) => state.store);
+
     const handleOrder = () => { };
 
     return (

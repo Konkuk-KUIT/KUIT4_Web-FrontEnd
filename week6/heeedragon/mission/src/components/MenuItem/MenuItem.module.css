@@ -3,14 +3,18 @@
     height: 110px;
     display: flex;
     flex-direction: row;
-    gap: 8px;
-
-    align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
     width: 100%;
 }
 
+.allMenu {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
 
 .menuImg {
     width: 54px;
@@ -23,7 +27,6 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    width: 50%;
 }
 
 .menuName {

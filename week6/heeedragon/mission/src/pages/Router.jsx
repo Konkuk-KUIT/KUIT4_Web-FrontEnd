@@ -8,20 +8,25 @@ import Cart from "./Cart/Cart";
 const Router = () => {
     const router = createBrowserRouter([
         {
-            path:"/",
-            element:<Home />
-        },
-        {
-            path:"/store",
-            element:<Stores />
-        },
-        {
-            path:"/store/:storeId",
-            element:<Store />
-        },
-        {
-            path:"/cart",
-            element:<Cart />
+            path: "/",
+            children: [
+                {
+                    index: true,
+                    element: <Home />
+                },
+                {
+                    path: "/store",
+                    element: <Stores />
+                },
+                {
+                    path: "/store/:storeId",
+                    element: <Store />
+                },
+                {
+                    path: "/cart",
+                    element: <Cart />
+                },
+            ],
         },
     ]);
 
