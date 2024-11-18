@@ -1,29 +1,37 @@
 import { useParams } from "react-router-dom";
-import stores from "../../models/stores";
-import useCartStore from "./cartStore";
+// import stores from "../../models/stores";
+// import useCartStore from "./cartStore";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import styles from "./Store.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
+import {getStore} from "../../api/stores"
+import useCartStore from "./cartStore";
 
 const Store = ({header_bar}) => {
-  const { storeId } = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
-  const setStore = useCartStore((state)=> state.setStore);
-  useEffect(()=>{
-    if(store){
-      setStore(store);
-    }
-  },[])
+  // const store = stores.find((store) => store.id.toString() === storeId);
+  // const setStore = useCartStore((state)=> state.setStore);
+  const {storeId} =useParams();
+  const[store, setStore] =useState();
+  const addMenu = useCartStore((state)=>state.addMenu);
+
+  useEffect(()=>  {
+    getStore(storeId).then((value)=>setStore(value));
+    getStore(storeId).then((value)=>console.log("이것은 store.jsx의 value: ",value));
+
+  },[]);
+
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }
-
+const handleAddMenu =(menu) => {
+    addMenu(menu, store);
+};
   return (
     <div>
           {header_bar(true)}
-      <div className={styles.box}>
+      {/* <div className={styles.box}>
         <div className={styles.namebox}><div className={styles.name}>{store.name}</div></div>
         <div className={styles.starbox}>
           <img src="/star1.png" alt="star" className={styles.star}/>
@@ -37,7 +45,15 @@ const Store = ({header_bar}) => {
       <div className={styles.salad}>샐러드</div>
       <div className={styles.menu}>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} menu={menu} handleAddMenu={handleAddMenu} />;
+        })}
+      </div> */}
+      <h1> {store.name}</h1>
+      <div>
+        {store.menus.map((menu)=>{
+          return(
+            <MenuItem key={menu.id} menu={menu} handleAddMenu={()=>handleAddMenu(menu)} />
+          );
         })}
       </div>
       <OrderBar />

@@ -1,4 +1,4 @@
-import stores from "../../models/stores";
+// import stores from "../../models/stores";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import styles from "./Stores.module.css";
 import { Link } from "react-router-dom";

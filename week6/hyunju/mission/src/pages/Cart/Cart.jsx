@@ -1,9 +1,12 @@
 import OrderBar from "../../components/OrderBar/OrderBar";
 import styles from "./Cart.module.css";
-import stores from "../../models/stores";
+// import stores from "../../models/stores";
 import useCartStore from "../Store/cartStore";
 import { BlackBar,BlackBarin} from "../../components/OrderBar/OrderBar.styles"; // 스타일 가져오기
 import Button from "../../components/Button";
+
+
+
 const Cart = ({header_bar}) => {
   const menus = useCartStore((state)=>state.menus); // 메뉴 목록
   const store = useCartStore((state)=>state.store); // 스토어 정보
