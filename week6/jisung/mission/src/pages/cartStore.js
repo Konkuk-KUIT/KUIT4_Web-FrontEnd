@@ -1,5 +1,5 @@
 import { create } from 'zustand' // npm install zustand
-import { updateCart } from "../apis/cart"
+import { getCart, updateCart } from "../apis/cart"
 
 // cartStore.js파일은 MenuItem에서 '담기'버튼을 눌렀을 때
 // 해당 메뉴 정보와 가게 정보(메뉴 가격, 가게 이름, 가게의 최수주문금액 등)를
@@ -36,6 +36,25 @@ const useCartStore = create((set, get) => ({
             }
         });
         updateCart(store, get().menus)
+    },
+    fetchCart: async () => {
+        const data = await getCart();
+        console.log("fetchCart - API response:", data);
+
+        if (data.length > 0) {
+            // 마지막 요소에 접근
+            const lastCart = data[data.length - 1];
+            
+            // 상태 업데이트
+            set((state) => ({
+                ...state, // 기존 상태 유지
+                store: lastCart.store, // 마지막 요소의 store 저장
+                menus: lastCart.menus // 마지막 요소의 menus 저장
+            }));
+        } else {
+            console.log("Cart is empty");
+        }
+    // set(data)
     },
     /* 이런 형태로 저장됨
         menus: {

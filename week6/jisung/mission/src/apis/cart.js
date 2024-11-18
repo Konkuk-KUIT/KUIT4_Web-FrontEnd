@@ -1,6 +1,8 @@
 export const getCart = async () => {
     const response = await fetch("http://localhost:8080/cart");
     const data = await response.json();
+    console.log("response from getcart")
+    console.log(data)
     return data;
 }
 
