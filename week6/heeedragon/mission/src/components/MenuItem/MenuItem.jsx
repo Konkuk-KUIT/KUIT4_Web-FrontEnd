@@ -20,7 +20,7 @@ const MenuItem = ({ menu }) => {
                     <div className={styles.menuPrice}>{menu.price}원</div>
                     <div className={styles.menuIngredients}>{menu.ingredients}</div>
                 </div>
-                <button onClick={handleAddMenu} type="button" size="sm">담기</button>
+                <Button onClick={handleAddMenu} type="button" size="sm">담기</Button>
                 </div>
             </div>
         </>

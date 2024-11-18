@@ -1,0 +1,27 @@
+.cartContainer {
+    padding: 16px;
+}
+
+.menuRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.summary {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.disabledButton {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.activeButton {
+    background-color: #3182f6;
+    color: white;
+    cursor: pointer;
+}
