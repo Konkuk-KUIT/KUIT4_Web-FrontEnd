@@ -3,6 +3,8 @@ import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import "./reset.css";
 import "./App.css";
+import { useEffect } from "react";
+import useCartStore from "./pages/Store/cartStore";
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Pretendard-Regular";
@@ -22,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
 
 `;
 const App = () => {
+  const fetchCart = useCartStore((state) => state.fetchCart);
+  useEffect(() => {
+    fetchCart();
+  }, []);
   return (
     <>
       <GlobalStyle />
