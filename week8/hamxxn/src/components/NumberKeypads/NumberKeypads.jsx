@@ -19,21 +19,16 @@ const KeypadWrapper = styled.div`
   bottom: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  padding-bottom: 30px;
   box-sizing: border-box;
 
   > div {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 10px;
     cursor: pointer;
-    font-size: 24px;
-    font-weight: bold;
   }
 `;
 
