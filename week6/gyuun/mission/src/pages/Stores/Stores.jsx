@@ -1,10 +1,19 @@
-import stores from "../../models/stores";
+// import stores from "../../models/stores";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import styles from "./Stores.module.css";
 import { Link } from "react-router-dom";
-
+import { getStores } from "../../apis/stores";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Stores = ({header_bar}) => {
+  const [stores, setStores] = useState([]);
+  useEffect(() => {
+    getStores()
+      .then((data) => {
+        setStores(data);
+      });
+  }, []);
   const StoreIntro = ({store}) =>{
     return (
     <Link to={`/store/${store.id}`}>

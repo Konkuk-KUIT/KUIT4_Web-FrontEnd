@@ -25,8 +25,8 @@ const StyledButton = styled.button`
   padding: ${(props) => sizeStyles[props.size]?.padding};
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
   /* width: 84px; */
-top: ${(props)=>props.top};
-left: ${(props)=>props.left};
+top: ${(props)=>props.$top};
+left: ${(props)=>props.$left};
 border-radius: 8px;
 position: absolute;
 `;
@@ -34,7 +34,7 @@ position: absolute;
 const Button = ({ children, type = "button", size = "sm", disabled,onClick ,top,left}) => {
   return (
   //  <Link to={"/cart"}>
-    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick} top={top} left={left}>
+    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick} $top={top} $left={left}>
       {children}
     </StyledButton>
   //  </Link>
