@@ -1,4 +1,5 @@
 import { create } from 'zustand' // npm install zustand
+import { updateCart } from "../apis/cart"
 
 // cartStore.js파일은 MenuItem에서 '담기'버튼을 눌렀을 때
 // 해당 메뉴 정보와 가게 정보(메뉴 가격, 가게 이름, 가게의 최수주문금액 등)를
@@ -9,11 +10,11 @@ const initialState = { // 아무것도 담지 않았을 떄의 초기값을 담�
     menus: [], // 아무 메뉴도 담기지 않았으므로 빈 배열로 선언
 };
 
-const useCartStore = create((set) => ({
+const useCartStore = create((set, get) => ({
     store: initialState.store,
     menus: initialState.menus,
 
-    addMenu: (menu) => { // 외부에서 addMenu 사용할 때 인자로 메뉴를 받음
+    addMenu: (menu, store) => { // 외부에서 addMenu 사용할 때 인자로 메뉴를 받음
         set((state) => { 
             const menuId = menu.id;
             const existingMenu = state.menus[menuId];
@@ -21,6 +22,7 @@ const useCartStore = create((set) => ({
 
             return {
                 ...state,
+                store: store,
                 menus: {
                     ...state.menus,
                     [menuId]: {
@@ -33,6 +35,7 @@ const useCartStore = create((set) => ({
                 }
             }
         });
+        updateCart(store, get().menus)
     },
     /* 이런 형태로 저장됨
         menus: {
@@ -54,12 +57,13 @@ const useCartStore = create((set) => ({
         }
     */
 
-    setStore: (store) => { // 외부에서 setStore 사용할 때 인자로 가게를 받음
-        set((state) => ({
-            ...state,
-            store: store
-        }))
-    },
+    // setStore: (store) => { // 외부에서 setStore 사용할 때 인자로 가게를 받음
+    //     set((state) => ({
+    //         ...state,
+    //         store: store
+    //     }))
+    // },
+
     clearCartAndAddMenu: (store, menu) => {
         set((state) => ({
             ...state,

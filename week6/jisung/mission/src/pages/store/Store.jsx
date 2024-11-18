@@ -7,6 +7,8 @@ import TopBar from "../../components/TopBar/TopBar";
 
 import stores from "../../models/stores";
 
+import { getStore } from "../../apis/stores";
+
 import {
   StoreInfoContainer,
   StoreName,
@@ -16,7 +18,7 @@ import {
   MenuCategory,
 } from "./Store.styles";
 import useCartStore from "../cartStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Store = () => {
   const { storeId } = useParams();
@@ -29,14 +31,20 @@ const Store = () => {
   // path의 파라미터값을 받으려면 useParams에서도 무조건 storeId로 받아야 함
   // 즉 Router.jsx의 path: "/store/:storeId"와 const { storeId } = useParams()의 변수 이름이 일치해야 함
 
-  const setStore = useCartStore((state) => state.setStore);
-  const store = stores.find((store) => store.id.toString() === storeId);
+  //   const setStore = useCartStore((state) => state.setStore);
+  //   const store = stores.find((store) => store.id.toString() === storeId);
+
+  const [store, setStore] = useState();
+  const addMenu = useCartStore((state) => state.addMenu)
 
   useEffect(() => {
-    if (store) { // store가 존재한다면
-        setStore(store)
-    }
-  }, [])
+    // 원래는 여기서 cartStore의 setStore로 가게 정보 세팅
+    getStore(storeId).then((value) => setStore(value)); // 이제 서버에 데이터 요청함
+  }, []);
+
+  const handleAddMenu = (menu) => {
+    addMenu(menu, store)
+  };
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -70,9 +78,11 @@ const Store = () => {
 
       {/* 메뉴 정보 */}
       <MenuCategory>샐러드</MenuCategory>
-      <div style={{paddingBottom: "111px"}}>
+      <div style={{ paddingBottom: "111px" }}>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} store={store} menu={menu}/>;
+          return <MenuItem key={menu.id} store={store} menu={menu} handleAddMenu={() => handleAddMenu(menu)} />;
+          // 1. MenuItem에 store를 주기
+          // 2. MenuItem에 handleAddMenu 주기
         })}
       </div>
       <OrderBar />
