@@ -1,27 +1,180 @@
-.cartContainer {
-    padding: 16px;
+.storeName {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
-.menuRow {
+.storeTitle {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 16px;
+
+    height: 32px;
+    width: 100%;
+}
+
+.orderDeny {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+
+    color: #F04452;
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menuDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 110px;
+    padding: 16px 24px;
+}
+
+.menuDec {
+    gap: 5px;
+}
+
+.menuName {
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.menuIng {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menuPrice {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menuCheck {
+    display: flex;
+    flex-direction: row;
+
+    gap: 8px;
+}
+
+.menuQuan {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    align-items: center;
+}
+
+.returnStore {
+    border-top: 1px solid #eee;
+
+    width: 100%;
+    height: 20px;
+    padding: 20px 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 3px;
+
+    color: #3182F6;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.gap {
+    width: 100%;
+    height: 16px;
+    background: #F2F4F6;
 }
 
 .summary {
-    margin-top: 16px;
-    padding: 16px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
-.disabledButton {
-    background-color: #ddd;
-    cursor: not-allowed;
+.summaryRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.activeButton {
-    background-color: #3182f6;
-    color: white;
-    cursor: pointer;
+.text {
+    color: #8B95A1;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.amount {
+    color: #505967;
+    font-family: Pretendard;
+    text-align: right;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.text2 {
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.amount2 {
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.minimumOrderAmount {
+    color: #6B7684;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    width: 100%;
 }
