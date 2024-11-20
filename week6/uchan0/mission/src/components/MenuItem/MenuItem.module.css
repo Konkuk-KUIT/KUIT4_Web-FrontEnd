@@ -1,0 +1,57 @@
+.menuItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 0px 16px 0px;
+}
+.menuItemImg {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 27px;
+  background: #ececec;
+  margin-right: 16px;
+}
+.menuItemInfoContainer {
+  padding-right: 30px;
+}
+.menuBestContainer {
+  display: flex;
+  flex-direction: row;
+}
+.menuItemName {
+  color: #333d4b;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-bottom: 5px;
+}
+.isBest {
+  color: #3182f6;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 6px;
+}
+.menuItemPrice {
+  color: #6b7684;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-bottom: 5px;
+}
+.menuItemIngredients {
+  width: 180px;
+  color: #6b7684;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
