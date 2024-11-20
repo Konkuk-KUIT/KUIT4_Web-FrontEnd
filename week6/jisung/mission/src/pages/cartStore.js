@@ -24,7 +24,8 @@ const useCartStore = create((set, get) => ({
                 ...state,
                 store: store,
                 menus: {
-                    ...state.menus,
+                    ...state.menus, 
+                    // state는 set 함수의 콜백 내부에서 제공됨
                     [menuId]: {
                         ...menu,
                         quantity: existingMenu ? existingMenu.quantity + 1 : 1
@@ -35,7 +36,9 @@ const useCartStore = create((set, get) => ({
                 }
             }
         });
-        updateCart(store, get().menus)
+        updateCart(store, get().menus) 
+        // get()은 set 콜백 함수 외부에서 상태를 참조할 때 사용됨
+        // get()은 현재 상태 전체를 반환함, 거기서 내가 원하는 값을 가져오면 됨
     },
     fetchCart: async () => {
         const data = await getCart();
