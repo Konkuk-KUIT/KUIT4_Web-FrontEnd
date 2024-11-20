@@ -33,6 +33,9 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/prop-types': 'off', // prop-types 관련 경고 끄기
+      'no-unused-vars': 'off', // 이 방법은 모든 unused-vars 경고를 끄게 됩니다.
+
     },
   },
 ]
