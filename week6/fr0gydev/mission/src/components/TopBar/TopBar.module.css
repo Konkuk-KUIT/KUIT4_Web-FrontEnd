@@ -1,0 +1,13 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #ffffff !important; 
+}
+
+.backbutton {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #ffffff !important;
+    padding: 0;
+}
