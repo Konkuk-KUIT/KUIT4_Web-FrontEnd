@@ -25,7 +25,7 @@ export default function PasswordInput({
     Array.from({ length: 10 }, (_, index) => index)),
   [] // Dependency 배열을 비워놓으면 리렌더링 되더라도 항상 그대로 유지됨
   );
-
+  
   const handleKeyPress = (number) => {
     setPassword((prev) => prev + number);
   };
