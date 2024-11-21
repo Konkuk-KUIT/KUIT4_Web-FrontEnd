@@ -18,6 +18,7 @@ export default function PasswordInput({
   useEffect(() => {
     if (isPasswordCompleted) {
         onComplete(password);
+        setPassword('');
     }
   }, [isPasswordCompleted]);
 
