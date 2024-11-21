@@ -11,9 +11,9 @@
     margin: 5px;
     transition: background-color 0.3s ease;
 }
-.password-indicator-dot-filled{
+.password-indicator-dot.filled{
     background-color: rgb(28,28,28);
 }
-.password-indicator-dot-empty{
+.password-indicator-dot.empty{
     background-color: rgb(186,186,186);
 }

@@ -1,9 +1,10 @@
 import './index.css';
 
 export default function NumberKeypads({numbers,onPress}){
-    const handleKeyPress = () => {
-        return(number)=>{
+    const handleKeyPress = (number) => {
+        return()=>{
             onPress(number);
+            console.log(number)
         };
     };
     return (
