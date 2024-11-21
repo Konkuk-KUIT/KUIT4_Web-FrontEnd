@@ -1,26 +1,26 @@
 import { create } from "zustand";
+import { getCart, updateCart } from "../apis/cartStore";
 
 const initialState = {
   store: undefined,
   menus: [],
-  minPrice: undefined,
 };
 
-const useCartStore = create((set) => ({
+const useCartStore = create((set, get) => ({
   store: initialState.store,
   menus: initialState.menus,
-  minPrice: initialState.minPrice,
 
-  addMenu: (menu) => {
-    console.log("addMenu called with:", menu); // 함수 호출 확인
-    set((state) => ({ ...state, menus: [...state.menus, menu] })); // 상태 업데이트
-    console.log("Updated menus:", useCartStore.getState().menus); // 상태 확인
+  addMenu: (menu, store) => {
+    set((state) => ({ ...state, store, menus: [...state.menus, menu] })); // 상태 업데이트
+    updateCart(store, get().menus);
   },
-  setStore: (store) => {
-    set((state) => ({ ...state, store: store }));
+  deleteMenu: () => {
+    set((state) => ({ ...state, menus: [] }));
+    set((state) => ({ ...state, store: undefined }));
   },
-  setMinPrice: (minPrice) => {
-    set((state) => ({ ...state, minPrice: minPrice }));
+  fetchCart: async () => {
+    const data = await getCart();
+    set(data);
   },
 }));
 

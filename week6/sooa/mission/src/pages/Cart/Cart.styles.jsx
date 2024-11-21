@@ -15,7 +15,6 @@ const CartWrapper = styled.div`
   height: 59px;
   border-top: 1px solid #e5e8eb;
   > p {
-    width: 93px;
     height: 20px;
     font-size: 17px;
     font-weight: 700;
@@ -23,6 +22,7 @@ const CartWrapper = styled.div`
   }
   > div {
     display: flex;
+    width: 110px;
     gap: 6px;
     font-size: 15px;
     font-weight: 500;

@@ -17,6 +17,17 @@ const Cart = () => {
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
   const price = menus.reduce((acc, cur) => acc + cur.price, 0);
+  let flag = true;
+
+  const sortedMenus = menus.reduce((acc, cur) => {
+    //cur이 acc에 존재하지 않으면 추가, 존재하면 count 올리기
+    const found = acc.find((menu) => menu.id == cur.id);
+
+    if (found) found.count += 1;
+    else acc.push({ ...cur, count: 1 });
+
+    return acc;
+  }, []);
 
   return (
     <Wrapper>
@@ -25,12 +36,16 @@ const Cart = () => {
       <CartWrapper>
         <p>{store.name}</p>
         <div>
-          <span>최소금액 미달</span>
-          <img src={Warning} />
+          {price < store.minDeliveryPrice && (
+            <>
+              <span>최소금액 미달</span>
+              <img src={Warning} />
+            </>
+          )}
         </div>
       </CartWrapper>
       <div>
-        {menus.map((menu) => {
+        {sortedMenus.map((menu) => {
           return <CartItem key={menu.id} menu={menu} />;
         })}
       </div>
@@ -54,7 +69,8 @@ const Cart = () => {
       </CalWrapper>
       <BottomWrapper>
         <span>최소 주문금액 {store.minDeliveryPrice}원</span>
-        <Button type="button" size="xl" disabled={true}>
+        {price >= store.minDeliveryPrice ? (flag = false) : (flag = true)}
+        <Button type="button" size="xl" disabled={flag}>
           {price + store.deliveryFee}원 결제하기
         </Button>
         <BottomBar />

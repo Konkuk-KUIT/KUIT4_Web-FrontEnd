@@ -16,7 +16,7 @@ const CartItem = ({ menu }) => {
         <span>{menu.price}</span>
       </RightWrapper>
       <ButtonWrapper>
-        <span>1개</span>
+        <span>{menu.count}</span>
         <img src={ArrowRight} />
       </ButtonWrapper>
     </Wrapper>

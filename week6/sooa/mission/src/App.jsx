@@ -1,6 +1,8 @@
 import Router from "./pages/Router";
 import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
+import { useEffect } from "react";
+import useCartStore from "./store/useCartStore";
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
@@ -18,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const fetchCart = useCartStore((state) => state.fetchCart);
+  useEffect(() => {
+    fetchCart();
+  }, []);
   return (
     <>
       <GlobalStyle />

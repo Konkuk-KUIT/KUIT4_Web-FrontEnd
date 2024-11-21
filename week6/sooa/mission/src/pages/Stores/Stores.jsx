@@ -3,7 +3,7 @@ import HeaderBar from "../../components/HeaderBar";
 import StoreItem from "../../components/StoreItem/StoreItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import styled from "styled-components";
-import stores from "../../models/stores";
+import { useState } from "react";
 
 const Title = styled.p`
   width: 68px;
@@ -15,17 +15,14 @@ const Title = styled.p`
   color: #191f28;
 `;
 const Stores = () => {
-  const store = stores[0];
+  const [store, setStore] = useState();
   return (
     <Wrapper>
       <HeaderBar arrow={true} cancel={false} />
       <Title>샐러드</Title>
-      <StoreItem store={store} />
-      <StoreItem store={store} />
-      <StoreItem store={store} />
-      <StoreItem store={store} />
-      <StoreItem store={store} />
-      <StoreItem store={store} />
+      {store.map((store) => (
+        <StoreItem store={store} />
+      ))}
       <OrderBar />
     </Wrapper>
   );
