@@ -1,27 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useState } from "react";
 
 import { starIcon } from "../../assets";
 import styles from "./StoreId.module.css";
 
+import { getStore } from "../../apis/stores";
 import MenuItem from "../../components/menuItem/MenuItem";
-import stores from "../../models/stores";
-import useCartStore from "../../store/cartStore";
 
 
 
 const StoreId = () => {
   const { storeId } = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
-
-  const setStore = useCartStore((state) => state.setStore);
+  const [store, setStore] = useState();
 
   useEffect(() => {
-    if (store && storeId) {
-      setStore(store);
-    }
+      getStore(storeId).then((value) => setStore(value));
   }, [storeId]);
-  
   
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;

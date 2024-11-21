@@ -7,30 +7,30 @@ import { menuImgIcon } from "../../assets";
 
 const MenuItem = ({ menu, store }) => {
     const [showModal, setShowModal] = useState(false);
-    const { addMenu, store: cartStore, menus, resetCart } = useCartStore();
+    const [isLoading, setIsLoading] = useState(false);  // 로딩 상태 추가 (비동기로 처리되면서 생기는 오류방지)
+    const { addMenu, resetCart } = useCartStore();
 
-    const handleAddMenu = () => {
-        // 장바구니가 비어있는 경우
-        if (!cartStore || menus.length === 0) {
-            addMenu(menu, store);
-            return;
+    const handleAddMenu = async () => {
+        try {
+            setIsLoading(true);
+            await addMenu(menu, store);  // CartStore에서 처리
+        } catch (error) {
+            console.error('Failed to add menu:', error);
+        } finally {
+            setIsLoading(false);
         }
-
-        // 첫 번째 메뉴의 storeId 확인
-        const firstMenuStoreId = menus[0].storeId;
-        if (firstMenuStoreId === store.id) {
-            addMenu(menu, store);
-            return;
-        }
-
-        // 다른 가게의 메뉴인 경우 모달 표시
-        setShowModal(true);
     };
-    
-    const handleConfirmReset = () => {
-        resetCart();
-        addMenu(menu, store);
-        setShowModal(false);
+    const handleConfirmReset = async () => {
+        try {
+            setIsLoading(true);
+            await resetCart();
+            await addMenu(menu, store);
+            setShowModal(false);
+        } catch (error) {
+            console.error('Failed to reset and add menu:', error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -51,8 +51,13 @@ const MenuItem = ({ menu, store }) => {
                 <div className={styles.body}>
                     <p className={styles.ingredients}>{menu.ingredients}</p>
                     <div className={styles.buttonContainer}>
-                        <Button onClick={handleAddMenu} type="button" size="sm">
-                            담기
+                        <Button 
+                            onClick={handleAddMenu} 
+                            type="button" 
+                            size="sm"
+                            disabled={isLoading}  // 로딩 중 버튼 비활성화
+                        >
+                            {isLoading ? '담는 중...' : '담기'}
                         </Button>
                     </div>
                 </div>
