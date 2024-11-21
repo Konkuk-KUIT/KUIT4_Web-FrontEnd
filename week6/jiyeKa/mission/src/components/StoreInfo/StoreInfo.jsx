@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom";
-import stores from "../../models/stores";
+import stores from "../../models/db.json";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import star from "../../assets/star.svg";
 import {NoStoreWrapper, StoreInfoWrapper, InfoWrapper, MenuWrapper} from "./StoreInfo.styles";

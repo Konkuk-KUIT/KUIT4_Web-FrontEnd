@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import stores from "../models/stores";
+import stores from "../models/db.json";
 
 const initialState = {
     store: undefined,

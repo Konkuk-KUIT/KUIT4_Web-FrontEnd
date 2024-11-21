@@ -4,7 +4,7 @@ import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import StoreInfo from "../../components/StoreInfo/StoreInfo";
 import OrderBar from "../../components/OrderBar/OrderBar";
 
-import stores from "../../models/stores";
+import stores from "../../models/db.json";
 import useCartStore from "../../store/cartStore";
 import { useEffect } from "react";
 
