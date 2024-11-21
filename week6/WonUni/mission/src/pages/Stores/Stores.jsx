@@ -29,8 +29,8 @@ const Stores = () => {
       <div>
         
         {stores.map((storeInfo)=>(
-          <Link to={`/store/${storeInfo.id}`}>
-            <StoresItems key={storeInfo.id} storeInfo={storeInfo} />
+          <Link to={`/store/${storeInfo.id}`} key={storeInfo.id}>
+            <StoresItems storeInfo={storeInfo} />
           </Link>
         ))}
       </div>

@@ -70,7 +70,7 @@ const Home = () => {
       </div>
       <div className={styles.categoryItems}>
         {foodCategory.map((item)=>(
-          <Link to="/stores">
+          <Link to="/stores" key={item.category}>
             <div className={styles.categoryItem}>
             <div className={styles.categoryItem}>
               <img src={burger} alt={item.category}/>

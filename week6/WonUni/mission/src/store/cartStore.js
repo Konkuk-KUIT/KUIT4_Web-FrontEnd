@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { getCart, updateCart, resetCart } from "../apis/cart";
 
 
 const initialState = {
@@ -6,19 +7,25 @@ const initialState = {
     menus: []
 }
 
-const useCartStore = create((set) =>({
+const useCartStore = create((set, get) =>({
     store: initialState.store,
     menus: initialState.menus,
 
     addMenu: (menu, store) => {
-        set((state)=>({...state, menus:[...state.menus, menu]}));
+        set((state)=>({...state, store, menus:[...state.menus, menu]}));
+        updateCart(store, get().menus);
         console.log(store);
     },
     setStore: (store) => {
         set((state)=>({...state, store: store}));
     },
-    resetStore: () => {
-        set(initialState);
+    resetStore: async () => {
+        await resetCart(); 
+        set(initialState); 
+    },
+    fetchCart: async() => {
+        const data = await getCart();
+        set(data);
     },
 }));
 

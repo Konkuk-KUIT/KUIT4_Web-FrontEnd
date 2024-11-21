@@ -42,7 +42,7 @@ const Cart = () => {
           </div>
           <div>
           {groupedMenus.map((menu)=>{
-          return <MenuItem2 key={menus.id} menu={menu} quantity={menu.quantity}/>
+          return <MenuItem2 key={menu.id} menu={menu} quantity={menu.quantity}/>
           })}
           </div>
           <div className={styles.addCart}>
