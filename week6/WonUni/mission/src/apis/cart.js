@@ -6,7 +6,7 @@ export const getCart = async () => {
 
 export const updateCart = async (store, menus) => {
     return await fetch("http://localhost:8080/cart", {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
