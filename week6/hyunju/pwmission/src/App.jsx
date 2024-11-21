@@ -1,9 +1,12 @@
 
+
+import PasswordPage from "./component/index"
+
 function App() {
 
   return (
     <>
-    
+    <PasswordPage />
     </>
   )
 }
