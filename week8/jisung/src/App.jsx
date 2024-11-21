@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import PasswordPage from "./pages/password"
 
 function App() {
-  return <></>
+  return (
+    <>
+      <PasswordPage />
+    </>
+  )
 }
 
 export default App
