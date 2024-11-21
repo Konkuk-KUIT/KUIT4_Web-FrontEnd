@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Page from "./Page/Page";
-import PageId from "./PageId/PageId";
+import Page from "./page/Page";
+import PageId from "./pageId/PageId";
 import Home from "./home/Home";
 
 const Layout = () => {
