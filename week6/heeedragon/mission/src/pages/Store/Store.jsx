@@ -7,12 +7,15 @@ import styles from "./Store.module.css";
 import Header from "../../components/Header";
 import useCartStore from "../Cart/cartStore";
 
+import storeId from "";
+
 const Store = () => {
     const { storeId } = useParams();
-    const setStore = useCartStore((state) => state.setStore);
+    const [store, setStore] = useState();
+    // const setStore = useCartStore((state) => state.setStore);
 
 
-    const store = stores.find((store) => store.id.toString() === storeId);
+    // const store = stores.find((store) => store.id.toString() === storeId);
 
     useEffect(() => {
         if(store) {
