@@ -7,8 +7,6 @@ import BackBtn from "../../components/BackBtn";
 import styled from "styled-components";
 import StoreDetailInfo from "../../components/Store/StoreDetailInfo";
 
-import "../Store/Store.css";
-
 const Store = () => {
   const { storeId } = useParams();
   const pageStore = stores.find((store) => store.id.toString() === storeId);
@@ -57,9 +55,11 @@ const CategoryTitle = styled.h4`
   margin: 0 0 11px 24px;
 `;
 
-const MenuItemWrapper = styled.div.attrs({
-  className: "MenuItemWrapper",
-})`
+const MenuItemWrapper = styled.div`
   height: 380px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
