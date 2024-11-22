@@ -1,0 +1,25 @@
+.categoryBox {
+  width: 108px;
+  height: 74px;
+  border-radius: 8px;
+  background: #fafafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.categoryIcon {
+  width: 28px;
+  height: 28px;
+}
+.categoryText {
+  color: #333d4b;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0px;
+}
