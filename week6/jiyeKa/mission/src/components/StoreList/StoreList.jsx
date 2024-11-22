@@ -3,8 +3,8 @@ import {StoresTitle, StoresWrapper, ListWrapper} from "./StoreList.styles";
 import StoresDetail from "../StoresDetail/StoresDetail";
 import useCartStore from '../../store/cartStore';
 
-const StoresList = () => {
-  const storeList = useCartStore((state) => state.storeList);
+const StoreList = () => {
+  const storeList = useCartStore((state) => state.storeList) || [];
   const sortedStores = storeList.sort((a, b) => b.reviewCnt - a.reviewCnt); //리뷰 수 기준으로 정렬
 
   const topThreeStores = sortedStores.slice(0, 3); // 1~3위만 따로 스타일링
@@ -77,4 +77,4 @@ const StoresList = () => {
     </StoresWrapper>
   );
 };
-export default StoresList;
+export default StoreList;

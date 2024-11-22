@@ -5,24 +5,24 @@ import {BestMenu, MenuItemContainer, MenuName, MenuPrice, MenuIngredients, MenuB
 import roundIMG from "../../assets/roundIMG.svg"
 import useCartStore from "../../store/cartStore.js"
 
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ menu, handleAddMenu }) => {
 
   const menus = useCartStore((state) => state.menus);
   const addMenu = useCartStore((state) => state.addMenu);
   const resetCart = useCartStore((state)=>state.resetCart)
   const currentStore = useCartStore((state) => state.store);
 
-  const handleAddMenu = () => {
-    if (menus.length > 0 && (menus[0].storeID !== menu.storeID)) {
-      const alert = window.confirm("주문서에는 같은 가게만 담을 수 있어요. 새로 담고 이전에 담은 메뉴는 삭제할까요?");
-      if (alert) {
-        resetCart();
-        addMenu(menu);
-      }
-    } else {
-      addMenu(menu);
-    }
-  };
+  // const handleAddMenu = () => {
+  //   if (menus.length > 0 && (menus[0].storeID !== menu.storeID)) {
+  //     const alert = window.confirm("주문서에는 같은 가게만 담을 수 있어요. 새로 담고 이전에 담은 메뉴는 삭제할까요?");
+  //     if (alert) {
+  //       resetCart();
+  //       addMenu(menu);
+  //     }
+  //   } else {
+  //     addMenu(menu);
+  //   }
+  // }; -> StoreInfo.jsx에서 구현
 
 
   return (
