@@ -24,6 +24,8 @@ const App = () => {
   useEffect(() => {
     fetchCart();
   }, []);
+  const menus = useCartStore((state) => state.menus);
+  console.log(menus);
   return (
     <>
       <GlobalStyle />
