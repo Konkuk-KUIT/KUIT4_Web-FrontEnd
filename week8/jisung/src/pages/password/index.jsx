@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PasswordInput from '../../components/PasswordInput';
 import validatePassword from './utils/validatePassword';
+import Header from '../../components/Header';
 
 const STEP = {
   // 휴먼 에러를 줄이기 위해 enum 선언
