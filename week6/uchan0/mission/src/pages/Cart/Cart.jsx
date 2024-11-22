@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Cart.module.css";
 import arrowBackIcon from "../../assets/arrow/arrowBackIcon.png";
@@ -7,33 +7,41 @@ import plusIcon from "../../assets/PlusIcon.png";
 import Button from "../../components/Button";
 import OrderItems from "../../components/OrderItems/OrderItems";
 import useCartStore from "../../store/cartStore";
+import { getCart } from "../../apis/cart";
 
 const Cart = () => {
-  const menus = useCartStore((state) => state.menus);
-  const store = useCartStore((state) => state.store);
-  const reset = useCartStore((state) => state.resetAll);
+  const [cartInfo, setCartInfo] = useState([]); // 초기값을 빈 배열로 설정
+  const resetAll = useCartStore((state) => state.resetAll);
+
+  useEffect(() => {
+    getCart().then((value) => {
+      setCartInfo(value); // API 결과를 상태에 저장
+    });
+  }, []);
 
   const navigate = useNavigate();
   const onClickButton = () => {
     navigate("/");
   };
   const onClickMoreButton = () => {
-    // 담은 음식에 해당하는 storeId로 이동하게 구현
-    navigate(`/store/${store.id}`);
+    if (cartInfo[0]?.store?.id) {
+      navigate(`/store/${cartInfo[0].store.id}`);
+    }
   };
 
   const resetOrder = () => {
     if (
       window.confirm(
-        "주문 취소를 하시면 장바구니가 초기화됩니다. 주문최소하시겠습니까?"
+        "주문 취소를 하시면 장바구니가 초기화됩니다. 주문을 취소하시겠습니까?"
       )
     ) {
-      reset(); // 확인을 누른 경우 reset 실행
+      resetAll();
+      setCartInfo([]); // 로컬 상태 초기화
     }
   };
 
   // 아직 아무것도 안 담았을 때 early return
-  if (!store) {
+  if (!cartInfo || cartInfo.length === 0 || !cartInfo[0]?.store) {
     return (
       <div>
         <div
@@ -50,6 +58,9 @@ const Cart = () => {
       </div>
     );
   }
+
+  const store = cartInfo[0].store;
+  const menus = cartInfo[0].menus;
 
   return (
     <div>
