@@ -17,7 +17,12 @@ const Store = () => {
   const { storeId } = useParams();
   const [store, setStore] = useState();
   useEffect(() => {
-    getStore(storeId).then((value) => setStore(value));
+    // console.log(storeId);
+    getStore(storeId).then((value) => {
+      // console.log(value); // 가져온 데이터 확인
+      setStore(value);
+    });
+    // getStore(storeId).then((value) => setStore(value));
   }, []);
 
   // const store = stores.find((store) => store.id.toString() === storeId);
