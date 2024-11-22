@@ -18,7 +18,7 @@ const useCartStore = create((set, get) => ({
     if (!cart || cart.length === 0) {
       await updateCart(get().store, get().menus);
     } else {
-      await deleteCart(); // 각 항목 삭제
+      await deleteCart();
       await updateCart(get().store, get().menus); // 새 데이터 추가
     }
   },
