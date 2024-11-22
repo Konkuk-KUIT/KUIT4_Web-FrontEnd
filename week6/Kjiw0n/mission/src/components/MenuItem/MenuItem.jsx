@@ -3,13 +3,7 @@ import { ItemContent, ItemTitle } from "../../styles/FontStyle";
 import Button from "../Button";
 import useCartStore from "../../store/cartStore";
 
-const MenuItem = ({ menu, pageStore }) => {
-  const addMenu = useCartStore((state) => state.addMenu);
-
-  const handleAddMenu = () => {
-    addMenu(menu, pageStore);
-  };
-
+const MenuItem = ({ menu, handleAddMenu }) => {
   return (
     <MenuItemContainer>
       <MenuItemImage />

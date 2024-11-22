@@ -1,33 +1,44 @@
 import { useNavigate, useParams } from "react-router-dom";
-
 import MenuItem from "../../components/MenuItem/MenuItem";
-
-import stores from "../../models/stores";
 import BackBtn from "../../components/BackBtn";
 import styled from "styled-components";
 import StoreDetailInfo from "../../components/Store/StoreDetailInfo";
+import { useEffect, useState } from "react";
+import { getStore } from "../../api/stores";
+import useCartStore from "../../store/cartStore";
 
 const Store = () => {
   const { storeId } = useParams();
-  const pageStore = stores.find((store) => store.id.toString() === storeId);
+  const [store, setStore] = useState();
   const navigate = useNavigate();
+  const addMenu = useCartStore((state) => state.addMenu);
 
-  if (!pageStore) {
+  useEffect(() => {
+    getStore(storeId).then((value) => setStore(value));
+  }, []);
+
+  const handleAddMenu = (menu) => {
+    addMenu(menu, store);
+  };
+
+  if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }
-
-  const { menus, ...storeInfo } = pageStore;
 
   return (
     <div>
       <BackBtn onClick={() => navigate(-1)} />
-      <StoreDetailInfo storeInfo={storeInfo} />
+      <StoreDetailInfo store={store} />
 
       <Line />
       <CategoryTitle>샐러드</CategoryTitle>
       <MenuItemWrapper>
-        {menus.map((menu) => (
-          <MenuItem key={menu.id} menu={menu} pageStore={pageStore} />
+        {store.menus.map((menu) => (
+          <MenuItem
+            key={menu.id}
+            menu={menu}
+            handleAddMenu={() => handleAddMenu(menu)}
+          />
         ))}
       </MenuItemWrapper>
     </div>
