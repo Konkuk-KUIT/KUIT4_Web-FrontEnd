@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { updateCart } from "../api/cart";
+import { getCart, updateCart } from "../api/cart";
 
 const initialState = {
   store: undefined,
@@ -13,6 +13,11 @@ const useCartStore = create((set, get) => ({
   addMenu: (menu, store) => {
     set((state) => ({ ...state, store, menus: [...state.menus, menu] }));
     updateCart(store, get().menus);
+  },
+
+  fetchCart: async () => {
+    const data = await getCart();
+    set(data);
   },
 
   getTotalPrice: () => get().menus.reduce((acc, cur) => acc + cur.price, 0),
