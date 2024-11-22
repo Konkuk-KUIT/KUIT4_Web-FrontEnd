@@ -1,6 +1,23 @@
 {
   "cart": [
-    {}
+    {},
+    {
+      "id": "aaa7",
+      "store": {},
+      "menus": [
+        {
+          "id": 1,
+          "name": "토마토 샐러드",
+          "isBest": true,
+          "price": 7600,
+          "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+        }
+      ]
+    },
+    {
+      "id": "64e1",
+      "menus": []
+    }
   ],
   "stores": [
     {

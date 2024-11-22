@@ -1,8 +1,6 @@
-import PasswordPage from "./pages/password"
 
 function App() {
-
-  return <PasswordPage/>;
+  return <></>
 }
 
 export default App
