@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { updateCart } from "../../apis/cart";
+import { updateCart,getCart } from "../../apis/cart";
 
 const initialState = {
     store: undefined,
@@ -39,7 +39,16 @@ const useCartStore = create((set,get) => ({
 
     updateCart(store, get().menus);
 
+
+
 },
+    fetchCart: async() => {
+        const data = await getCart();
+        set(data);
+    }
+
+
+
 }));
 
 export default useCartStore;
