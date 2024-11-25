@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    gap: 16px;
+    padding: 10px 6px;
+    background: white;
+    position: relative;
+    align-items: center;
+}
+  
+.imageContainer {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #ECECEC;
+    flex-shrink: 0;
+}
+  
+.info {
+    flex: 1;
+    padding-right: 80px;  /* 담기 버튼을 위한 공간 확보 */
+}
+  
+.nameWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+  
+.name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+  
+.bestBadge {
+    color: #4A7AFF;
+    font-size: 14px;
+    font-weight: 600;
+}
+  
+.price {
+    font-size: 12px;
+    margin: 0 0 6px 0;
+    color: #333;
+}
+  
+.ingredients {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+  
+.addButton {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4A7AFF;
+    color: white;
+    border: none;
+    padding: 8px 13px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}

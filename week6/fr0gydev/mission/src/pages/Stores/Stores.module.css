@@ -1,0 +1,18 @@
+.container {
+    padding: 0px 20px 80px 20px;
+  }
+  
+  .title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .storeList {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .storeList > *:last-child {
+    border-bottom: none;
+  }
