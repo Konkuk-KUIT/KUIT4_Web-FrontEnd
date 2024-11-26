@@ -10,6 +10,12 @@ interface Todo {
   completed: boolean;
 }
 
+const fetchTodos = async (): Promise<Todo[]> => {
+  const response = await fetch(API_URL);
+  const data = await response.json();
+  return data;
+};
+
 fetch(API_URL)
   .then((response) => response.json())
   .then((data: Todo[]) => renderTodo(data));
@@ -58,33 +64,51 @@ const addTodo = (): void => {
   //   completed: false,
   // };
 
-  fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ ...newTodo, completed: false }),
-  })
-    .then((response) => response.json())
-    .then(() => {
-      // 최신 목록을 다시 가져와서 렌더링
-      if (todoInputEl) {
-        (todoInputEl as HTMLInputElement).value = "";
-      }
-      return fetch(API_URL);
-    })
-    .then((response) => response.json())
-    .then((data: Todo[]) => renderTodo(data));
+  const fetchAdd = async () => {
+    fetch(API_URL, {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...newTodo, completed: false }),
+    });
+
+    const newTodos = await fetchTodos();
+    renderTodo(newTodos);
+  };
+
+  fetchAdd();
+  // fetch(API_URL, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ ...newTodo, completed: false }),
+  // })
+  //   .then((response) => response.json())
+  //   .then(() => {
+  //     // 최신 목록을 다시 가져와서 렌더링
+  //     if (todoInputEl) {
+  //       (todoInputEl as HTMLInputElement).value = "";
+  //     }
+  //     return fetch(API_URL);
+  //   })
+  //   .then((response) => response.json())
+  //   .then((data: Todo[]) => renderTodo(data));
 };
 
-const deleteTodo = (todoId: number): void => {
-  fetch(API_URL + "/" + todoId, {
+const deleteTodo = async (todoId: number): Promise<void> => {
+  await fetch(API_URL + "/" + todoId, {
     method: "DELETE",
-  })
-    // 최신 목록을 다시 가져와서 렌더링
-    .then(() => fetch(API_URL))
-    .then((response) => response.json())
-    .then((data) => renderTodo(data));
+  });
+
+  const response = await fetch(API_URL);
+  const data = await response.json();
+  renderTodo(data);
+  // 최신 목록을 다시 가져와서 렌더링
+  // .then(() => fetch(API_URL))
+  // .then((response) => response.json())
+  // .then((data) => renderTodo(data));
 };
 
 //mission
@@ -119,6 +143,18 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
   todoItem.innerHTML = "";
   todoItem.appendChild(formEl);
 
+  // async, await 추가
+  const fetchUpdate = async () => {
+    fetch(API_URL + "/" + todoId, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: inputEl.value }),
+    });
+    const newTodos = await fetchTodos();
+    renderTodo(newTodos);
+  };
   // 확인 이벤트 발생 시 입력창에 입력한 내용으로 수정.
   formEl.onsubmit = (e) => {
     e.preventDefault; //페이지 리로드 방지
@@ -128,25 +164,34 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
       title: updatedTitle,
     };
 
-    fetch(API_URL + "/" + todoId, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedTodo),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        return fetch(API_URL);
-      })
-      .then((response) => response.json())
-      .then((data) => renderTodo(data));
+    fetchUpdate();
+
+    // fetch(API_URL + "/" + todoId, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(updatedTodo),
+    // })
+    //   .then((response) => response.json())
+    //   .then(() => {
+    //     return fetch(API_URL);
+    //   })
+    //   .then((response) => response.json())
+    //   .then((data) => renderTodo(data));
   };
 
+  const fetchBack = async (): Promise<Todo[]> => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    return data;
+  };
   //취소 버튼 클릭시 원래 내용으로 복원
-  cancelBtn.onclick = () => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => renderTodo(data));
+  cancelBtn.onclick = async () => {
+    // fetch(API_URL)
+    //   .then((response) => response.json())
+    //   .then((data) => renderTodo(data));
+    const data = await fetchBack();
+    renderTodo(data);
   };
 };

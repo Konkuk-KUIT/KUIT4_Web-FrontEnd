@@ -1,53 +1,42 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var todoListEl = document.getElementById("todoList");
-var todoInputEl = document.getElementById("todoInput");
-var API_URL = "http://localhost:8080/todos";
+const todoListEl = document.getElementById("todoList");
+const todoInputEl = document.getElementById("todoInput");
+const API_URL = "http://localhost:8080/todos";
 fetch(API_URL)
-    .then(function (response) { return response.json(); })
-    .then(function (data) { return renderTodo(data); });
-var renderTodo = function (newTodos) {
+    .then((response) => response.json())
+    .then((data) => renderTodo(data));
+const renderTodo = (newTodos) => {
     if (!todoListEl)
         return;
     todoListEl.innerHTML = "";
-    newTodos.forEach(function (todo) {
-        var listEl = document.createElement("li");
+    newTodos.forEach((todo) => {
+        const listEl = document.createElement("li");
         listEl.textContent = todo.title;
-        listEl.id = "todo-".concat(todo.id);
-        var deleteEl = document.createElement("span");
+        listEl.id = `todo-${todo.id}`;
+        const deleteEl = document.createElement("span");
         deleteEl.textContent = "🗑️";
         deleteEl.className = "deleteBtn";
-        deleteEl.onclick = function () { return deleteTodo(todo.id); };
-        var updateEl = document.createElement("span");
+        deleteEl.onclick = () => deleteTodo(todo.id);
+        const updateEl = document.createElement("span");
         updateEl.textContent = "✏️";
         deleteEl.className = "updateBtn";
-        updateEl.onclick = function () { return updateTodo(todo.id, todo.title); };
+        updateEl.onclick = () => updateTodo(todo.id, todo.title);
         listEl.append(deleteEl);
         listEl.append(updateEl);
         todoListEl.append(listEl);
     });
 };
-var addTodo = function () {
+const addTodo = () => {
     if (!todoInputEl)
         return;
-    var title = todoInputEl.value;
-    var date = new Date();
-    var createdAt = date.toDateString();
+    const title = todoInputEl.value;
+    const date = new Date();
+    const createdAt = date.toDateString();
     if (!title)
         return;
-    var newTodo = {
+    const newTodo = {
         id: date.getTime(),
-        title: title,
-        createdAt: createdAt,
+        title,
+        createdAt,
     };
     // const newTodo: Todo = {
     //   id: date.getTime(),
@@ -60,45 +49,45 @@ var addTodo = function () {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(__assign(__assign({}, newTodo), { completed: false })),
+        body: JSON.stringify(Object.assign(Object.assign({}, newTodo), { completed: false })),
     })
-        .then(function (response) { return response.json(); })
-        .then(function () {
+        .then((response) => response.json())
+        .then(() => {
         // 최신 목록을 다시 가져와서 렌더링
         if (todoInputEl) {
             todoInputEl.value = "";
         }
         return fetch(API_URL);
     })
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return renderTodo(data); });
+        .then((response) => response.json())
+        .then((data) => renderTodo(data));
 };
-var deleteTodo = function (todoId) {
+const deleteTodo = (todoId) => {
     fetch(API_URL + "/" + todoId, {
         method: "DELETE",
     })
         // 최신 목록을 다시 가져와서 렌더링
-        .then(function () { return fetch(API_URL); })
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return renderTodo(data); });
+        .then(() => fetch(API_URL))
+        .then((response) => response.json())
+        .then((data) => renderTodo(data));
 };
 //mission
-var updateTodo = function (todoId, originalTitle) {
-    var todoItem = document.querySelector("#todo-".concat(todoId));
+const updateTodo = (todoId, originalTitle) => {
+    const todoItem = document.querySelector(`#todo-${todoId}`);
     if (!todoItem)
         return;
     //form 태그 생성
-    var formEl = document.createElement("form");
+    const formEl = document.createElement("form");
     // 입력창 생성
-    var inputEl = document.createElement("input");
+    const inputEl = document.createElement("input");
     inputEl.type = "text";
     inputEl.value = "";
     // 확인버튼 생성
-    var confirmBtn = document.createElement("button");
+    const confirmBtn = document.createElement("button");
     confirmBtn.textContent = "확인";
     confirmBtn.type = "submit";
     // 취소버튼 생성
-    var cancelBtn = document.createElement("button");
+    const cancelBtn = document.createElement("button");
     cancelBtn.textContent = "취소";
     cancelBtn.type = "button";
     cancelBtn.style.backgroundColor = "lightgray";
@@ -109,12 +98,12 @@ var updateTodo = function (todoId, originalTitle) {
     todoItem.innerHTML = "";
     todoItem.appendChild(formEl);
     // 확인 이벤트 발생 시 입력창에 입력한 내용으로 수정.
-    formEl.onsubmit = function (e) {
+    formEl.onsubmit = (e) => {
         e.preventDefault; //페이지 리로드 방지
-        var updatedTitle = inputEl.value;
+        const updatedTitle = inputEl.value;
         if (!updatedTitle)
             return;
-        var updatedTodo = {
+        const updatedTodo = {
             title: updatedTitle,
         };
         fetch(API_URL + "/" + todoId, {
@@ -124,27 +113,17 @@ var updateTodo = function (todoId, originalTitle) {
             },
             body: JSON.stringify(updatedTodo),
         })
-            .then(function (response) { return response.json(); })
-            .then(function () {
+            .then((response) => response.json())
+            .then(() => {
             return fetch(API_URL);
         })
-            .then(function (response) { return response.json(); })
-            .then(function (data) { return renderTodo(data); });
+            .then((response) => response.json())
+            .then((data) => renderTodo(data));
     };
     //취소 버튼 클릭시 원래 내용으로 복원
-    cancelBtn.onclick = function () {
-        // todoItem.textContent = originalTitle;
-        // const deleteEl = document.createElement("span");
-        // deleteEl.textContent = "🗑️";
-        // deleteEl.className = "deleteBtn";
-        // deleteEl.onclick = () => deleteTodo(todoId);
-        // const updateEl = document.createElement("span");
-        // updateEl.textContent = "✏️";
-        // updateEl.onclick = () => updateTodo(todoId, originalTitle);
-        // todoItem.appendChild(deleteEl);
-        // todoItem.appendChild(updateEl);
+    cancelBtn.onclick = () => {
         fetch(API_URL)
-            .then(function (response) { return response.json(); })
-            .then(function (data) { return renderTodo(data); });
+            .then((response) => response.json())
+            .then((data) => renderTodo(data));
     };
 };
