@@ -37,7 +37,7 @@ const fetchDelete = (todoId: number): Promise<Response> => {
   });
 };
 
-//path
+//patㅊh
 const fetchPatch = (todoId: number, newTitle: string): Promise<Response> => {
   return fetch(API_URL + "/" + todoId, {
     method: "PATCH",

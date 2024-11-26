@@ -33,7 +33,7 @@ const fetchDelete = (todoId) => {
         method: "DELETE",
     });
 };
-//path
+//patㅊh
 const fetchPatch = (todoId, newTitle) => {
     return fetch(API_URL + "/" + todoId, {
         method: "PATCH",
