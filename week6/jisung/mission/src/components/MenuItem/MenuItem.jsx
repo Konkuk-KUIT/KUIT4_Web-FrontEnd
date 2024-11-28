@@ -15,7 +15,7 @@ import {
 } from "./MenuItem.styles";
 import useCartStore from "../../pages/cartStore";
 
-const MenuItem = ({ store, menu }) => {
+const MenuItem = ({ store, menu, handleAddMenu }) => {
   const addMenu = useCartStore((state) => state.addMenu);
   const curCartMenus = useCartStore((state) => state.menus);
   const clearCartAndAddMenu = useCartStore((state) => state.clearCartAndAddMenu);
@@ -33,7 +33,7 @@ const MenuItem = ({ store, menu }) => {
         // => 장바구니에 메뉴 추가
         // curCartMenus배열이 형태가 { [menuId]: { ...menu, quantity }} 이런 구조이므로
         // Object.values로 접근해야 함
-        handleAddMenu(menu)
+        handleAddMenu(menu) // addMenu(menu)
     } else { // 아니면 알림 보여주기
         const userConfirmed = window.confirm(
             "같은 가게의 메뉴만 담을 수 있습니다. 주문할 가게를 변경하실 경우 이전에 담은 메뉴가 삭제됩니다."
@@ -44,10 +44,6 @@ const MenuItem = ({ store, menu }) => {
         } 
     }
   }
-
-  const handleAddMenu = () => {
-    addMenu(menu);
-  };
 
   return (
     <MenuItemContainer>
