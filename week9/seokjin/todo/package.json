@@ -2,6 +2,7 @@
   "name": "kuit-fe",
   "version": "1.0.0",
   "scripts": {
+    "dev": "vite",
     "build": "pnpm --recursive build && node .scripts/copy-files.js && node .scripts/index-page-builder.js",
     "deploy": "gh-pages -d build"
   },
