@@ -1,0 +1,36 @@
+.itemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 10px;  /* 세로 패딩 줄이고 가로 패딩 증가 */
+    background-color: #f8f8f8;
+    border-radius: 8px;  /* 라운드 처리 줄임 */
+    transition: transform 0.2s;
+    aspect-ratio: 1.5;  /* 가로가 더 길게 */
+  }
+  
+  .iconWrapper {
+    width: 40px;  /* 아이콘 크기 축소 */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .categoryIcon {
+    width: 32px;  /* 실제 이미지 크기 더 작게 */
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  .categoryIcon.small {
+    width: 24px;  /* 더보기 아이콘 더 작게 */
+    height: 24px;
+  }
+  
+  .categoryName {
+    font-size: 12px;  /* 글씨 크기 축소 */
+    color: #333;
+    text-align: center;
+  }

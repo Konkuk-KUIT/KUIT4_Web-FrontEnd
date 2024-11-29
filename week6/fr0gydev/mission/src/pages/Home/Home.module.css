@@ -1,0 +1,23 @@
+.container {
+  padding: 50px 20px 80px 20px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 17px;
+  color: #666;
+  margin-bottom: 70px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 0;
+}

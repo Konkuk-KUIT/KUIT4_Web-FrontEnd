@@ -1,0 +1,87 @@
+.storeInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.storeName {
+    color: #191F28;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 26px 0px 2px 24px;
+    width: 100%;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    width: 100%;
+}
+
+.score {
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 5px;
+    margin-right: 9px;
+}
+
+.review {
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.starIcon {
+    height: 18px;
+    width: 18px;
+}
+
+.storeDetail {
+    color: #4E5968;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    gap: 0px 12px;
+
+    width: 100%;
+    padding: 21px 0px 14px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-bottom: 1px solid #eee;
+}
+
+.storeDetailRow {
+    width: 100%;
+    gap: 12px;
+    display: flex;
+    flex-direction: row;
+}
+
+.category {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 26px 0px 11px 24px;
+
+    box-sizing: border-box;
+    height: 57px;
+    width: 100%;
+}
