@@ -1,0 +1,57 @@
+.menuRow {
+    box-sizing: border-box;
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 24px;
+    width: 100%;
+}
+
+.allMenu {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.menuImg {
+    width: 54px;
+    height: 54px;
+    background-color: #eaeaea;
+    border-radius: 50%;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menuName {
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.menuPrice {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menuIngredients {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
