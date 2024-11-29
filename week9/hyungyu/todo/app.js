@@ -1,126 +1,135 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-var todoListEl = document.getElementById("todoList");
-var todoInputEl = document.getElementById("todoInput");
-var API_URL = "http://localhost:8080/todos";
-fetch(API_URL)
-    .then(function (response) { return response.json(); })
-    .then(function (data) { return renderTodo(data); });
-var updateTodo = function (todoId, originalTitle) {
-    var todoItem = document.querySelector("#todo-".concat(todoId));
+const todoListEl = document.getElementById("todoList");
+const todoInputEl = document.getElementById("todoInput");
+const API_URL = "http://localhost:8080/todos";
+// fetch(API_URL)
+//   .then((response) => response.json() as Promise<Todo[]>)
+//   .then((data: Todo[]) => renderTodo(data));
+const fetchTodos = () => __awaiter(this, void 0, void 0, function* () {
+    const response = yield fetch(API_URL);
+    return yield response.json();
+});
+const updateTodo = (todoId, originalTitle) => __awaiter(this, void 0, void 0, function* () {
+    const todoItem = document.querySelector(`#todo-${todoId}`);
     if (!todoItem)
         return;
-    var inputEl = document.createElement("input");
+    const inputEl = document.createElement("input");
     inputEl.type = "text";
     inputEl.value = originalTitle;
-    var updateButton = document.createElement("button");
+    const updateButton = document.createElement("button");
     updateButton.textContent = "수정";
     inputEl.focus();
-    var updateButtonClicked = function () {
-        var updatedTitle = inputEl.value;
-        fetch(API_URL + "/" + todoId, {
+    const updateButtonClicked = () => __awaiter(this, void 0, void 0, function* () {
+        const updatedTitle = inputEl.value;
+        yield fetch(`${API_URL}/${todoId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ title: updatedTitle }),
-        })
-            .then(function (response) { return response.json(); })
-            .then(function () { return fetch(API_URL); })
-            .then(function (response) { return response.json(); })
-            .then(function (data) { return renderTodo(data); });
-        if (!todoInputEl)
-            return;
-        todoInputEl.focus();
-    };
-    inputEl.addEventListener('keydown', function (event) {
+        });
+        // .then((response) => response.json())
+        // .then(() => fetch(API_URL))
+        // .then((response) => response.json())
+        // .then((data) => renderTodo(data));
+        const todos = yield fetchTodos();
+        renderTodo(todos);
+        if (todoInputEl)
+            todoInputEl.focus();
+    });
+    inputEl.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             updateButtonClicked();
         }
     });
-    updateButton.onclick = function () {
-        updateButtonClicked();
-    };
+    updateButton.onclick = updateButtonClicked;
     todoItem.innerHTML = "";
     todoItem.append(inputEl);
     todoItem.append(updateButton);
-};
-var renderTodo = function (newTodos) {
+});
+const renderTodo = (newTodos) => {
     if (!todoListEl)
         return;
     todoListEl.innerHTML = "";
-    newTodos.forEach(function (todo) {
-        var listEl = document.createElement("li");
+    newTodos.forEach((todo) => {
+        const listEl = document.createElement("li");
         listEl.textContent = todo.title;
-        listEl.id = "todo-".concat(todo.id);
-        var deleteEl = document.createElement("span");
+        listEl.id = `todo-${todo.id}`;
+        const deleteEl = document.createElement("span");
         deleteEl.textContent = "🗑️";
-        deleteEl.onclick = function () { return deleteTodo(todo.id); };
-        var udpateEl = document.createElement("span");
+        deleteEl.onclick = () => deleteTodo(todo.id);
+        const udpateEl = document.createElement("span");
         udpateEl.textContent = "✏️";
-        udpateEl.onclick = function () { return updateTodo(todo.id, todo.title); };
+        udpateEl.onclick = () => updateTodo(todo.id, todo.title);
         listEl.append(deleteEl);
         listEl.append(udpateEl);
         todoListEl.append(listEl);
     });
-    if (!todoInputEl)
-        return;
-    todoInputEl.focus();
+    if (todoInputEl)
+        todoInputEl.focus();
 };
-var addTodo = function () {
+const addTodo = () => __awaiter(this, void 0, void 0, function* () {
     if (!todoInputEl)
         return;
-    var title = todoInputEl.value;
-    var date = new Date();
-    var createdAt = date.toDateString();
+    const title = todoInputEl.value;
+    const date = new Date();
+    const createdAt = date.toDateString();
     if (!title)
         return;
-    var newTodo = {
+    const newTodo = {
         id: date.getTime(),
-        title: title,
-        createdAt: createdAt,
+        title,
+        createdAt,
     };
-    fetch(API_URL, {
+    yield fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(__assign(__assign({}, newTodo), { completed: false })),
-    })
-        .then(function (response) { return response.json(); })
-        .then(function () {
-        if (todoInputEl) {
-            todoInputEl.value = "";
-        }
-        return fetch(API_URL);
-    })
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return renderTodo(data); });
-};
-var deleteTodo = function (todoId) {
-    fetch(API_URL + "/" + todoId, {
+        body: JSON.stringify(Object.assign(Object.assign({}, newTodo), { completed: false })),
+    });
+    // .then((response) => response.json())
+    // .then(() => {
+    //   if(todoInputEl){
+    //     (todoInputEl as HTMLInputElement).value = "";
+    //   }
+    //   return fetch(API_URL);
+    // })
+    // .then((response) => response.json())
+    // .then((data: Todo[]) => renderTodo(data));
+    if (todoInputEl)
+        todoInputEl.value = "";
+    const todos = yield fetchTodos();
+    renderTodo(todos);
+});
+const deleteTodo = (todoId) => __awaiter(this, void 0, void 0, function* () {
+    fetch(`${API_URL}/${todoId}`, {
         method: "DELETE",
-    })
-        .then(function () { return fetch(API_URL); })
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return renderTodo(data); });
-};
+    });
+    // .then(() => fetch(API_URL))
+    // .then((response) => response.json())
+    // .then((data) => renderTodo(data));
+    const todos = yield fetchTodos();
+    renderTodo(todos);
+});
 if (todoInputEl) {
-    todoInputEl.addEventListener('keydown', function (event) {
+    todoInputEl.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             addTodo();
         }
-        if (!todoInputEl)
-            return;
-        todoInputEl.focus();
+        if (todoInputEl)
+            todoInputEl.focus();
     });
 }
+(() => __awaiter(this, void 0, void 0, function* () {
+    const todos = yield fetchTodos();
+    renderTodo(todos);
+}))();

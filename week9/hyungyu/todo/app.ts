@@ -10,11 +10,15 @@ interface Todo {
   completed: boolean;
 }
 
-fetch(API_URL)
-  .then((response) => response.json() as Promise<Todo[]>)
-  .then((data: Todo[]) => renderTodo(data));
+// fetch(API_URL)
+//   .then((response) => response.json() as Promise<Todo[]>)
+//   .then((data: Todo[]) => renderTodo(data));
+const fetchTodos = async (): Promise<Todo[]> => {
+  const response = await fetch(API_URL);
+  return await response.json();
+};
 
-const updateTodo = (todoId: number, originalTitle: string): void => {
+const updateTodo = async (todoId: number, originalTitle: string): Promise<void> => {
   const todoItem = document.querySelector(`#todo-${todoId}`) as HTMLElement | null;
   if(!todoItem) return;
   
@@ -24,25 +28,25 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
   
   const updateButton = document.createElement("button");
   updateButton.textContent = "수정";
-
-  inputEl.focus();
   
-  const updateButtonClicked = () => {
+  const updateButtonClicked = async () => {
     const updatedTitle = inputEl.value;
 
-    fetch(API_URL + "/" + todoId, {
+    await fetch(`${API_URL}/${todoId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ title: updatedTitle }),
-    })
-      .then((response) => response.json())
-      .then(() => fetch(API_URL))
-      .then((response) => response.json())
-      .then((data) => renderTodo(data));
-    if(!todoInputEl) return;
-    todoInputEl.focus();
+    });
+      // .then((response) => response.json())
+      // .then(() => fetch(API_URL))
+      // .then((response) => response.json())
+      // .then((data) => renderTodo(data));
+    
+    const todos = await fetchTodos();
+    renderTodo(todos);
+    if(todoInputEl) todoInputEl.focus();
   };
 
   inputEl.addEventListener('keydown', (event) => {
@@ -51,9 +55,7 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
     }
   });
 
-  updateButton.onclick = () => {
-    updateButtonClicked();
-  };
+  updateButton.onclick = updateButtonClicked;
 
   todoItem.innerHTML = "";
   todoItem.append(inputEl);
@@ -82,11 +84,10 @@ const renderTodo = (newTodos: Todo[]): void => {
     listEl.append(udpateEl);
     todoListEl.append(listEl);
   });
-  if(!todoInputEl) return;
-  todoInputEl.focus();
+  if(todoInputEl) todoInputEl.focus();
 };
 
-const addTodo = ():void => {
+const addTodo = async (): Promise<void> => {
   if(!todoInputEl) return;
   const title = (todoInputEl as HTMLInputElement).value;
   const date = new Date();
@@ -100,31 +101,39 @@ const addTodo = ():void => {
     createdAt,
   };
 
-  fetch(API_URL, {
+  await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ ...newTodo, completed: false }),
-  })
-    .then((response) => response.json())
-    .then(() => {
-      if(todoInputEl){
-        (todoInputEl as HTMLInputElement).value = "";
-      }
-      return fetch(API_URL);
-    })
-    .then((response) => response.json())
-    .then((data: Todo[]) => renderTodo(data));
+  });
+    // .then((response) => response.json())
+    // .then(() => {
+    //   if(todoInputEl){
+    //     (todoInputEl as HTMLInputElement).value = "";
+    //   }
+    //   return fetch(API_URL);
+    // })
+    // .then((response) => response.json())
+    // .then((data: Todo[]) => renderTodo(data));
+
+    if(todoInputEl) todoInputEl.value = "";
+    const todos = await fetchTodos();
+    renderTodo(todos);
 };
 
-const deleteTodo = (todoId: number): void => {
-  fetch(API_URL + "/" + todoId, {
+const deleteTodo = async (todoId: number): Promise<void> => {
+  console.log(`Attempting to delete todo with id: ${todoId}`);
+  await fetch(API_URL + '/' + todoId, {
     method: "DELETE",
-  })
-    .then(() => fetch(API_URL))
-    .then((response) => response.json())
-    .then((data) => renderTodo(data));
+  });
+    // .then(() => fetch(API_URL))
+    // .then((response) => response.json())
+    // .then((data) => renderTodo(data));
+
+  const todos = await fetchTodos();
+  renderTodo(todos);
 };
 
 if(todoInputEl){
@@ -132,7 +141,11 @@ if(todoInputEl){
     if (event.key === 'Enter') {
       addTodo();
     }
-    if(!todoInputEl) return;
-    todoInputEl.focus();
+    if(todoInputEl) todoInputEl.focus();
   });
 }
+
+(async () => {
+  const todos = await fetchTodos();
+  renderTodo(todos);
+})();
