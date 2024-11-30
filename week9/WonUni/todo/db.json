@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": "1727948636190",
+      "title": "KUIT 실습",
+      "createdAt": "Thu Oct 03 2024",
+      "completed": false
+    },
+    {
+      "id": "1727948650828",
+      "title": "KUIT 워크북",
+      "createdAt": "Thu Oct 03 2024",
+      "completed": false
+    },
+    {
+      "id": "1727948662655",
+      "title": "KUIT 스터디",
+      "createdAt": "Thu Oct 03 2024",
+      "completed": false
+    },
+    {
+      "id": 1732868153580,
+      "title": "ㅁㄴㅇ",
+      "createdAt": "Fri Nov 29 2024",
+      "completed": false
+    }
+  ]
+}
