@@ -1,26 +1,33 @@
 import {create} from "zustand";
-import stores from "../models/stores";
+import {getCart, updateCart} from "../apis/cart"
 
 const initialState = {
     store: undefined,
     menus: [],
-    storeList: stores,
+    // storeList: stores,
 }
 
-const useCartStore = create(set => ({
+const useCartStore = create((set, get)=> ({
     store: initialState.store,
     menus: initialState.menus,
-    storeList: initialState.storeList,
+    // storeList: initialState.storeList,
 
-    addMenu: (menu) => {
-        set((state) => ({...state, menus: [...state.menus, menu]}))
+    addMenu: (menu, store) => {
+        set((state) => ({...state, store, menus: [...state.menus, menu]}))
+        updateCart(store, get().menus);
+
     },
-    setStore: (store) => {
-        set((state) => ({...state, store: store}))
+
+    fetchCart: async () => {
+        const data = await getCart();
+        set(data)
     },
+    
     resetCart: ()=>{
         set((state)=>({...state,menus:[]}))
     },
+    // deleteMenu
+    // clearMenu 구현..
 }));
 
 export default useCartStore;

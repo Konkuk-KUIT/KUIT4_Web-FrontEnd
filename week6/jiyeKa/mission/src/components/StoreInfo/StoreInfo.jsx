@@ -1,12 +1,26 @@
 import {useParams} from "react-router-dom";
-import stores from "../../models/stores";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import star from "../../assets/star.svg";
 import {NoStoreWrapper, StoreInfoWrapper, InfoWrapper, MenuWrapper} from "./StoreInfo.styles";
+import { useState, useEffect } from "react";
+import { getStore } from "../../apis/stores";
+import useCartStore from "../../store/cartStore";
 
 const StoreInfo = () => {
   const {storeId} = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
+  // const store = stores.stores.find((store) => store.id.toString() === storeId);
+  const [store, setStore] = useState();
+  const addMenu = useCartStore((state) => state.addMenu);
+
+  useEffect(() => {
+    getStore(storeId).then(value => setStore(value)); //api 사용해서 id를 통한 store 찾기
+  }, [storeId]) 
+
+  const handleAddMenu = (menu) => {
+    //
+    addMenu(menu, store)
+  }
+
 
   if (!store) {
     return (
@@ -42,7 +56,7 @@ const StoreInfo = () => {
         <div className="storeMenu">
           {store.menus.map((menu) => {
             return (
-              <MenuItem key={menu.id} menu={menu} />
+              <MenuItem key={menu.id} menu={menu} handleAddMenu={() => handleAddMenu(menu)}/>
             );
           })}
         </div>

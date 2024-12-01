@@ -20,7 +20,7 @@ const MainMenuCategory = () => {
 
   const navigate = useNavigate();
   const onClickhandle = () => {
-    navigate("/store");
+    navigate("/stores");
   }
 
   return (
