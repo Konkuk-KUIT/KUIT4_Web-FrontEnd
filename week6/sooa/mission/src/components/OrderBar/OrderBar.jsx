@@ -11,6 +11,9 @@ const OrderBar = () => {
   const store = useCartStore((state) => state.store);
   const handleOrder = () => {};
 
+  console.log("Menus:", menus);
+  console.log("Store:", store);
+
   return (
     <Wrapper>
       <TopWrapper>

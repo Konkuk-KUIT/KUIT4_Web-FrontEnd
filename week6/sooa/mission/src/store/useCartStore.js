@@ -19,8 +19,13 @@ const useCartStore = create((set, get) => ({
     set((state) => ({ ...state, store: undefined }));
   },
   fetchCart: async () => {
-    const data = await getCart();
-    set(data);
+    try {
+      const data = await getCart();
+      set(data);
+      console.log("getCart response data:", data);
+    } catch (error) {
+      console.error("Failed to fetch cart data:", error);
+    }
   },
 }));
 
