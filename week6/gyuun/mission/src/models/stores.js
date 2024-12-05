@@ -10,6 +10,7 @@ const stores = [
     deliveryFee: 2000,
     menus: [
       {
+        storeId:1,
         id: 1,
         name: "토마토 샐러드",
         isBest: true,
@@ -17,6 +18,7 @@ const stores = [
         ingredients: "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱",
       },
       {
+        storeId:1,
         id: 2,
         name: "시저 샐러드",
         isBest: false,
@@ -24,6 +26,7 @@ const stores = [
         ingredients: "로메인 상추와 크루통이며, 달걀, 올리브유, 레몬 즙, 마늘",
       },
       {
+        storeId:1,
         id: 3,
         name: "리코타치즈 샐러드",
         isBest: false,
@@ -31,6 +34,7 @@ const stores = [
         ingredients: "리코타치즈, 양상추, 베이비채소, 방울토마톹, 블랙올리브",
       },
       {
+        storeId:1,
         id: 4,
         name: "탄단지 샐러드",
         isBest: false,
@@ -50,6 +54,7 @@ const stores = [
     deliveryFee: 2500,
     menus: [
       {
+        storeId:2,
         id: 1,
         name: "아보카도 그린 샐러드",
         isBest: true,
@@ -57,6 +62,7 @@ const stores = [
         ingredients: "아보카도, 케일, 시금치, 퀴노아, 레몬 드레싱",
       },
       {
+        storeId:2,
         id: 2,
         name: "베리 믹스 샐러드",
         isBest: false,
@@ -76,6 +82,7 @@ const stores = [
     deliveryFee: 1500,
     menus: [
       {
+        storeId:3,
         id: 1,
         name: "쿼리노아 비트 샐러드",
         isBest: true,
@@ -83,6 +90,7 @@ const stores = [
         ingredients: "비트, 쿼리노아, 아몬드, 양배추, 사과 사이더 드레싱",
       },
       {
+        storeId:3,
         id: 2,
         name: "펌프킨 넛 샐러드",
         isBest: false,
